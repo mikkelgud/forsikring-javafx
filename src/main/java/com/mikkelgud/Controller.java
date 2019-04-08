@@ -61,6 +61,7 @@ public class Controller {
             if(Fakturaadresse.getText() != null && !Fakturaadresse.getText().isEmpty()){
                 billingAdress = Fakturaadresse.getText();
             } else {
+
                 billingAdress = "";
             }
 
