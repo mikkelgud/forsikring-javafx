@@ -3,13 +3,13 @@ package com.mikkelgud;
 import com.mikkelgud.person.InvalidPersonPropertiesException;
 import com.mikkelgud.person.Person;
 import com.mikkelgud.person.PersonValidator;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
@@ -17,7 +17,6 @@ import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 import java.io.IOException;
-import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -40,29 +39,54 @@ public class Controller {
     public AnchorPane kundeNavn;
 
     @FXML
-    public TextField fornavn;
-    public TextField etternavn;
-    public TextField fakturaadresse;
+    public TextField firstName;
+    public TextField lastName;
+    public TextField billingAddress;
     public Label errorLabel;
 
     @FXML
     public Button registrer;
-    private String firstName;
-    private String lastName;
-    private String billingAdress;
 
-    private List<Person> personList;
-    private Person newPerson;
+    @FXML
+    public ListView<Person> personListView;
+    public static ObservableList<Person> personList = FXCollections.observableArrayList();
+
 
     private final PersonValidator validator = new PersonValidator();
 
+
+    public void init() {
+        personListView.setCellFactory(lv -> new ListCell<>() {
+            @Override
+            public void updateItem(Person person, boolean empty) {
+                super.updateItem(person, empty);
+                if (empty) {
+                    setText(null);
+                } else {
+                    setText(person.getFirstName() + " " + person.getLastName());
+                }
+            }
+        });
+
+    }
+
     @FXML
     private void handleRegistrerButtonAction(ActionEvent event){
+        errorLabel.setText("");
         try {
-            Person person = validator.createNew(firstName, lastName, billingAdress);
+            Person newPerson = validator.createNew(firstName.getText(), lastName.getText(), billingAddress.getText());
+            personList.add(newPerson);
+            personListView.setItems(personList);
+            resetFieldValues();
         } catch (InvalidPersonPropertiesException ex) {
             errorLabel.setText(ex.getMessage());
         }
+    }
+
+    private void resetFieldValues() {
+        firstName.setText("");
+        lastName.setText("");
+        billingAddress.setText("");
     }
 
     @FXML
