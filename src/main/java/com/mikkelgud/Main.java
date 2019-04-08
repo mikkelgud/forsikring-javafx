@@ -1,5 +1,6 @@
 package com.mikkelgud;
 
+import com.mikkelgud.person.PersonListModel;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -17,7 +18,9 @@ public class Main extends Application {
         FXMLLoader loader = new FXMLLoader(resource);
         Parent root = loader.load();
         Controller controller = loader.getController();
-        controller.init();
+
+        PersonListModel personListModel = new PersonListModel();
+        controller.init(personListModel);
 
         Scene scene = new Scene(root);
         stage.setScene(scene);

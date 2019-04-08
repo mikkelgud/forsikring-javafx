@@ -54,10 +54,14 @@
                 <TextField id="lastName" fx:id="lastName" layoutX="72.0" layoutY="80.0" promptText="Etternavn"/>
                 <TextField id="billingAddress" fx:id="billingAddress" layoutX="72.0" layoutY="133.0"
                            promptText="Fakturaadresse"/>
-                <CheckBox layoutX="277.0" layoutY="33.0" mnemonicParsing="false" text="Hus og innboforsikring" />
-                <CheckBox layoutX="276.0" layoutY="85.0" mnemonicParsing="false" text="Reiseforsikring" />
-                <CheckBox layoutX="276.0" layoutY="138.0" mnemonicParsing="false" text="Fritidsboligforsikring" />
-                <CheckBox layoutX="276.0" layoutY="186.0" mnemonicParsing="false" text="Båtforsikring" />
+                <CheckBox fx:id="insuranceHouse" layoutX="277.0" layoutY="33.0" mnemonicParsing="false"
+                          text="Hus og innboforsikring"/>
+                <CheckBox fx:id="insuranceTravel" layoutX="276.0" layoutY="85.0" mnemonicParsing="false"
+                          text="Reiseforsikring"/>
+                <CheckBox fx:id="insuranceCabin" layoutX="276.0" layoutY="138.0" mnemonicParsing="false"
+                          text="Fritidsboligforsikring"/>
+                <CheckBox fx:id="insuranceBoat" layoutX="276.0" layoutY="186.0" mnemonicParsing="false"
+                          text="Båtforsikring"/>
                 <Button id="registrer" layoutX="72.0" layoutY="190.0" mnemonicParsing="false"
                         prefHeight="27.0" prefWidth="167.0" text="Registrer"
                         onAction="#handleRegistrerButtonAction"/>
