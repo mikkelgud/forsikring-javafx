@@ -6,12 +6,21 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
+import java.net.URL;
+
 
 public class Main extends Application {
 
     @Override
     public void start(Stage stage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("../../resources main.fxml"));
+        URL resource = getClass().getClassLoader().getResource("main.fxml");
+
+        if (resource == null) {
+            System.err.println("Could not find main.fxml resource!");
+            System.exit(0);
+        }
+
+        Parent root = FXMLLoader.load(resource);
         Scene scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
