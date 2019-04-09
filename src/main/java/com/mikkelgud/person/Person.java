@@ -93,6 +93,6 @@ public class Person {
 
     @Override
     public String toString() {
-        return String.format("Navn: %s %s, Adresse: %s", getFirstName(), getLastName(), getBillingAddress());
+        return String.format("%s %s",  getFirstName(), getLastName());
     }
 }

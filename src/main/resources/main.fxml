@@ -1,32 +1,37 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.SeparatorMenuItem?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.paint.Color?>
 <?import javafx.scene.text.Font?>
-<VBox prefHeight="600.0" prefWidth="900.0"
-      xmlns="http://javafx.com/javafx/10.0.1"
-      xmlns:fx="http://javafx.com/fxml/1"
-      fx:controller="com.mikkelgud.Controller">
+
+<VBox prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mikkelgud.Controller">
 
     <children>
         <MenuBar VBox.vgrow="NEVER">
             <menus>
                 <Menu mnemonicParsing="false" text="File">
                     <items>
-                        <MenuItem mnemonicParsing="false" text="New" />
-                        <MenuItem mnemonicParsing="false" text="Open…" />
-                        <Menu mnemonicParsing="false" text="Open Recent" />
-                        <SeparatorMenuItem mnemonicParsing="false" />
-                        <MenuItem mnemonicParsing="false" text="Close" />
+                        <MenuItem mnemonicParsing="false" text="New housing insurance" onAction="#newInsurance" />
+                        <MenuItem mnemonicParsing="false" text="New boat insurance" />
+                        <MenuItem mnemonicParsing="false" text="Ny fritidsboligforsikring" />
+                        <MenuItem mnemonicParsing="false" text="New travel insurance" />
+                        <SeparatorMenuItem mnemonicParsing="false" text="Meld ny skade"/>
                         <MenuItem mnemonicParsing="false" text="Save" />
                         <MenuItem mnemonicParsing="false" text="Save As…" />
-                        <MenuItem mnemonicParsing="false" text="Revert" />
-                        <SeparatorMenuItem mnemonicParsing="false" />
-                        <MenuItem mnemonicParsing="false" text="Preferences…" />
-                        <SeparatorMenuItem mnemonicParsing="false" />
-                        <MenuItem mnemonicParsing="false" text="Quit" />
                     </items>
                 </Menu>
                 <Menu mnemonicParsing="false" text="Edit">
@@ -50,7 +55,7 @@
                 </Menu>
             </menus>
         </MenuBar>
-        <SplitPane dividerPositions="0.2505567928730512, 0.7505567928730512" focusTraversable="true" prefHeight="-1.0" prefWidth="-1.0" VBox.vgrow="ALWAYS">
+        <SplitPane dividerPositions="0.3151447661469933, 0.7505567928730512" focusTraversable="true" prefHeight="-1.0" prefWidth="-1.0" VBox.vgrow="ALWAYS">
             <items>
                 <AnchorPane>
                     <children>
@@ -65,18 +70,8 @@
                         <TextField layoutX="11.0" layoutY="37.0" promptText="Søk på kundenavn" />
 
 
-                        <Button  layoutX="11.0" layoutY="509.0" mnemonicParsing="false"  prefHeight="27.0" prefWidth="135.0"
-                                 text="Registrer ny kunde"
-                                 onAction="#onClickOpener"
-                        />
-
-                        <ScrollPane accessibleRole="TEXT_AREA" layoutX="9.0" layoutY="75.0" prefHeight="427.0" prefWidth="200.0">
-                            <content>
-                                <ListView fx:id="personListView" layoutX="14.0" layoutY="73.0" prefHeight="467.0"
-                                          prefWidth="200.0"
-                                />
-                            </content>
-                        </ScrollPane>
+                        <Button layoutX="11.0" layoutY="509.0" mnemonicParsing="false" onAction="#onClickOpener" prefHeight="27.0" prefWidth="135.0" text="Registrer ny kunde" />
+                  <ListView fx:id="personListView" layoutX="11.0" layoutY="72.0" prefHeight="425.0" prefWidth="254.0" />
                     </children>
                 </AnchorPane>
                 <ScrollPane prefHeight="-1.0" prefWidth="-1.0">

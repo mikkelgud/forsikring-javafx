@@ -148,5 +148,28 @@ public class Controller {
             Logger.getLogger(Controller.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+    
+    @FXML
+    private void newInsurance(){
+        URL resource = getClass().getClassLoader().getResource("housingInsuranceGUI.fxml");
+        FXMLLoader loader = new FXMLLoader(resource);
+        
+        try{
+            Parent root = loader.load();
+            loader.setController(this);
+            
+            Scene scene = new Scene(root);
+            
+            Stage stage = new Stage();
+            stage.initModality(Modality.APPLICATION_MODAL);
+            stage.setTitle("Report Page");
+            stage.setScene(scene);
+            stage.setResizable(false);
+            stage.show();
+        } catch (IOException ex) {
+            Logger.getLogger(Controller.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+    }
 
 }
