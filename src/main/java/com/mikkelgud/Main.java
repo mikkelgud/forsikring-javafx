@@ -23,8 +23,11 @@ public class Main extends Application {
         controller.init(personListModel);
 
         Scene scene = new Scene(root);
+
         stage.setScene(scene);
         stage.show();
+
+
     }
 
     public static void main(String[] args) {
