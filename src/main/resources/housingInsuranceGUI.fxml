@@ -21,7 +21,7 @@
       </Label>
       <TextField layoutX="144.0" layoutY="67.0" prefHeight="27.0" prefWidth="150.0" promptText="Housing address" />
       <TextField layoutX="144.0" layoutY="126.0" prefHeight="27.0" prefWidth="150.0" promptText="Year built. Eg. 1984" />
-      <ComboBox layoutX="143.0" layoutY="185.0" prefWidth="150.0" promptText="Type of hous">
+      <ComboBox layoutX="143.0" layoutY="185.0" prefWidth="150.0" promptText="Type of house">
         <items>
           <FXCollections fx:factory="observableArrayList">
               <String fx:value="Appartment" />
@@ -31,7 +31,7 @@
           </FXCollections>
         </items>          
       </ComboBox>
-      <ComboBox layoutX="144.0" layoutY="240.0" prefWidth="150.0" promptText="Building material" >
+      <ComboBox layoutX="144.0" layoutY="240.0" prefWidth="150.0" promptText="Building material">
         <items>
           <FXCollections fx:factory="observableArrayList">
               <String fx:value="Concrete" />
