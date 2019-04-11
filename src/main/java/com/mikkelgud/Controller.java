@@ -24,36 +24,25 @@ import java.util.logging.Logger;
 
 public class Controller {
 
-    @FXML
-    private Color x2;
+    @FXML private Color x2;
 
-    @FXML
-    private Font x1;
+    @FXML private Font x1;
 
-    @FXML
-    private Color x4;
+    @FXML private Color x4;
 
-    @FXML
-    private Font x3;
+    @FXML private Font x3;
 
-    @FXML
-    public AnchorPane kundeNavn;
-
-    @FXML
-    public TextField firstName;
-    public TextField lastName;
-    public TextField billingAddress;
-    public Label errorLabel;
-    public CheckBox insuranceHouse;
-    public CheckBox insuranceTravel;
-    public CheckBox insuranceBoat;
-    public CheckBox insuranceCabin;
-
-    @FXML
-    public Button registrer;
-
-    @FXML
-    public ListView<Person> personListView;
+    @FXML public AnchorPane kundeNavn;
+    @FXML public TextField firstName;
+    @FXML public TextField lastName;
+    @FXML public TextField billingAddress;
+    @FXML public Label errorLabel;
+    @FXML public CheckBox insuranceHouse;
+    @FXML public CheckBox insuranceTravel;
+    @FXML public CheckBox insuranceBoat;
+    @FXML public CheckBox insuranceCabin;
+    @FXML public Button registrer;
+    @FXML public ListView<Person> personListView;
 
 
     private final PersonValidator validator = new PersonValidator();

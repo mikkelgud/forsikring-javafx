@@ -12,7 +12,7 @@ import java.util.Date;
  *
  * @author alexanderbjorlo
  */
-public class GeneralInsurance extends Person {
+public abstract class GeneralInsurance extends Person {
     public float insurancePremium;
     public Date date;
     public float insuranceSalary;
