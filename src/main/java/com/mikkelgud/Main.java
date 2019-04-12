@@ -22,6 +22,7 @@ public class Main extends Application {
         PersonListModel personListModel = new PersonListModel();
         controller.init(personListModel);
 
+
         Scene scene = new Scene(root);
 
         stage.setScene(scene);
