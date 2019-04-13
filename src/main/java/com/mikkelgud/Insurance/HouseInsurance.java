@@ -3,32 +3,39 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.mikkelgud.person;
+package com.mikkelgud.Insurance;
 
 import java.util.ArrayList;
 import java.util.Date;
 
-/**
- *
- * @author alexanderbjorlo
- */
+
 public class HouseInsurance extends GeneralInsurance {
     public String housingAddress;
-    public int builtYear;
     public String housingType;
     public String buildingMaterial;
     public String housingState;
+    public int builtYear;
     public int squareMeter;
     public float insurancePriceBuilding;
     public float insurancePriceHouseholdGoods;
-    public HouseInsurance(String firstName, String lastName, String billingAddress, 
-            float insurancePremium, Date date, float insuranceSalary, 
-            ArrayList insuranceInfo, String housingAddress, int builtYear,
-            String housingType, String buildingMaterial, String housingState,
-            int squareMeter, float insurancePriceBuilding, 
-            float insurancePriceHouseholdGoods) {
-        super(firstName, lastName, billingAddress, insurancePremium, 
-                date, insuranceSalary, insuranceInfo);
+
+    public HouseInsurance(
+            String firstName,
+            String lastName,
+            String billingAddress,
+            String housingAddress,
+            String housingType,
+            String buildingMaterial,
+            String housingState,
+            int squareMeter,
+            int builtYear,
+            float insurancePremium,
+            float insurancePriceBuilding,
+            float insuranceSalary,
+            float insurancePriceHouseholdGoods,
+            Date date,
+            ArrayList insuranceInfo) {
+        super(firstName, lastName, billingAddress, insurancePremium, date, insuranceSalary, insuranceInfo);
         this.housingAddress = housingAddress;
         this.builtYear = builtYear;
         this.housingType = housingType;
@@ -37,7 +44,6 @@ public class HouseInsurance extends GeneralInsurance {
         this.squareMeter = squareMeter;
         this.insurancePriceBuilding = insurancePriceBuilding;
         this.insurancePriceHouseholdGoods = insurancePriceHouseholdGoods;
-        
     }
     
 }
