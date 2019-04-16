@@ -3,10 +3,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
-<VBox prefHeight="400.0"
-      prefWidth="640.0"
-      xmlns="http://javafx.com/javafx/10.0.1"
-      xmlns:fx="http://javafx.com/fxml/1"
+<VBox prefHeight="354.0" prefWidth="589.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1"
       fx:controller="com.mikkelgud.Controller">
     <children>
         <MenuBar VBox.vgrow="NEVER">
@@ -63,10 +60,12 @@
                 <CheckBox fx:id="insuranceBoat" layoutX="276.0" layoutY="186.0" mnemonicParsing="false"
                           text="Båtforsikring"/>
                 <Button id="registrer" layoutX="72.0" layoutY="190.0" mnemonicParsing="false"
-                        prefHeight="27.0" prefWidth="167.0" text="Registrer"
-                        onAction="#handleRegistrerButtonAction"/>
-                <Label fx:id="errorLabel" textFill="red" layoutX="71.0" layoutY="243.0" prefHeight="17.0"
-                       prefWidth="400.0"/>
+                        onAction="#handleRegistrerButtonAction" prefHeight="27.0" prefWidth="167.0" text="Registrer"/>
+                <Label fx:id="errorLabel" layoutX="71.0" layoutY="243.0" prefHeight="17.0" prefWidth="400.0"
+                       textFill="red"/>
+                <Button layoutX="471.0" layoutY="260.0" mnemonicParsing="false" prefHeight="29.0" prefWidth="64.0"
+                        text="Lukk"
+                        onAction="#closeButtonHandeler" fx:id="closeRegistrationPageButton"/>
             </children>
         </AnchorPane>
     </children>

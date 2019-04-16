@@ -44,6 +44,8 @@ public class Controller implements Initializable {
     @FXML public CheckBox insuranceBoat;
     @FXML public CheckBox insuranceCabin;
     @FXML public Button registrer;
+    @FXML
+    public Button closeRegistrationPageButton;
     @FXML public ListView<Person> personListView;
 
 
@@ -160,6 +162,12 @@ public class Controller implements Initializable {
             Logger.getLogger(Controller.class.getName()).log(Level.SEVERE, null, ex);
         }
         
+    }
+
+    @FXML
+    public void closeButtonHandeler(ActionEvent event) {
+        Stage stage = (Stage) closeRegistrationPageButton.getScene().getWindow();
+        stage.close();
     }
 
     @Override
