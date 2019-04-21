@@ -1,9 +1,5 @@
-package com.mikkelgud;
+package com.mikkelgud.person;
 
-import com.mikkelgud.person.InvalidPersonPropertiesException;
-import com.mikkelgud.person.Person;
-import com.mikkelgud.person.PersonListModel;
-import com.mikkelgud.person.PersonValidator;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -23,7 +19,6 @@ public class RegistreringController {
     public CheckBox insuranceBoat;
     @FXML
     public CheckBox insuranceCabin;
-
     @FXML
     public Button registrer;
     @FXML

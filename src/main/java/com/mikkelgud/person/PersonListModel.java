@@ -7,11 +7,26 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
 public class PersonListModel {
-    private final ObservableList<Person> personList = FXCollections.observableArrayList(person ->
-            new Observable[]{person.firstNameProperty(), person.lastNameProperty(), person.billingAddressProperty(),
-                    person.insuranceBoatProperty(), person.insuranceCabinProperty(), person.insuranceHouseProperty(),
+    private final ObservableList<Person> personList =
+            FXCollections.observableArrayList(person -> new Observable[]{
+                    person.firstNameProperty(),
+                    person.lastNameProperty(),
+                    person.billingAddressProperty(),
+                    person.insuranceBoatProperty(),
+                    person.insuranceCabinProperty(),
+                    person.insuranceHouseProperty(),
                     person.insuranceTravelProperty()
             });
+
+    private ObservableList<Person> filteredPersonList = FXCollections.observableArrayList(person -> new Observable[]{
+            person.firstNameProperty(),
+            person.lastNameProperty(),
+            person.billingAddressProperty(),
+            person.insuranceBoatProperty(),
+            person.insuranceCabinProperty(),
+            person.insuranceHouseProperty(),
+            person.insuranceTravelProperty()
+    });
 
     private final ObservableList<Observable> currentPersonListAttributes = FXCollections.observableArrayList(item -> new Observable[]{item});
 
@@ -37,5 +52,14 @@ public class PersonListModel {
 
     public ObservableList<Observable> getCurrentPersonListAttributes() {
         return currentPersonListAttributes;
+    }
+
+
+    public ObservableList<Person> getFilteredPersonList() {
+        return filteredPersonList;
+    }
+
+    public void setFilteredPersonList(ObservableList<Person> filteredPersonList) {
+        this.filteredPersonList = filteredPersonList;
     }
 }
