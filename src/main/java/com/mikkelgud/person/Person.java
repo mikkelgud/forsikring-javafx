@@ -1,9 +1,12 @@
 package com.mikkelgud.person;
 
+import javafx.beans.Observable;
 import javafx.beans.property.BooleanProperty;
 import javafx.beans.property.SimpleBooleanProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
+
+import java.time.LocalDateTime;
 
 public class Person {
 
@@ -15,11 +18,13 @@ public class Person {
     private final BooleanProperty insuranceTravel = new SimpleBooleanProperty();
     private final BooleanProperty insuranceCabin = new SimpleBooleanProperty();
     private final BooleanProperty insuranceBoat = new SimpleBooleanProperty();
+    private final LocalDateTime createdAt;
 
     public Person(String firstName, String lastName, String billingAddress) {
         this.firstName.set(firstName);
         this.lastName.set(lastName);
         this.billingAddress.set(billingAddress);
+        this.createdAt = LocalDateTime.now();
     }
 
     public String getFirstName() {
@@ -94,5 +99,18 @@ public class Person {
     @Override
     public String toString() {
         return String.format("%s %s",  getFirstName(), getLastName());
+    }
+
+    public LocalDateTime getCreatedAt() {
+        return createdAt;
+    }
+
+    public Observable[] getPropertiesAsList() {
+        return new Observable[]{
+                new SimpleStringProperty(String.format("Fornavn - %s", getFirstName())),
+                new SimpleStringProperty(String.format("Etternavn - %s", getLastName())),
+                new SimpleStringProperty(String.format("Fakturaadresse - %s", getBillingAddress())),
+                new SimpleStringProperty(String.format("Opprettet -  %s", getCreatedAt().toString())),
+        };
     }
 }

@@ -12,17 +12,15 @@ import java.net.URL;
 
 public class Main extends Application {
 
+    PersonListModel personListModel = new PersonListModel();
+
     @Override
     public void start(Stage stage) throws Exception {
         URL resource = getClass().getClassLoader().getResource("main.fxml");
         FXMLLoader loader = new FXMLLoader(resource);
         Parent root = loader.load();
         Controller controller = loader.getController();
-
-        PersonListModel personListModel = new PersonListModel();
         controller.init(personListModel);
-
-
         Scene scene = new Scene(root);
 
         stage.setScene(scene);
