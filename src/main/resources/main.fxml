@@ -20,7 +20,8 @@
                                   onAction="#newCabinInsurance"/>
                         <MenuItem mnemonicParsing="false" text="New travel insurance" onAction="#newTravelInsurance"/>
                         <SeparatorMenuItem mnemonicParsing="false" text="Meld ny skade"/>
-                        <MenuItem mnemonicParsing="false" text="Save" />
+                        <MenuItem mnemonicParsing="false" text="Open file" onAction="#openFile" />
+                        <MenuItem mnemonicParsing="false" text="Save" onAction="#saveFile" />
                         <MenuItem mnemonicParsing="false" text="Save As…" />
                     </items>
                 </Menu>

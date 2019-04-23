@@ -1,8 +1,10 @@
 package com.mikkelgud;
 
+import SaveToFile.SaveStrategy;
 import com.mikkelgud.person.Person;
 import com.mikkelgud.person.PersonListModel;
 import com.mikkelgud.person.RegistreringController;
+import java.io.File;
 import javafx.beans.property.StringProperty;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -20,6 +22,8 @@ import java.net.URL;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import readFromFile.ReadFromFile;
+import readFromFile.ReadStrategy;
 
 
 public class Controller implements Initializable {
@@ -230,8 +234,17 @@ public class Controller implements Initializable {
     public String getCustomerSearchInput() {
         return customerSearchInput.getText();
     }
+    
+    public void saveFile() {
+        
+    }
+    
+    public void openFile() {
+        ReadStrategy readStrat = new ReadStrategy();
+    }
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
     }
+
 }
