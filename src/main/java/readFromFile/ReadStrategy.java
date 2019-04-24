@@ -16,26 +16,28 @@ import javafx.stage.Stage;
  */
 public class ReadStrategy implements ReadFromFile {
     public Stage stage;
-    FileChooser fc = new FileChooser();
-    String fileName = fc.getInitialFileName();
-    File selectedFile = fc.showOpenDialog(stage);
-    public void read(String fileType) throws IOException {
-        switch(fileType){
-            case ".csv":
+    
+    public Stage getStage(Stage stage){
+        return this.stage = stage;
+    }
+    public void read() throws IOException {
+        FileChooser fc = new FileChooser();
+        File selectedFile = fc.showOpenDialog(stage);
+        String fileName = selectedFile.getName();  
+        String fileExtension = fileName.substring(fileName.lastIndexOf(".") + 1, selectedFile.getName().length());
+        System.out.print(fileExtension);
+        switch(fileExtension){
+            case "csv":
                 System.out.println("heyhey");
-                ReadFromCSV csv = new ReadFromCSV(fileName);
+                ReadFromCSV csv = new ReadFromCSV(fileName, selectedFile);
                 csv.readCSV();
                 break;
-            case ".jobj":
+            case "jobj":
                     break;
         }
             
         
         
     }
-    @Override
-    public void ReadFromFile(File file) throws IOException {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-    
+
 }

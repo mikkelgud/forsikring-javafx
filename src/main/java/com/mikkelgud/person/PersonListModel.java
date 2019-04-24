@@ -62,4 +62,13 @@ public class PersonListModel {
     public void setFilteredPersonList(ObservableList<Person> filteredPersonList) {
         this.filteredPersonList = filteredPersonList;
     }
+    
+    @Override
+    public String toString(){
+        StringBuilder outData = new StringBuilder();
+        for(Person personData : getPersonList()){
+            outData.append(personData.toString());
+        }
+        return outData.toString();
+    }
 }

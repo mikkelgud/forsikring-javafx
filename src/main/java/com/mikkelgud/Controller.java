@@ -239,8 +239,9 @@ public class Controller implements Initializable {
         
     }
     
-    public void openFile() {
+    public void openFile() throws IOException {
         ReadStrategy readStrat = new ReadStrategy();
+        readStrat.read();
     }
 
     @Override

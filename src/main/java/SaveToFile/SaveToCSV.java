@@ -1,10 +1,7 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package SaveToFile;
 
+import com.mikkelgud.person.PersonListModel;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.PrintWriter;
@@ -16,29 +13,39 @@ import java.util.stream.Stream;
  * @author alexanderbjorlo
  */
 public class SaveToCSV implements SaveToFile {
-    public String[] database;
+
     public String fileName;
-    public SaveToCSV(String[] database, String fileName){
-        this.database = database;
+    public String personData;
+
+    
+    public SaveToCSV(String personData, String fileName){
         this.fileName = fileName;
+        this.personData = personData;
+    }
+
+    SaveToCSV() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
     public String convertToCSV(){
         // Converts data to CSV type format
-        return Stream.of(database)
+        PersonListModel plm = new PersonListModel();
+        personData = plm.toString();
+        return Stream.of(personData)
             .map(this::escapeSpecialCharacters)
             .collect(Collectors.joining(","));
     }
 
-public String escapeSpecialCharacters(String database) {
+public String escapeSpecialCharacters() {
     // Escapes special characters
-    String escapedData = database.replaceAll("\\R", " ");
-    if (database.contains(",") || database.contains("\"") || database.contains("'")) {
-        database = database.replace("\"", "\"\"");
-        escapedData = "\"" + database + "\"";
+    String escapedData = personData.replaceAll("\\R", " ");
+    if (personData.contains(",") || personData.contains("\"") || personData.contains("'")) {
+        personData = personData.replace("\"", "\"\"");
+        escapedData = "\"" + personData + "\"";
     }
     return escapedData;
     }
+
 public void saveFile() throws FileNotFoundException{
     File file = new File(fileName);
     
@@ -48,13 +55,9 @@ public void saveFile() throws FileNotFoundException{
     
     }
 
-
-    public boolean SaveToFile(String fileName) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
     @Override
     public boolean SaveFile(String fileName) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
+
 }

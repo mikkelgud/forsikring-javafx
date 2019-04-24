@@ -15,25 +15,22 @@ import javafx.stage.Stage;
  * @author alexanderbjorlo
  */
 public class SaveStrategy implements SaveToFile {
-    public static void save(Stage stage, String fileType, String fileName) throws IOException {
+    public static void save(Stage stage) throws IOException {
         FileChooser fc = new FileChooser();
         File selectedFile = fc.showOpenDialog(stage);
-        switch(fileType){
+        String fileName = selectedFile.getName();          
+        String fileExtension = fileName.substring(fileName.lastIndexOf(".") + 1, selectedFile.getName().length());
+        System.out.println(">> fileExtension" + fileExtension);
+        switch(fileExtension){
             case ".csv":
                 String[] database = {"",""};
-                SaveToCSV csv = new SaveToCSV(database, fileName);
+                SaveToCSV csv = new SaveToCSV();
                 csv.saveFile();
                 break;
             case ".jobj":
                     break;
         }
-            
-        
-        
-    }
-
-    public boolean SaveToFile(String fileName) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+      
     }
 
     @Override
