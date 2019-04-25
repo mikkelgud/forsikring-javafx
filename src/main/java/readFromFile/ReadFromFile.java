@@ -13,6 +13,6 @@ import java.io.IOException;
  *
  * @author alexanderbjorlo
  */
-public interface ReadFromFile {
-
+public abstract class ReadFromFile {
+    
 }
