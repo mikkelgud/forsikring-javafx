@@ -5,31 +5,24 @@
  */
 package readFromFile;
 
+import com.mikkelgud.person.InvalidPersonPropertiesException;
 import java.io.File;
 import java.io.IOException;
-import javafx.stage.FileChooser;
 import javafx.stage.Stage;
+
 
 /**
  *
  * @author alexanderbjorlo
  */
-public class ReadStrategy implements ReadFromFile {
-    public Stage stage;
-    
-    public Stage getStage(Stage stage){
-        return this.stage = stage;
-    }
-    public void read() throws IOException {
-        FileChooser fc = new FileChooser();
-        File selectedFile = fc.showOpenDialog(stage);
-        String fileName = selectedFile.getName();  
-        String fileExtension = fileName.substring(fileName.lastIndexOf(".") + 1, selectedFile.getName().length());
-        System.out.print(fileExtension);
-        switch(fileExtension){
+public class ReadStrategy extends ReadFromFile {
+
+    public void read() throws IOException, InvalidPersonPropertiesException {
+        FileHandler filehandler = new FileHandler(); 
+        File file = filehandler.openReadFile();
+        switch(filehandler.getFileExtension()){
             case "csv":
-                System.out.println("heyhey");
-                ReadFromCSV csv = new ReadFromCSV(fileName, selectedFile);
+                ReadFromCSV csv = new ReadFromCSV(filehandler.getFileName(file), file );
                 csv.readCSV();
                 break;
             case "jobj":

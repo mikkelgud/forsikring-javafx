@@ -1,6 +1,7 @@
 package com.mikkelgud;
 
 import SaveToFile.SaveStrategy;
+import com.mikkelgud.person.InvalidPersonPropertiesException;
 import com.mikkelgud.person.Person;
 import com.mikkelgud.person.PersonListModel;
 import com.mikkelgud.person.RegistreringController;
@@ -239,7 +240,7 @@ public class Controller implements Initializable {
         
     }
     
-    public void openFile() throws IOException {
+    public void openFile() throws IOException, InvalidPersonPropertiesException {
         ReadStrategy readStrat = new ReadStrategy();
         readStrat.read();
     }
