@@ -34,12 +34,13 @@ public class Controller implements Initializable {
 
     private static PersonListModel personListModel;
 
+    // Using init-method to tell what will be printed to the GUI
+    @FXML
     public void init(PersonListModel personListModel) {
         if (this.personListModel != null) {
             System.err.println("Wops! We shouldn't have more than one person list model!");
             System.exit(0);
         }
-
         this.personListModel = personListModel;
         initPersonListView(personListModel);
         initCurrentPersonView(personListModel.getCurrentPerson());
@@ -47,21 +48,31 @@ public class Controller implements Initializable {
         initSearchInputField();
     }
 
+    //search input
+    @FXML
     private void initSearchInputField() {
-        customerSearchInput.onInputMethodTextChangedProperty().addListener(e -> {
-            System.out.println("Search query: " + getCustomerSearchInput());
-            personListModel.setFilteredPersonList(
-                    personListModel.getPersonList().filtered(
-                            person -> getCustomerSearchInput().isEmpty()
-                                    || !(person.getFirstName().toLowerCase().contains(getCustomerSearchInput().toLowerCase())
-                                    || person.getLastName().toLowerCase().contains(getCustomerSearchInput().toLowerCase())))
-            );
+        System.out.println("written");
+        customerSearchInput.selectedTextProperty().addListener((obs, oldValue, newValue) -> {
+            System.out.println("hello" + oldValue + newValue);
+            personListModel.setFilteredPersonList((personListModel.getPersonList().filtered(person -> !newValue.isEmpty() ||
+                    !(person.getFirstName().toLowerCase().contains(newValue.toLowerCase()))
+                    || person.getLastName().toLowerCase().contains(newValue.toLowerCase())
+            )));
         });
     }
+// getCustomerSearchInput().isEmpty()
 
+//                                || !(person.getFirstName().toLowerCase().contains(getCustomerSearchInput().toLowerCase())
+//                                || person.getLastName().toLowerCase().contains(getCustomerSearchInput().toLowerCase())))});
+//        customerSearchInput.onInputMethodTextChangedProperty().addListener(e -> {
+//            System.out.println("Search query: " + customerSearchInput.selectedTextProperty());
+
+
+    @FXML
     private void initCurrentPersonInsuranceView(Person currentPerson) {
     }
 
+    @FXML
     private void initCurrentPersonView(Person currentPerson) {
         currPersonListView.setItems(personListModel.getCurrentPersonListAttributes());
 
@@ -81,13 +92,13 @@ public class Controller implements Initializable {
         });
     }
 
+    @FXML
     private void initPersonListView(PersonListModel personListModel) {
         personListView.setItems(personListModel.getPersonList());
 
         // Handle when user clicks a person (set clicked person to current person).
-        personListView.getSelectionModel().selectedItemProperty()
-                .addListener((observer, oldSelection, newSelection) ->
-                        personListModel.setCurrentPerson((Person) newSelection));
+        personListView.getSelectionModel().selectedItemProperty().addListener(
+                (observer, oldSelection, newSelection) -> personListModel.setCurrentPerson((Person) newSelection));
 
         // Handle when new person is clicked (after another one has been selected).
         personListModel.currentPersonProperty().addListener((obs, oldPerson, newPerson) -> {
@@ -134,18 +145,18 @@ public class Controller implements Initializable {
             Logger.getLogger(Controller.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    
+
     @FXML
     private void newHouseInsurance() {
         URL resource = getClass().getClassLoader().getResource("housingInsurance.fxml");
         FXMLLoader loader = new FXMLLoader(resource);
 
-        try{
+        try {
             Parent root = loader.load();
             loader.setController(this);
 
             Scene scene = new Scene(root);
-            
+
             Stage stage = new Stage();
             stage.initModality(Modality.APPLICATION_MODAL);
             stage.setTitle("Registrer din husholdningsforsikring");
@@ -155,7 +166,7 @@ public class Controller implements Initializable {
         } catch (IOException ex) {
             Logger.getLogger(Controller.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
+
     }
 
     @FXML
@@ -235,3 +246,5 @@ public class Controller implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
     }
 }
+
+

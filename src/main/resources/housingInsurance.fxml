@@ -6,9 +6,9 @@
 <?import javafx.scene.paint.Color?>
 <?import javafx.scene.text.Font?>
 <?import java.lang.*?>
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="495.0"
-            prefWidth="436.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="com.mikkelgud.Controller">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="558.0"
+            prefWidth="436.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.mikkelgud.Insurance.InsuranceController">
    <children>
       <Label alignment="CENTER" layoutX="15.0" layoutY="14.0" style="&#10;" text="Registreringsskjema Bygning og innboforsikring" textAlignment="CENTER" wrapText="false">
          <font>
@@ -26,9 +26,8 @@
               <String fx:value="Appartment" />
               <String fx:value="Town house" />
               <String fx:value="House" />
-              <String fx:value="Castle" />
           </FXCollections>
-        </items>          
+        </items>
       </ComboBox>
       <ComboBox layoutX="144.0" layoutY="240.0" prefWidth="150.0" promptText="Building material">
         <items>
@@ -37,10 +36,11 @@
               <String fx:value="Wood" />
               <String fx:value="Brick" />
           </FXCollections>
-        </items> 
+        </items>
       </ComboBox>
       <TextField layoutX="144.0" layoutY="300.0" prefHeight="27.0" prefWidth="150.0" promptText="Square meter" />
       <TextField layoutX="127.0" layoutY="359.0" prefHeight="27.0" prefWidth="182.0" promptText="Inscurance price building" />
       <TextField layoutX="127.0" layoutY="418.0" prefHeight="27.0" prefWidth="182.0" promptText="Insurance price household goods" />
+       <Button layoutX="150.0" layoutY="479.0" mnemonicParsing="false" text="Registrer forsikring"/>
    </children>
 </AnchorPane>
