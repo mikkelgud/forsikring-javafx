@@ -25,7 +25,7 @@ public class PersonListModel {
             person.insuranceBoatProperty(),
             person.insuranceCabinProperty(),
             person.insuranceHouseProperty(),
-            person.insuranceTravelProperty()
+            person.insuranceTravelProperty(),
     });
 
     private final ObservableList<Observable> currentPersonListAttributes = FXCollections.observableArrayList(item -> new Observable[]{item});

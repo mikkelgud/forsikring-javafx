@@ -1,9 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.layout.AnchorPane?>
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="com.mikkelgud.Insurance.InsuranceController"
-            prefHeight="400.0" prefWidth="600.0">
 
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<AnchorPane prefHeight="499.0" prefWidth="602.0" xmlns="http://javafx.com/javafx/11.0.1"
+            xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mikkelgud.Insurance.InsuranceController">
+    <children>
+        <Label alignment="CENTER" contentDisplay="CENTER" layoutX="25.0" layoutY="14.0" prefHeight="42.0"
+               prefWidth="550.0" text="Registrer båtforsikring">
+            <font>
+                <Font size="25.0"/>
+            </font>
+        </Label>
+        <Label layoutX="283.0" layoutY="82.0" prefHeight="17.0" prefWidth="0.0"/>
+        <Label alignment="CENTER" layoutX="225.0" layoutY="65.0" prefHeight="17.0" prefWidth="151.0"
+               text="Båttype og modell"/>
+        <TextField layoutX="217.0" layoutY="91.0"/>
+        <Label alignment="CENTER" layoutX="208.0" layoutY="128.0" prefHeight="17.0" prefWidth="185.0"
+               text="Lengde(fot)"/>
+        <TextField layoutX="217.0" layoutY="160.0"/>
+        <Label alignment="CENTER" layoutX="225.0" layoutY="203.0" prefHeight="17.0" prefWidth="151.0" text="Årsmodell"/>
+        <TextField layoutX="217.0" layoutY="231.0"/>
+        <Label alignment="CENTER" layoutX="208.0" layoutY="276.0" prefHeight="17.0" prefWidth="185.0" text="Motortype"/>
+        <TextField layoutX="217.0" layoutY="308.0"/>
+        <Label alignment="CENTER" layoutX="225.0" layoutY="352.0" prefHeight="17.0" prefWidth="151.0"
+               text="Motorkraft"/>
+        <TextField layoutX="217.0" layoutY="378.0"/>
+        <Button layoutX="234.0" layoutY="433.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="132.0"
+                text="Registrer"/>
+    </children>
 </AnchorPane>

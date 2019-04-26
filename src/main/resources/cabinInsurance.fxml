@@ -1,9 +1,64 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.collections.FXCollections?>
+<?import javafx.scene.control.*?>
 <?import javafx.scene.layout.AnchorPane?>
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="com.mikkelgud.Insurance.InsuranceController"
-            prefHeight="400.0" prefWidth="600.0">
-
+<?import javafx.scene.text.Font?>
+<?import java.lang.*?>
+<AnchorPane prefHeight="700.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1"
+            xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mikkelgud.Insurance.InsuranceController">
+    <children>
+        <Label alignment="CENTER" contentDisplay="CENTER" layoutX="25.0" layoutY="14.0" prefHeight="42.0"
+               prefWidth="550.0" text="Registrer fritidsboligforsikring">
+            <font>
+                <Font size="25.0"/>
+            </font>
+        </Label>
+        <Label layoutX="283.0" layoutY="82.0" prefHeight="17.0" prefWidth="0.0"/>
+        <Label alignment="CENTER" layoutX="225.0" layoutY="65.0" prefHeight="17.0" prefWidth="151.0" text="Adresse"/>
+        <TextField layoutX="217.0" layoutY="91.0"/>
+        <Label alignment="CENTER" layoutX="208.0" layoutY="128.0" prefHeight="17.0" prefWidth="185.0" text="Byggeår"/>
+        <TextField layoutX="217.0" layoutY="153.0"/>
+        <ComboBox layoutX="225.0" layoutY="257.0" prefWidth="150.0" promptText="Building material">
+            <items>
+                <FXCollections fx:factory="observableArrayList">
+                    <String fx:value="Concrete"/>
+                    <String fx:value="Wood"/>
+                    <String fx:value="Brick"/>
+                </FXCollections>
+            </items>
+        </ComboBox>
+        <ComboBox layoutX="225.0" layoutY="308.0" prefWidth="150.0" promptText="Standard">
+            <items>
+                <FXCollections fx:factory="observableArrayList">
+                    <String fx:value="Dårlig"/>
+                    <String fx:value="Middels"/>
+                    <String fx:value="God"/>
+                </FXCollections>
+            </items>
+        </ComboBox>
+        <ComboBox layoutX="225.0" layoutY="209.0" prefWidth="150.0" promptText="Boligtype ">
+            <items>
+                <FXCollections fx:factory="observableArrayList">
+                    <String fx:value="Appartment"/>
+                    <String fx:value="Town house"/>
+                    <String fx:value="House"/>
+                </FXCollections>
+            </items>
+        </ComboBox>
+        <Label alignment="CENTER" layoutX="196.0" layoutY="350.0" prefHeight="17.0" prefWidth="210.0"
+               text="Tileggsinfo om standard på hus"/>
+        <TextField layoutX="217.0" layoutY="376.0"/>
+        <Label alignment="CENTER" layoutX="225.0" layoutY="413.0" prefHeight="17.0" prefWidth="151.0"
+               text="Antall kvadratmeter"/>
+        <TextField layoutX="217.0" layoutY="445.0"/>
+        <Label alignment="CENTER" layoutX="188.0" layoutY="488.0" prefHeight="17.0" prefWidth="225.0"
+               text="Forsikringsbeløp for bygning"/>
+        <TextField layoutX="217.0" layoutY="518.0"/>
+        <Label alignment="CENTER" layoutX="188.0" layoutY="561.0" prefHeight="17.0" prefWidth="225.0"
+               text="Forsikringsbeløp for innbo"/>
+        <TextField layoutX="217.0" layoutY="588.0"/>
+        <Button layoutX="235.0" layoutY="636.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="132.0"
+                text="Registrer"/>
+    </children>
 </AnchorPane>
