@@ -26,6 +26,8 @@ public class PersonData {
     
     @Override
     public String toString(){
+        String out = "First name: " + firstName + "Last name: " + lastName + "Billing address: " + billingAddress;
+        System.out.print(out);
         return "First name: " + firstName + "Last name: " + lastName + "Billing address: " + billingAddress;
     }
     
