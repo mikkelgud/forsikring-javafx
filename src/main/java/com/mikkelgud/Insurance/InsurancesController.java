@@ -32,7 +32,6 @@ public class InsurancesController {
         } catch (InvalidInsurancePropertiesExcepetion ex) {
             errorLabel.setText(ex.getMessage());
         }
-
     }
 
     private void closeRegistrationButtonHandeler() {
