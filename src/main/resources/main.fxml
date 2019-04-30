@@ -63,7 +63,7 @@
 
 
                         <Button layoutX="11.0" layoutY="509.0" mnemonicParsing="false"
-                                onAction="#newInsuranceUserWinddowOpener" prefHeight="27.0" prefWidth="135.0"
+                                onAction="#newInsuranceUserWindowOpener" prefHeight="27.0" prefWidth="135.0"
                                 text="Registrer ny kunde"/>
                   <ListView fx:id="personListView" layoutX="11.0" layoutY="72.0" prefHeight="425.0" prefWidth="254.0" />
                     </children>

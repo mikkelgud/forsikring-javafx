@@ -6,6 +6,7 @@ import com.mikkelgud.person.InvalidPersonPropertiesException;
 import com.mikkelgud.person.Person;
 import com.mikkelgud.person.PersonListModel;
 import com.mikkelgud.person.RegistratorController;
+import com.mikkelgud.readFromFile.ReadStrategy;
 import javafx.beans.property.StringProperty;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -17,7 +18,6 @@ import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
-import readFromFile.ReadStrategy;
 
 import java.io.IOException;
 import java.net.URL;
@@ -127,7 +127,7 @@ public class Controller implements Initializable {
 
 
     @FXML
-    public void newInsuranceUserWinddowOpener() {
+    public void newInsuranceUserWindowOpener() {
         URL resource = getClass().getClassLoader().getResource("registrering.fxml");
         FXMLLoader loader = new FXMLLoader(resource);
         try {

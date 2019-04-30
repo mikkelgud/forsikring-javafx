@@ -3,10 +3,11 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package readFromFile;
+package com.mikkelgud.readFromFile;
+
+import javafx.stage.FileChooser;
 
 import java.io.File;
-import javafx.stage.FileChooser;
 
 /**
  *
