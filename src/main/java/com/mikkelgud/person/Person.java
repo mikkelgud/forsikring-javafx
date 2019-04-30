@@ -1,10 +1,7 @@
 package com.mikkelgud.person;
 
 import javafx.beans.Observable;
-import javafx.beans.property.BooleanProperty;
-import javafx.beans.property.SimpleBooleanProperty;
-import javafx.beans.property.SimpleStringProperty;
-import javafx.beans.property.StringProperty;
+import javafx.beans.property.*;
 
 import java.time.LocalDateTime;
 
@@ -20,11 +17,14 @@ public class Person {
     private final BooleanProperty insuranceBoat = new SimpleBooleanProperty();
     private final LocalDateTime createdAt;
 
+
     public Person(String firstName, String lastName, String billingAddress) {
         this.firstName.set(firstName);
         this.lastName.set(lastName);
         this.billingAddress.set(billingAddress);
         this.createdAt = LocalDateTime.now();
+
+
     }
 
     public String getFirstName() {
@@ -113,4 +113,7 @@ public class Person {
                 new SimpleStringProperty(String.format("Opprettet -  %s", getCreatedAt().toString())),
         };
     }
+
+
 }
+

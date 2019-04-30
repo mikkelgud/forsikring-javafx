@@ -6,23 +6,27 @@
 package readFromFile;
 
 import java.io.File;
+import java.nio.file.Files;
+
 import javafx.stage.FileChooser;
 
 /**
  *
  * @author alexanderbjorlo
  */
-public class FileHandler implements Runnable{
+public class FileHandler implements Runnable {
     //Threading
     
     public String getFileExtension(){
         File selectedFile = openReadFile();
+
         return getFileName(selectedFile).substring(getFileName(selectedFile).lastIndexOf(".") 
                 + 1, selectedFile.getName().length());
     }
     public File openReadFile(){
         FileChooser fc = new FileChooser();
         File file = fc.showOpenDialog(null);
+
         if(file != null){
             return file;
         } else{
@@ -40,6 +44,7 @@ public class FileHandler implements Runnable{
     @Override
     public void run() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+
     }
     
 }

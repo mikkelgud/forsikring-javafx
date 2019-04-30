@@ -44,6 +44,7 @@ public class RegistratorController {
     @FXML
     private void handleRegistrerButtonAction(ActionEvent event) {
         errorLabel.setText("");
+
         try {
             Person newPerson = validator.createNewPerson(firstName.getText(), lastName.getText(), billingAddress.getText());
             newPerson.setInsuranceBoat(insuranceBoat.isSelected());
@@ -51,6 +52,7 @@ public class RegistratorController {
             newPerson.setInsuranceHouse(insuranceHouse.isSelected());
             newPerson.setInsuranceTravel(insuranceTravel.isSelected());
             personListModel.getPersonList().add(newPerson);
+
 
             resetFieldValues();
         } catch (InvalidPersonPropertiesException ex) {
