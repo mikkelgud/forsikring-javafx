@@ -29,11 +29,12 @@ public class ReadFromCSV extends ReadFromFile{
         try 
             {
             BufferedReader reader = new BufferedReader(new FileReader(file));
-            while((line = reader.readLine()) != null){
-                System.out.print(line);
-                parseData(line);
-                }
-            
+            String lines = null;
+            while((lines = reader.readLine()) != null) {
+                parseData(lines);
+            }
+
+
             } catch(IOException e){
                 e.printStackTrace();
             }
@@ -66,6 +67,7 @@ public class ReadFromCSV extends ReadFromFile{
         }
         
     }
+
     public boolean ReadFromFile(String fileName) {
         throw new UnsupportedOperationException("Not supported yet.");
     }

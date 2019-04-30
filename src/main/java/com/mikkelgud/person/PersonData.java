@@ -1,7 +1,14 @@
-
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package com.mikkelgud.person;
 
-
+/**
+ *
+ * @author alexanderbjorlo
+ */
 public class PersonData {
     public String firstName;
     public String lastName;
@@ -19,10 +26,7 @@ public class PersonData {
     
     @Override
     public String toString(){
-        return "First name: " + firstName +
-                "Last name: " + lastName +
-                "Billing address: " + billingAddress;
-
+        return "First name: " + firstName + "Last name: " + lastName + "Billing address: " + billingAddress;
     }
     
 }
