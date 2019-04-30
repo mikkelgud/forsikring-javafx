@@ -6,7 +6,7 @@
 <?import javafx.scene.text.Font?>
 <?import java.lang.*?>
 <AnchorPane prefHeight="700.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1"
-            xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mikkelgud.Insurance.InsuranceController">
+            xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mikkelgud.Insurance.InsurancesController">
     <children>
         <Label alignment="CENTER" contentDisplay="CENTER" layoutX="25.0" layoutY="14.0" prefHeight="42.0"
                prefWidth="550.0" text="Registrer fritidsboligforsikring">

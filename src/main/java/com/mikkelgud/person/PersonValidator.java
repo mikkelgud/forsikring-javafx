@@ -14,7 +14,7 @@ public class PersonValidator {
     public static final String MESSAGE_TOO_SHORT_LASTNAME = String.format("Lengden på etternavnet må være større enn %d.", MIN_LENGTH_LASTNAME);
     public static final String MESSAGE_TOO_SHORT_BILLING_ADDRESS = String.format("Lengden på faktureringsadressen må være større enn %d.", MIN_LENGTH_BILLINGADDRESS);
 
-    public Person createNew(String firstName, String lastName, String billingAddress) throws InvalidPersonPropertiesException {
+    public Person createNewPerson(String firstName, String lastName, String billingAddress) throws InvalidPersonPropertiesException {
 
         if (!isPresent(firstName)) {
             throw new InvalidPersonPropertiesException(MESSAGE_NO_EMPTY_FIRSTNAME);

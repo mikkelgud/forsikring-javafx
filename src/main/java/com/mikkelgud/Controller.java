@@ -1,11 +1,11 @@
 package com.mikkelgud;
 
-import SaveToFile.SaveStrategy;
+//import SaveToFile.SaveStrategy;
+
 import com.mikkelgud.person.InvalidPersonPropertiesException;
 import com.mikkelgud.person.Person;
 import com.mikkelgud.person.PersonListModel;
-import com.mikkelgud.person.RegistreringController;
-import java.io.File;
+import com.mikkelgud.person.RegistratorController;
 import javafx.beans.property.StringProperty;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -17,14 +17,13 @@ import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
+import readFromFile.ReadStrategy;
 
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import readFromFile.ReadFromFile;
-import readFromFile.ReadStrategy;
 
 
 public class Controller implements Initializable {
@@ -56,7 +55,6 @@ public class Controller implements Initializable {
     //search input
     @FXML
     private void initSearchInputField() {
-        System.out.println("written");
         customerSearchInput.selectedTextProperty().addListener((obs, oldValue, newValue) -> {
             System.out.println("hello" + oldValue + newValue);
             personListModel.setFilteredPersonList((personListModel.getPersonList().filtered(person -> !newValue.isEmpty() ||
@@ -132,10 +130,9 @@ public class Controller implements Initializable {
     public void newInsuranceUserWindowOpener() {
         URL resource = getClass().getClassLoader().getResource("registrering.fxml");
         FXMLLoader loader = new FXMLLoader(resource);
-
         try {
             Parent root = loader.load();
-            RegistreringController controller = loader.getController();
+            RegistratorController controller = loader.getController();
             controller.setPersonModel(personListModel);
             Scene scene = new Scene(root);
 

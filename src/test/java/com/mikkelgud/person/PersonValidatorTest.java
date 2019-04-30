@@ -1,6 +1,5 @@
 package com.mikkelgud.person;
 
-
 import org.junit.Assert;
 import org.junit.BeforeClass;
 import org.junit.Test;
@@ -25,7 +24,7 @@ public class PersonValidatorTest {
 
         for (String invalidName : invalidNames) {
             try {
-                personValidator.createNew(invalidName, aValidLastName, aValidBillingAddress);
+                personValidator.createNewPerson(invalidName, aValidLastName, aValidBillingAddress);
                 fail();
             } catch (InvalidPersonPropertiesException expectedException) {
                 Assert.assertEquals(
@@ -41,7 +40,7 @@ public class PersonValidatorTest {
 
         for (String invalidName : invalidNames) {
             try {
-                personValidator.createNew(aValidFirstName, invalidName, aValidBillingAddress);
+                personValidator.createNewPerson(aValidFirstName, invalidName, aValidBillingAddress);
                 fail();
             } catch (InvalidPersonPropertiesException expectedException) {
                 Assert.assertEquals(
@@ -57,7 +56,7 @@ public class PersonValidatorTest {
 
         for (String invalidName : invalidNames) {
             try {
-                personValidator.createNew(aValidFirstName, aValidLastName, invalidName);
+                personValidator.createNewPerson(aValidFirstName, aValidLastName, invalidName);
                 fail("Expected create new throw exception");
             } catch (InvalidPersonPropertiesException expectedException) {
                 Assert.assertEquals(
@@ -71,7 +70,7 @@ public class PersonValidatorTest {
     @Test
     public void shouldThrowExceptionIfTooShortFirstName() {
         try {
-            personValidator.createNew("ab", aValidLastName, aValidBillingAddress);
+            personValidator.createNewPerson("ab", aValidLastName, aValidBillingAddress);
             fail();
         } catch (InvalidPersonPropertiesException expectedException) {
             Assert.assertEquals(

@@ -9,7 +9,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
-public class RegistreringController {
+public class RegistratorController {
 
     @FXML
     public CheckBox insuranceHouse;
@@ -30,7 +30,7 @@ public class RegistreringController {
     @FXML
     public TextField billingAddress;
     @FXML
-    public Label errorLabel;
+    private Label errorLabel;
 
 
     @FXML
@@ -45,7 +45,7 @@ public class RegistreringController {
     private void handleRegistrerButtonAction(ActionEvent event) {
         errorLabel.setText("");
         try {
-            Person newPerson = validator.createNew(firstName.getText(), lastName.getText(), billingAddress.getText());
+            Person newPerson = validator.createNewPerson(firstName.getText(), lastName.getText(), billingAddress.getText());
             newPerson.setInsuranceBoat(insuranceBoat.isSelected());
             newPerson.setInsuranceCabin(insuranceCabin.isSelected());
             newPerson.setInsuranceHouse(insuranceHouse.isSelected());

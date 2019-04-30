@@ -1,34 +1,60 @@
 
 package com.mikkelgud.Insurance;
 
-import com.mikkelgud.person.Person;
+import javafx.beans.Observable;
+import javafx.beans.property.SimpleStringProperty;
 
-import java.util.ArrayList;
-import java.util.Date;
+//Denne skal extende generalInsurance, men må dessverre implementere dette senere.
+public class BoatInsurance {
+    String boatType;
+    String model;
+    String engineType;
+    String enginePower;
+    String lenght;
 
-
-public class BoatInsurance extends GeneralInsurance {
-
-    public String regNr;
-    public int year;
-    public float boatLength; //ft
-    public String[] typeModel;
-    public String[] motorTypeHP;
-    public Person owner;
-
-    public BoatInsurance(String firstName,
-                         String lastName,
-                         String billingAddress,
-                         float insurancePremium,
-                         Date date, float insuranceSalary,
-                         ArrayList insuranceInfo, Person owner, String regNr, String[] typeModel,
-                         float boatLength, int year, String[] motorTypeHP) {
-        super(firstName, lastName, billingAddress, insurancePremium, date, insuranceSalary, insuranceInfo);
-        this.owner = owner;
-        this.regNr = regNr;
-        this.typeModel = typeModel;
-        this.boatLength = boatLength;
-        this.year = year;
-        this.motorTypeHP = motorTypeHP;
+    public String getBoatType() {
+        return boatType;
     }
+
+
+    public String getModel() {
+        return model;
+    }
+
+
+    public String getEngineType() {
+        return engineType;
+    }
+
+
+    public String getEnginePower() {
+        return enginePower;
+    }
+
+
+    public String getLenght() {
+        return lenght;
+    }
+
+
+    public BoatInsurance(String boatType, String lenght, String model, String engineType, String enginePower) {
+        this.boatType = boatType;
+        this.model = model;
+        this.engineType = engineType;
+        this.enginePower = enginePower;
+        this.lenght = lenght;
+    }
+
+    public Observable[] getBoatInsurancePropertiesAsList() {
+        return new Observable[]{
+                new SimpleStringProperty(String.format("Båttype - %s", getBoatType())),
+                new SimpleStringProperty(String.format("Båtlengde - %s", getLenght())),
+                new SimpleStringProperty(String.format("Båtmodell - %s", getModel())),
+                new SimpleStringProperty(String.format("Motortype - %s", getEngineType())),
+                new SimpleStringProperty(String.format("Motorkraft - %s", getEnginePower())),
+        };
+    }
+
+
+
 }
