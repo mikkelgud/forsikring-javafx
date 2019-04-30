@@ -5,6 +5,8 @@ import javafx.beans.Observable;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 
+import java.time.LocalDateTime;
+
 //Denne skal extende generalInsurance, men må dessverre implementere dette senere.
 public class BoatInsurance {
     private final StringProperty boatType = new SimpleStringProperty();
@@ -12,9 +14,11 @@ public class BoatInsurance {
     private final StringProperty engineType = new SimpleStringProperty();
     private final StringProperty enginePower = new SimpleStringProperty();
     private final StringProperty length = new SimpleStringProperty();
+    private final LocalDateTime createdAt;
 
 
     public BoatInsurance(String boatType, String length, String model, String engineType, String enginePower) {
+        this.createdAt = LocalDateTime.now();
         this.boatType.set(boatType);
         this.model.set(model);
         this.engineType.set(engineType);
@@ -40,6 +44,10 @@ public class BoatInsurance {
 
     public String getLength() {
         return length.get();
+    }
+
+    public LocalDateTime getCreatedAt() {
+        return createdAt;
     }
 
     public StringProperty boatTypeProperty() {
@@ -82,6 +90,7 @@ public class BoatInsurance {
         this.length.set(length);
     }
 
+
     public Observable[] getBoatInsurancePropertiesAsList() {
         return new Observable[]{
                 new SimpleStringProperty(String.format("Båttype - %s", getBoatType())),
@@ -89,7 +98,9 @@ public class BoatInsurance {
                 new SimpleStringProperty(String.format("Båtmodell - %s", getModel())),
                 new SimpleStringProperty(String.format("Motortype - %s", getEngineType())),
                 new SimpleStringProperty(String.format("Motorkraft - %s", getEnginePower())),
+                new SimpleStringProperty(String.format("Opprettetlses dato - %S", getCreatedAt()))
         };
     }
+
 
 }

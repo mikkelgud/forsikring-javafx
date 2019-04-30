@@ -29,7 +29,7 @@ public class InsurancesController {
         try {
 
             BoatInsurance newBoatInsurance = validator.createNewBoatInsurance(boatType.getText(), length.getText(), model.getText(), engineType.getText(), enginePower.getText());
-            boatInsuranceList.getBoatInsuranceList().add(newBoatInsurance);
+            boatInsuranceList.getBoatInsuranceList().addAll(newBoatInsurance);
 
 
         } catch (InvalidInsurancePropertiesException ex) {
