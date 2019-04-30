@@ -18,6 +18,7 @@ public class PersonListModel {
                     person.insuranceTravelProperty()
             });
 
+    //    This method is not yet in use , but will be helpful when we make the searching method
     private ObservableList<Person> filteredPersonList = FXCollections.observableArrayList(person -> new Observable[]{
             person.firstNameProperty(),
             person.lastNameProperty(),
