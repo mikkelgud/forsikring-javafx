@@ -63,7 +63,7 @@
                 <Button id="registrer" layoutX="72.0" layoutY="190.0" mnemonicParsing="false"
                         onAction="#handleRegistrerButtonAction" prefHeight="27.0" prefWidth="167.0" text="Registrer"/>
                 <Label fx:id="errorLabel" layoutX="71.0" layoutY="243.0" prefHeight="17.0" prefWidth="400.0"
-                       textFill="red"/>
+                       textFill="#188042"/>
                 <Button layoutX="471.0" layoutY="260.0" mnemonicParsing="false" prefHeight="29.0" prefWidth="64.0"
                         text="Lukk"
                         onAction="#closeRegistrationButtonHandeler" fx:id="closeRegistrationPageButton"/>

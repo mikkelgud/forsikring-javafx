@@ -6,7 +6,6 @@ import com.mikkelgud.person.InvalidPersonPropertiesException;
 import com.mikkelgud.person.Person;
 import com.mikkelgud.person.PersonListModel;
 import com.mikkelgud.person.RegistratorController;
-import com.mikkelgud.readFromFile.ReadStrategy;
 import javafx.beans.property.StringProperty;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -18,6 +17,7 @@ import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
+import readFromFile.ReadStrategy;
 
 import java.io.IOException;
 import java.net.URL;
@@ -127,7 +127,7 @@ public class Controller implements Initializable {
 
 
     @FXML
-    private void newInsuranceUserWindowOpener() {
+    public void newInsuranceUserWinddowOpener() {
         URL resource = getClass().getClassLoader().getResource("registrering.fxml");
         FXMLLoader loader = new FXMLLoader(resource);
         try {
@@ -149,7 +149,7 @@ public class Controller implements Initializable {
     }
 
     @FXML
-    public void newHouseInsurance() {
+    private void newHouseInsurance() {
         URL resource = getClass().getClassLoader().getResource("housingInsurance.fxml");
         FXMLLoader loader = new FXMLLoader(resource);
 
@@ -172,7 +172,7 @@ public class Controller implements Initializable {
     }
 
     @FXML
-    public void newBoatInsurance() {
+    private void newBoatInsurance() {
         URL resource = getClass().getClassLoader().getResource("boatInsurance.fxml");
         FXMLLoader loader = new FXMLLoader(resource);
 
@@ -195,7 +195,7 @@ public class Controller implements Initializable {
     }
 
     @FXML
-    public void newCabinInsurance() {
+    private void newCabinInsurance() {
         URL resource = getClass().getClassLoader().getResource("cabinInsurance.fxml");
         FXMLLoader loader = new FXMLLoader(resource);
 
@@ -218,7 +218,7 @@ public class Controller implements Initializable {
     }
 
     @FXML
-    public void newTravelInsurance() {
+    private void newTravelInsurance() {
         URL resource = getClass().getClassLoader().getResource("travelInsurance.fxml");
         FXMLLoader loader = new FXMLLoader(resource);
 
