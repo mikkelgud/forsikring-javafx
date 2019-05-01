@@ -11,8 +11,6 @@ import java.io.File;
 import java.io.IOException;
 
 
-
-
 /**
  *
  * @author alexanderbjorlo
@@ -20,7 +18,7 @@ import java.io.IOException;
 public class ReadStrategy extends ReadFromFile {
 
     public void read() throws IOException, InvalidPersonPropertiesException {
-        FileHandler filehandler = new FileHandler();
+        FileHandler filehandler = new FileHandler(); 
         File file = filehandler.openReadFile();
         switch(filehandler.getFileExtension()){
             case "csv":

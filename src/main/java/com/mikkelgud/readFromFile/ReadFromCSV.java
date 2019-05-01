@@ -58,7 +58,6 @@ public class ReadFromCSV extends ReadFromFile{
             personData.setLastName(splitted[2]);
             personData.setBillingAddress(splitted[3]);
             personData.toString();
-            return personData;
         }
         personData.attatchToGUI();
         return personData;
