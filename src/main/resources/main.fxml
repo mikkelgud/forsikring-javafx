@@ -5,8 +5,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.paint.Color?>
 <?import javafx.scene.text.Font?>
-<VBox prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/10.0.1"
-      xmlns:fx="http://javafx.com/fxml/1"
+<VBox prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1"
       fx:controller="com.mikkelgud.Controller">
 
     <children>
@@ -14,14 +13,14 @@
             <menus>
                 <Menu mnemonicParsing="false" text="File">
                     <items>
-                        <MenuItem mnemonicParsing="false" text="New housing insurance" onAction="#newHouseInsurance"/>
-                        <MenuItem mnemonicParsing="false" text="New boat insurance" onAction="#newBoatInsurance"/>
-                        <MenuItem mnemonicParsing="false" text="Ny fritidsboligforsikring"
-                                  onAction="#newCabinInsurance"/>
-                        <MenuItem mnemonicParsing="false" text="New travel insurance" onAction="#newTravelInsurance"/>
+                        <MenuItem mnemonicParsing="false" onAction="#newHouseInsurance" text="New housing insurance"/>
+                        <MenuItem mnemonicParsing="false" onAction="#newBoatInsurance" text="New boat insurance"/>
+                        <MenuItem mnemonicParsing="false" onAction="#newCabinInsurance"
+                                  text="Ny fritidsboligforsikring"/>
+                        <MenuItem mnemonicParsing="false" onAction="#newTravelInsurance" text="New travel insurance"/>
                         <SeparatorMenuItem mnemonicParsing="false" text="Meld ny skade"/>
-                        <MenuItem mnemonicParsing="false" text="Open file" onAction="#openFile" />
-                        <MenuItem mnemonicParsing="false" text="Save" onAction="#saveFile" />
+                        <MenuItem mnemonicParsing="false" onAction="#openFile" text="Open file"/>
+                        <MenuItem mnemonicParsing="false" onAction="#saveFile" text="Save"/>
                         <MenuItem mnemonicParsing="false" text="Save As…" />
                     </items>
                 </Menu>
@@ -58,8 +57,8 @@
                                 <Color blue="0.624" green="0.624" red="0.624" fx:id="x2" />
                             </textFill>
                         </Label>
-                        <TextField layoutX="11.0" layoutY="37.0" promptText="Søk på kundenavn"
-                                   fx:id="customerSearchInput"/>
+                        <TextField fx:id="customerSearchInput" layoutX="11.0" layoutY="37.0"
+                                   promptText="Søk på kundenavn"/>
 
 
                         <Button layoutX="11.0" layoutY="509.0" mnemonicParsing="false"
@@ -81,9 +80,11 @@
                 </ScrollPane>
                 <AnchorPane>
                     <children>
-                        <Label alignment="CENTER" font="$x1" layoutX="14.0" layoutY="14.0" style="&#10;" text="Kundeforsikringer" textAlignment="CENTER" textFill="$x2" wrapText="false" />
-                        <ListView fx:id="currPersonInsuranceListView" layoutX="10.0" layoutY="75.0" prefHeight="465.0"
-                                  prefWidth="200.0"/>
+                        <Label alignment="CENTER" font="$x1" layoutX="14.0" layoutY="14.0" prefHeight="23.0"
+                               prefWidth="167.0" style="&#10;" text="Kundeforsikring" textAlignment="CENTER"
+                               textFill="$x2" wrapText="false"/>
+                        <ListView fx:id="currPersonInsuranceListView" layoutX="-44.0" layoutY="75.0" prefHeight="465.0"
+                                  prefWidth="254.0"/>
                     </children>
                 </AnchorPane>
             </items>

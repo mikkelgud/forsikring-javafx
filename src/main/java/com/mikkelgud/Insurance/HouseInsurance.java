@@ -8,55 +8,38 @@ package com.mikkelgud.Insurance;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 
-//extends GeneralInsurance kommer snart  ;O
-public class HouseInsurance {
-//    p String housingAddress;
-//    public String housingType;
-//    public String buildingMaterial;
-//    public String housingState;
-//    public int builtYear;
-//    public int squareMeter;
-//    public float insurancePriceBuilding;
-//    public float insurancePriceHouseholdGoods;
+import java.time.LocalDateTime;
+
+
+public class HouseInsurance extends GeneralInsurance {
+
 
     private final StringProperty housingAdress = new SimpleStringProperty();
     private final StringProperty housingType = new SimpleStringProperty();
     private final StringProperty buildingMaterial = new SimpleStringProperty();
     private final StringProperty housingState = new SimpleStringProperty();
     private final StringProperty builtYear = new SimpleStringProperty();
-    private final StringProperty squareMeter = new SimpleStringProperty();
+    private final StringProperty houseSize = new SimpleStringProperty();
     private final StringProperty insuranceBuildingPrice = new SimpleStringProperty();
     private final StringProperty insurancePriceHouseholdGoods = new SimpleStringProperty();
+    private final LocalDateTime createdAt;
 
-    public HouseInsurance(String housingAdress, String housingType, String buildingMaterial, String housingState, String builtYear, String squareMeter) {
+    protected HouseInsurance(String insuranceYearlyPayment, String insuranceAmount, String insuranceCoverageInfo, String housingAdress, String housingType, String buildingMaterial, String housingState, String builtYear, String squareMeter, String insuranceBP, String insuranceHG) {
+        super(insuranceYearlyPayment, insuranceAmount, insuranceCoverageInfo);
+        this.createdAt = LocalDateTime.now();
+        this.housingAdress.set(housingAdress);
+        this.housingType.set(housingType);
+        this.buildingMaterial.set(buildingMaterial);
+        this.housingState.set(housingState);
+        this.builtYear.set(builtYear);
+        this.houseSize.set(squareMeter);
+        this.insuranceBuildingPrice.set(insuranceBP);
+        this.insurancePriceHouseholdGoods.set(insuranceHG);
     }
 
-    //
-//    public HouseInsurance(
-//            String firstName,
-//            String lastName,
-//            String billingAddress,
-//            String housingAddress,
-//            String housingType,
-//            String buildingMaterial,
-//            String housingState,
-//            int squareMeter,
-//            int builtYear,
-//            float insurancePremium,
-//            float insurancePriceBuilding,
-//            float insuranceSalary,
-//            float insurancePriceHouseholdGoods,
-//            Date date,
-//            ArrayList insuranceInfo) {
-//        super(firstName, lastName, billingAddress, insurancePremium, date, insuranceSalary, insuranceInfo);
-//        this.housingAddress = housingAddress;
-//        this.builtYear = builtYear;
-//        this.housingType = housingType;
-//        this.buildingMaterial = buildingMaterial;
-//        this.housingState = housingState;
-//        this.squareMeter = squareMeter;
-//        this.insurancePriceBuilding = insurancePriceBuilding;
-//        this.insurancePriceHouseholdGoods = insurancePriceHouseholdGoods;
+
+    public LocalDateTime getCreatedAt() {
+        return createdAt;
     }
-    
+}
 

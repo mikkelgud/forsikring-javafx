@@ -96,8 +96,7 @@ public class BoatInsurance extends GeneralInsurance {
                 new SimpleStringProperty(String.format("Båtmodell - %s", getModel())),
                 new SimpleStringProperty(String.format("Motortype - %s", getEngineType())),
                 new SimpleStringProperty(String.format("Motorkraft - %s", getEnginePower())),
-                new SimpleStringProperty(String.format("Opprettetlses dato - %S", getCreatedAt())),
-                new SimpleStringProperty(String.format(""))
+                new SimpleStringProperty(String.format("Opprettet -  %s", createdAt.toString())),
         };
     }
 

@@ -8,17 +8,7 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
-import java.util.*;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
-import java.util.stream.Collectors;
 
-import static java.util.Optional.ofNullable;
-
-/**
- *
- * @author alexanderbjorlo
- */
 public class ReadFromCSV extends ReadFromFile{
     public String fileName;
     public File file;

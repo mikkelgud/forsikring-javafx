@@ -51,9 +51,11 @@
         <Label alignment="CENTER" layoutX="225.0" layoutY="413.0" prefHeight="17.0" prefWidth="151.0"/>
         <TextField layoutX="217.0" layoutY="430.0" promptText="Antall kvadratmeter"/>
         <Label alignment="CENTER" layoutX="188.0" layoutY="488.0" prefHeight="17.0" prefWidth="225.0"/>
-        <TextField layoutX="217.0" layoutY="492.0" promptText="Forsikringsbeløp for bygning"/>
+        <TextField layoutX="199.0" layoutY="492.0" prefHeight="27.0" prefWidth="192.0"
+                   promptText="Forsikringsbeløp for bygning"/>
         <Label alignment="CENTER" layoutX="188.0" layoutY="561.0" prefHeight="17.0" prefWidth="225.0"/>
-        <TextField layoutX="218.0" layoutY="556.0" promptText="Forsikringsbeløp for innbo"/>
+        <TextField layoutX="200.0" layoutY="556.0" prefHeight="27.0" prefWidth="192.0"
+                   promptText="Forsikringsbeløp for innbo"/>
         <Button layoutX="234.0" layoutY="621.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="132.0"
                 text="Registrer"/>
     </children>

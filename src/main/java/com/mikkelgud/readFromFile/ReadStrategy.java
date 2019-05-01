@@ -10,11 +10,6 @@ import com.mikkelgud.person.InvalidPersonPropertiesException;
 import java.io.File;
 import java.io.IOException;
 
-
-/**
- *
- * @author alexanderbjorlo
- */
 public class ReadStrategy extends ReadFromFile {
 
     public void read() throws IOException, InvalidPersonPropertiesException {

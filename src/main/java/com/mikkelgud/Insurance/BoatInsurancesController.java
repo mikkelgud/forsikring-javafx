@@ -19,7 +19,6 @@ public class BoatInsurancesController {
     @FXML
     private Label errorLabel;
 
-
     private String insuranceYearlyPayment = "12123+";
     private String insuranceAmount = "300 000";
     private String insuranceCoverage = "Dekker all skade med båt";
@@ -30,12 +29,12 @@ public class BoatInsurancesController {
 
     private BoatInsuranceList boatInsuranceList;
 
-
     @FXML
     private void registrateBoatInsuranceButtonHandeler(ActionEvent event) {
         errorLabel.setText("");
         try {
-            BoatInsurance newBoatInsurance = validator.createNewBoatInsurance(insuranceYearlyPayment, insuranceAmount, insuranceCoverage, boatType.getText(), length.getText(), model.getText(), engineType.getText(), enginePower.getText());
+            BoatInsurance newBoatInsurance = validator.createNewBoatInsurance(insuranceYearlyPayment, insuranceAmount, insuranceCoverage,
+                    boatType.getText(), length.getText(), model.getText(), engineType.getText(), enginePower.getText());
             boatInsuranceList.getBoatInsuranceList().addAll(newBoatInsurance);
             resetFieldValues();
         } catch (InvalidInsurancePropertiesException ex) {
@@ -50,7 +49,6 @@ public class BoatInsurancesController {
         engineType.setText(EMPTY_STRING);
         enginePower.setText(EMPTY_STRING);
     }
-
 
     public void setBoatInsuranceList(BoatInsuranceList boatInsuranceList) {
         this.boatInsuranceList = boatInsuranceList;

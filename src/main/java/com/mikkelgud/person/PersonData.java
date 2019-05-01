@@ -3,6 +3,10 @@ package com.mikkelgud.person;
 
 
 public class PersonData {
+    private PersonListModel personListModel = new PersonListModel();
+    private final PersonValidator validator = new PersonValidator();
+
+
     public String firstName;
     public String lastName;
     public String billingAddress;
@@ -21,12 +25,6 @@ public class PersonData {
 
     }
 
-    @Override
-    public String toString(){
-        String out = "First name: " + firstName + "Last name: " + lastName + "Billing address: " + billingAddress + "\n";
-        System.out.print(out);
-        return "First name: " + firstName + "Last name: " + lastName + "Billing address: " + billingAddress +"\n";
-    }
 
     public void setBillingAddress(String billingAddress) {
         this.billingAddress = billingAddress;
@@ -53,17 +51,22 @@ public class PersonData {
     }
 
     public void attatchToGUI(){
-
         try {
-            PersonValidator validator = new PersonValidator();
             Person newPerson = validator.createNewPerson(getFirstName(), getLastName(), getBillingAddress());
             System.out.print("heihei");
-            PersonListModel personListModel = new PersonListModel();
             personListModel.getPersonList().add(newPerson);
 
 
         } catch (InvalidPersonPropertiesException ex) {
             ex.printStackTrace();
         }
+    }
+
+    @Override
+    public String toString() {
+        String out = "First name: " + firstName + "Last name: " + lastName + "Billing address: " + billingAddress + "\n";
+        System.out.print(out);
+
+        return "First name: " + firstName + "Last name: " + lastName + "Billing address: " + billingAddress + "\n";
     }
 }

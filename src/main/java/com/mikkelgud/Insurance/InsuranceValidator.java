@@ -29,12 +29,8 @@ public class InsuranceValidator {
         return new BoatInsurance(boatType, length, model, engineType, enginePower, insuranceYearlyPayment, insuranceAmount, insuranceInfo);
     }
 
+
     private boolean isPresent(String stringToValidate) {
         return stringToValidate != null && !stringToValidate.isEmpty();
     }
-
-//    private boolean isIntegerPresent(int intToValidate) {
-//        if (intToValidate > 0) return true;
-//        else return false;
-//    }
 }

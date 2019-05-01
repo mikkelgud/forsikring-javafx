@@ -7,7 +7,7 @@
 <?import javafx.scene.text.Font?>
 <?import java.lang.*?>
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="558.0"
-            prefWidth="436.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1"
+            prefWidth="436.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1"
             fx:controller="com.mikkelgud.Insurance.HouseInsuranceController">
    <children>
       <Label alignment="CENTER" layoutX="15.0" layoutY="14.0" style="&#10;" text="Registreringsskjema Bygning og innboforsikring" textAlignment="CENTER" wrapText="false">
@@ -18,9 +18,9 @@
             <Color blue="0.624" green="0.624" red="0.624" fx:id="x2" />
          </textFill>
       </Label>
-      <TextField layoutX="144.0" layoutY="67.0" prefHeight="27.0" prefWidth="150.0" promptText="Housing address" />
-      <TextField layoutX="144.0" layoutY="126.0" prefHeight="27.0" prefWidth="150.0" promptText="Year built. Eg. 1984" />
-      <ComboBox layoutX="143.0" layoutY="185.0" prefWidth="150.0" promptText="Type of house">
+       <TextField layoutX="144.0" layoutY="67.0" prefHeight="27.0" prefWidth="150.0" promptText="Hjemmeadressse"/>
+       <TextField layoutX="144.0" layoutY="126.0" prefHeight="27.0" prefWidth="150.0" promptText="Byggeår eks. 1984"/>
+       <ComboBox layoutX="143.0" layoutY="185.0" prefWidth="150.0" promptText="Hustype">
         <items>
           <FXCollections fx:factory="observableArrayList">
               <String fx:value="Appartment" />
@@ -29,7 +29,7 @@
           </FXCollections>
         </items>
       </ComboBox>
-      <ComboBox layoutX="144.0" layoutY="240.0" prefWidth="150.0" promptText="Building material">
+       <ComboBox layoutX="144.0" layoutY="240.0" prefWidth="150.0" promptText="Byggemateriale">
         <items>
           <FXCollections fx:factory="observableArrayList">
               <String fx:value="Concrete" />
@@ -38,9 +38,11 @@
           </FXCollections>
         </items>
       </ComboBox>
-      <TextField layoutX="144.0" layoutY="300.0" prefHeight="27.0" prefWidth="150.0" promptText="Square meter" />
-      <TextField layoutX="127.0" layoutY="359.0" prefHeight="27.0" prefWidth="182.0" promptText="Inscurance price building" />
-      <TextField layoutX="127.0" layoutY="418.0" prefHeight="27.0" prefWidth="182.0" promptText="Insurance price household goods" />
+       <TextField layoutX="144.0" layoutY="300.0" prefHeight="27.0" prefWidth="150.0" promptText="Husstørelse"/>
+       <TextField layoutX="127.0" layoutY="359.0" prefHeight="27.0" prefWidth="182.0"
+                  promptText="Forsikringsbeløp for bygningForsikringsbeløp for bygning"/>
+       <TextField layoutX="127.0" layoutY="418.0" prefHeight="27.0" prefWidth="182.0"
+                  promptText="Forsikringsbeløp for innbo"/>
        <Button layoutX="150.0" layoutY="479.0" mnemonicParsing="false" text="Registrer forsikring"/>
    </children>
 </AnchorPane>

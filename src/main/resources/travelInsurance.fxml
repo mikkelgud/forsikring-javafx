@@ -3,8 +3,8 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
-<AnchorPane prefHeight="322.0" prefWidth="553.0" xmlns="http://javafx.com/javafx/11.0.1"
-            xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mikkelgud.Insurance.TravellInsuranceController">
+<AnchorPane prefHeight="325.0" prefWidth="534.0" xmlns="http://javafx.com/javafx/11.0.1"
+            xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mikkelgud.Insurance.TravelInsuranceController">
 
     <Label alignment="CENTER" layoutX="131.0" layoutY="23.0" style="&#10;" text="Registreringsskjema Reiseforsikring"
            textAlignment="CENTER" wrapText="false">
@@ -19,5 +19,7 @@
     <CheckBox layoutX="101.0" layoutY="157.0" mnemonicParsing="false" text="Sør Amerika"/>
     <CheckBox layoutX="227.0" layoutY="157.0" mnemonicParsing="false" text="Oseania"/>
     <CheckBox layoutX="344.0" layoutY="157.0" mnemonicParsing="false" text="Afrika"/>
-    <Button layoutX="97.0" layoutY="220.0" mnemonicParsing="false" text="Registrer"/>
+    <Button layoutX="307.0" layoutY="211.0" mnemonicParsing="false" text="Registrer"/>
+    <Label layoutX="98.0" layoutY="265.0" prefHeight="18.0" prefWidth="330.0"/>
+    <RadioButton layoutX="101.0" layoutY="216.0" mnemonicParsing="false" text="Merk av alle"/>
 </AnchorPane>

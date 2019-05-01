@@ -20,6 +20,9 @@ public class Person {
     private final BooleanProperty insuranceBoat = new SimpleBooleanProperty();
     private final LocalDateTime createdAt;
 
+    private final String USER_IS_REGISTERED = "Registrert";
+    private final String USER_IS_NOT_REGISTERED = "Ikke registrert";
+
 
     public Person(String firstName, String lastName, String billingAddress) {
         this.firstName.set(firstName);
@@ -115,6 +118,22 @@ public class Person {
         return insuranceBoat.get();
     }
 
+    public String getInsuranceHouseBooleanAsString() {
+        return isInsuranceHouse() ? USER_IS_REGISTERED : USER_IS_NOT_REGISTERED;
+    }
+
+    public String getInsuranceCabinBooleanAsString() {
+        return isInsuranceCabin() ? USER_IS_REGISTERED : USER_IS_NOT_REGISTERED;
+    }
+
+    public String getInsuranceTravelBooleanAsString() {
+        return isInsuranceTravel() ? USER_IS_REGISTERED : USER_IS_NOT_REGISTERED;
+    }
+
+    public String getInsuranceBoatBooleanAsString() {
+        return isInsuranceBoat() ? USER_IS_REGISTERED : USER_IS_NOT_REGISTERED;
+    }
+
     @Override
     public String toString() {
         return String.format("%s %s",  getFirstName(), getLastName());
@@ -130,13 +149,11 @@ public class Person {
                 new SimpleStringProperty(String.format("Etternavn - %s", getLastName())),
                 new SimpleStringProperty(String.format("Fakturaadresse - %s", getBillingAddress())),
                 new SimpleStringProperty(String.format("Opprettet -  %s", getCreatedAt().toString())),
-                new SimpleStringProperty(String.format("Husforsikring - %s", isInsuranceHouse())),
-                new SimpleStringProperty(String.format("Fritidsboligforsikring - %s", isInsuranceCabin())),
-                new SimpleStringProperty(String.format("Båtforsikring - %s", isInsuranceBoat())),
-                new SimpleStringProperty(String.format("Reiseforsikring - %s", isInsuranceTravel()))
+                new SimpleStringProperty(String.format("Husforsikring - %s", getInsuranceHouseBooleanAsString())),
+                new SimpleStringProperty(String.format("Fritidsboligforsikring - %s", getInsuranceCabinBooleanAsString())),
+                new SimpleStringProperty(String.format("Båtforsikring - %s", getInsuranceBoatBooleanAsString())),
+                new SimpleStringProperty(String.format("Reiseforsikring - %s", getInsuranceTravelBooleanAsString()))
         };
     }
-
-
 }
 
