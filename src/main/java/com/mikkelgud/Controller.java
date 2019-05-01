@@ -2,10 +2,7 @@ package com.mikkelgud;
 
 //import SaveToFile.SaveStrategy;
 
-import com.mikkelgud.person.InvalidPersonPropertiesException;
-import com.mikkelgud.person.Person;
-import com.mikkelgud.person.PersonListModel;
-import com.mikkelgud.person.RegistratorController;
+import com.mikkelgud.person.*;
 import com.mikkelgud.readFromFile.ReadStrategy;
 import javafx.beans.property.StringProperty;
 import javafx.fxml.FXML;
@@ -38,7 +35,7 @@ public class Controller implements Initializable {
     public ListView currPersonInsuranceListView;
 
     private static PersonListModel personListModel;
-
+    public CostumerID costumerID = new CostumerID();
     // Using init-method to tell what will be printed to the GUI
     @FXML
     public void init(PersonListModel personListModel) {
@@ -136,6 +133,7 @@ public class Controller implements Initializable {
     public void newInsuranceUserWinddowOpener() {
         URL resource = getClass().getClassLoader().getResource("registrering.fxml");
         FXMLLoader loader = new FXMLLoader(resource);
+        costumerID.generateID();
         try {
             Parent root = loader.load();
             RegistratorController controller = loader.getController();
