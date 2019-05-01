@@ -15,10 +15,10 @@
             </font>
         </Label>
         <Label layoutX="283.0" layoutY="82.0" prefHeight="17.0" prefWidth="0.0"/>
-        <Label alignment="CENTER" layoutX="225.0" layoutY="65.0" prefHeight="17.0" prefWidth="151.0" text="Adresse"/>
-        <TextField layoutX="217.0" layoutY="91.0"/>
-        <Label alignment="CENTER" layoutX="208.0" layoutY="128.0" prefHeight="17.0" prefWidth="185.0" text="Byggeår"/>
-        <TextField layoutX="217.0" layoutY="153.0"/>
+        <Label alignment="CENTER" layoutX="225.0" layoutY="65.0" prefHeight="17.0" prefWidth="151.0"/>
+        <TextField layoutX="217.0" layoutY="91.0" promptText="Adresse"/>
+        <Label alignment="CENTER" layoutX="208.0" layoutY="128.0" prefHeight="17.0" prefWidth="185.0"/>
+        <TextField layoutX="217.0" layoutY="153.0" promptText="Byggeår"/>
         <ComboBox layoutX="225.0" layoutY="257.0" prefWidth="150.0" promptText="Building material">
             <items>
                 <FXCollections fx:factory="observableArrayList">
@@ -46,19 +46,15 @@
                 </FXCollections>
             </items>
         </ComboBox>
-        <Label alignment="CENTER" layoutX="196.0" layoutY="350.0" prefHeight="17.0" prefWidth="210.0"
-               text="Tileggsinfo om standard på hus"/>
-        <TextField layoutX="217.0" layoutY="376.0"/>
-        <Label alignment="CENTER" layoutX="225.0" layoutY="413.0" prefHeight="17.0" prefWidth="151.0"
-               text="Antall kvadratmeter"/>
-        <TextField layoutX="217.0" layoutY="445.0"/>
-        <Label alignment="CENTER" layoutX="188.0" layoutY="488.0" prefHeight="17.0" prefWidth="225.0"
-               text="Forsikringsbeløp for bygning"/>
-        <TextField layoutX="217.0" layoutY="518.0"/>
-        <Label alignment="CENTER" layoutX="188.0" layoutY="561.0" prefHeight="17.0" prefWidth="225.0"
-               text="Forsikringsbeløp for innbo"/>
-        <TextField layoutX="217.0" layoutY="588.0"/>
-        <Button layoutX="235.0" layoutY="636.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="132.0"
+        <Label alignment="CENTER" layoutX="196.0" layoutY="350.0" prefHeight="17.0" prefWidth="210.0"/>
+        <TextField layoutX="217.0" layoutY="376.0" promptText="Tileggsinfo om standard på hus"/>
+        <Label alignment="CENTER" layoutX="225.0" layoutY="413.0" prefHeight="17.0" prefWidth="151.0"/>
+        <TextField layoutX="217.0" layoutY="430.0" promptText="Antall kvadratmeter"/>
+        <Label alignment="CENTER" layoutX="188.0" layoutY="488.0" prefHeight="17.0" prefWidth="225.0"/>
+        <TextField layoutX="217.0" layoutY="492.0" promptText="Forsikringsbeløp for bygning"/>
+        <Label alignment="CENTER" layoutX="188.0" layoutY="561.0" prefHeight="17.0" prefWidth="225.0"/>
+        <TextField layoutX="218.0" layoutY="556.0" promptText="Forsikringsbeløp for innbo"/>
+        <Button layoutX="234.0" layoutY="621.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="132.0"
                 text="Registrer"/>
     </children>
 </AnchorPane>

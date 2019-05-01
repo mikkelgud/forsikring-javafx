@@ -20,4 +20,7 @@ public class CabinInsurance {
         this.adress.set(adress);
 
     }
+
 }
+
+
