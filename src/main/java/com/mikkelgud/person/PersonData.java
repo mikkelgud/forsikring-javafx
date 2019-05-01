@@ -56,7 +56,7 @@ public class PersonData {
 
         try {
             PersonValidator validator = new PersonValidator();
-            Person newPerson = validator.createNew(getFirstName(), getLastName(), getBillingAddress());
+            Person newPerson = validator.createNewPerson(getFirstName(), getLastName(), getBillingAddress());
 
 
             PersonListModel personListModel = new PersonListModel();

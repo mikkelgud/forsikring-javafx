@@ -39,7 +39,7 @@ public class RegistratorController {
     private PersonListModel personListModel;
 
     private final PersonValidator validator = new PersonValidator();
-
+    private CostumerID costumerID = new CostumerID();
 
     @FXML
     private void handleRegistrerButtonAction(ActionEvent event) {
@@ -51,9 +51,8 @@ public class RegistratorController {
             newPerson.setInsuranceCabin(insuranceCabin.isSelected());
             newPerson.setInsuranceHouse(insuranceHouse.isSelected());
             newPerson.setInsuranceTravel(insuranceTravel.isSelected());
+            costumerID.generateID();
             personListModel.getPersonList().add(newPerson);
-
-
             resetFieldValues();
         } catch (InvalidPersonPropertiesException ex) {
             errorLabel.setText(ex.getMessage());
