@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package readFromFile;
+package com.mikkelgud.readFromFile;
 
 import java.io.File;
 import javafx.stage.FileChooser;
@@ -34,12 +34,12 @@ public class FileHandler implements Runnable{
     public String getFileName(File file){
         return file.getName(); 
     }
-    
-    
+
+
 
     @Override
     public void run() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-    
+
 }
