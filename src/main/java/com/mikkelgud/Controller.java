@@ -17,7 +17,6 @@ import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
-import readFromFile.ReadStrategy;
 
 import java.io.IOException;
 import java.net.URL;
@@ -127,7 +126,7 @@ public class Controller implements Initializable {
 
 
     @FXML
-    public void newInsuranceUserWinddowOpener() {
+    private void newInsuranceUserWindowOpener() {
         URL resource = getClass().getClassLoader().getResource("registrering.fxml");
         FXMLLoader loader = new FXMLLoader(resource);
         try {
@@ -149,7 +148,7 @@ public class Controller implements Initializable {
     }
 
     @FXML
-    private void newHouseInsurance() {
+    public void newHouseInsurance() {
         URL resource = getClass().getClassLoader().getResource("housingInsurance.fxml");
         FXMLLoader loader = new FXMLLoader(resource);
 
@@ -172,7 +171,7 @@ public class Controller implements Initializable {
     }
 
     @FXML
-    private void newBoatInsurance() {
+    public void newBoatInsurance() {
         URL resource = getClass().getClassLoader().getResource("boatInsurance.fxml");
         FXMLLoader loader = new FXMLLoader(resource);
 
@@ -195,7 +194,7 @@ public class Controller implements Initializable {
     }
 
     @FXML
-    private void newCabinInsurance() {
+    public void newCabinInsurance() {
         URL resource = getClass().getClassLoader().getResource("cabinInsurance.fxml");
         FXMLLoader loader = new FXMLLoader(resource);
 
@@ -218,7 +217,7 @@ public class Controller implements Initializable {
     }
 
     @FXML
-    private void newTravelInsurance() {
+    public void newTravelInsurance() {
         URL resource = getClass().getClassLoader().getResource("travelInsurance.fxml");
         FXMLLoader loader = new FXMLLoader(resource);
 
@@ -249,8 +248,8 @@ public class Controller implements Initializable {
     }
     
     public void openFile() throws IOException, InvalidPersonPropertiesException {
-        ReadStrategy readStrat = new ReadStrategy();
-        readStrat.read();
+//        ReadStrategy readStrat = new ReadStrategy();
+//        readStrat.read();
     }
 
     @Override

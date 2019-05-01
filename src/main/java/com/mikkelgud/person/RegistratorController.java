@@ -1,5 +1,6 @@
 package com.mikkelgud.person;
 
+import com.mikkelgud.Controller;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -9,7 +10,10 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
+
 public class RegistratorController {
+
+    Controller mainController = new Controller();
 
     @FXML
     public CheckBox insuranceHouse;
@@ -52,9 +56,25 @@ public class RegistratorController {
             newPerson.setInsuranceTravel(insuranceTravel.isSelected());
             personListModel.getPersonList().add(newPerson);
 
+            openCheckedOutInsurances();
             resetFieldValues();
         } catch (InvalidPersonPropertiesException ex) {
             errorLabel.setText(ex.getMessage());
+        }
+    }
+
+    private void openCheckedOutInsurances() {
+        if (insuranceBoat.isSelected()) {
+            mainController.newBoatInsurance();
+        }
+        if (insuranceCabin.isSelected()) {
+            mainController.newCabinInsurance();
+        }
+        if (insuranceHouse.isSelected()) {
+            mainController.newHouseInsurance();
+        }
+        if (insuranceTravel.isSelected()) {
+            mainController.newTravelInsurance();
         }
     }
 
@@ -71,6 +91,7 @@ public class RegistratorController {
     @FXML
     public void closeRegistrationButtonHandeler(ActionEvent event) {
         Stage stage = (Stage) closeRegistrationPageButton.getScene().getWindow();
+
         stage.close();
     }
 

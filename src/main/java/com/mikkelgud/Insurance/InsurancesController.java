@@ -23,6 +23,7 @@ public class InsurancesController {
 
     private BoatInsuranceList boatInsuranceList;
 
+
     @FXML
     private void registrateBoatInsuranceButtonHandeler(ActionEvent event) {
         errorLabel.setText("");
