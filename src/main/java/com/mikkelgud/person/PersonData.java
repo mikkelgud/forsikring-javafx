@@ -57,14 +57,13 @@ public class PersonData {
         try {
             PersonValidator validator = new PersonValidator();
             Person newPerson = validator.createNewPerson(getFirstName(), getLastName(), getBillingAddress());
-
-
+            System.out.print("heihei");
             PersonListModel personListModel = new PersonListModel();
             personListModel.getPersonList().add(newPerson);
 
 
         } catch (InvalidPersonPropertiesException ex) {
-
+            ex.printStackTrace();
         }
     }
 }

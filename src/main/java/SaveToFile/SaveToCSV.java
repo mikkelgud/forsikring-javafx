@@ -1,60 +1,43 @@
 
 package SaveToFile;
 
+import com.mikkelgud.person.Person;
 import com.mikkelgud.person.PersonListModel;
 
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.PrintWriter;
+import java.util.Arrays;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 public class SaveToCSV implements SaveToFile {
-
-    public String fileName;
-    public String personData;
+    private PrintWriter pw;
 
 
-    public SaveToCSV(String personData, String fileName){
-        this.fileName = fileName;
-        this.personData = personData;
-    }
-
-    SaveToCSV() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    public String convertToCSV(){
-        // Converts data to CSV type format
+    public void write(File file) throws FileNotFoundException {
+        this.pw = new PrintWriter(file);
         PersonListModel plm = new PersonListModel();
-        personData = plm.toString();
-        return Stream.of(personData)
-//            .map(this::escapeSpecialCharacters)
-            .collect(Collectors.joining(","));
+        plm.getPersonList().forEach(this::writePerson);
     }
 
-public String escapeSpecialCharacters() {
-    // Escapes special characters
-    String escapedData = personData.replaceAll("\\R", " ");
-    if (personData.contains(",") || personData.contains("\"") || personData.contains("'")) {
-        personData = personData.replace("\"", "\"\"");
-        escapedData = "\"" + personData + "\"";
-    }
-    return escapedData;
+    public void writePerson(Person person){
+        this.pw.println(toCSV(new String[] {"personData",
+                person.firstNameProperty().getValue(),
+                person.lastNameProperty().getValue(),
+                person.billingAddressProperty().getValue(),
+        }));
     }
 
-public void saveFile() throws FileNotFoundException{
-    File file = new File(fileName);
+    private String toCSV(String[] data) {
+        return Arrays.stream(data).reduce("", (acc, curr) -> acc + curr + ";");
+    }
 
-    PrintWriter pw = new PrintWriter(file);
-    String csvData = convertToCSV();
-    pw.write(csvData);
 
-}
+
 
     @Override
     public boolean SaveFile(String fileName) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return false;
     }
-
 }
