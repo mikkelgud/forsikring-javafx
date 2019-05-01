@@ -5,9 +5,12 @@
  */
 package com.mikkelgud.Insurance;
 
+import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.property.StringProperty;
+
 //extends GeneralInsurance kommer snart  ;O
 public class HouseInsurance {
-//    public String housingAddress;
+//    p String housingAddress;
 //    public String housingType;
 //    public String buildingMaterial;
 //    public String housingState;
@@ -15,7 +18,20 @@ public class HouseInsurance {
 //    public int squareMeter;
 //    public float insurancePriceBuilding;
 //    public float insurancePriceHouseholdGoods;
-//
+
+    private final StringProperty housingAdress = new SimpleStringProperty();
+    private final StringProperty housingType = new SimpleStringProperty();
+    private final StringProperty buildingMaterial = new SimpleStringProperty();
+    private final StringProperty housingState = new SimpleStringProperty();
+    private final StringProperty builtYear = new SimpleStringProperty();
+    private final StringProperty squareMeter = new SimpleStringProperty();
+    private final StringProperty insuranceBuildingPrice = new SimpleStringProperty();
+    private final StringProperty insurancePriceHouseholdGoods = new SimpleStringProperty();
+
+    public HouseInsurance(String housingAdress, String housingType, String buildingMaterial, String housingState, String builtYear, String squareMeter) {
+    }
+
+    //
 //    public HouseInsurance(
 //            String firstName,
 //            String lastName,
