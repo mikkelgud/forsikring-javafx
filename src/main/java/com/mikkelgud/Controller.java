@@ -124,6 +124,11 @@ public class Controller implements Initializable {
         });
     }
 
+    @FXML
+    private void initInsuranceView() {
+        // Denne skal vise Personen som er klikket sine forsikringer.
+    }
+
 
     @FXML
     private void newInsuranceUserWindowOpener() {

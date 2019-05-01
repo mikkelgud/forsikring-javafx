@@ -1,26 +1,50 @@
 
 package com.mikkelgud.Insurance;
 
-import com.mikkelgud.person.Person;
+import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.property.StringProperty;
 
-import java.util.ArrayList;
-import java.util.Date;
+import java.time.LocalDateTime;
 
-public abstract class GeneralInsurance extends Person {
-    public float insurancePremium;
-    public float insuranceSalary;
-    public ArrayList insuranceInfo;
-    public Date date;
+public abstract class GeneralInsurance {
+    private StringProperty insuranceYearlyPayment = new SimpleStringProperty();
+    private StringProperty insuranceAmount = new SimpleStringProperty();
+    private StringProperty insuranceCoverageInfo = new SimpleStringProperty();
+    private final LocalDateTime createdAt;
 
-    public GeneralInsurance(String firstName, String lastName,
-                            String billingAddress, float insurancePremium, Date date,
-                            float insuranceSalary, ArrayList insuranceInfo) {
-        super(firstName, lastName, billingAddress);
-        this.insurancePremium = insurancePremium;
-        this.date = date;
-        this.insuranceSalary = insuranceSalary;
-        this.insuranceInfo = insuranceInfo;
+    public abstract LocalDateTime getCreatedAt();
+
+
+    protected GeneralInsurance(String insuranceYearlyPayment, String insuranceAmount, String insuranceCoverageInfo) {
+        this.insuranceAmount.set(insuranceAmount);
+        this.insuranceCoverageInfo.set(insuranceCoverageInfo);
+        this.insuranceYearlyPayment.set(insuranceYearlyPayment);
+        this.createdAt = LocalDateTime.now();
     }
 
+
+    public String getInsuranceYearlyPayment() {
+        return insuranceYearlyPayment.get();
+    }
+
+    public StringProperty insuranceYearlyPaymentProperty() {
+        return insuranceYearlyPayment;
+    }
+
+    public String getInsuranceAmount() {
+        return insuranceAmount.get();
+    }
+
+    public StringProperty insuranceAmountProperty() {
+        return insuranceAmount;
+    }
+
+    public String getInsuranceCoverageInfo() {
+        return insuranceCoverageInfo.get();
+    }
+
+    public StringProperty insuranceCoverageInfoProperty() {
+        return insuranceCoverageInfo;
+    }
 
 }
