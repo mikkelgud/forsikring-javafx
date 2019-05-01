@@ -18,5 +18,9 @@ public class CabinInsurance {
 
     public CabinInsurance(String adress, String buildingMaterial, String housingState) {
         this.adress.set(adress);
+
     }
+
 }
+
+
