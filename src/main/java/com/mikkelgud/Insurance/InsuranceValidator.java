@@ -3,7 +3,7 @@ package com.mikkelgud.Insurance;
 public class InsuranceValidator {
     private static final String MESSAGE_NO_EMPTY_FIELDS = "Venligst fyll ut alle feltetene i registreringen";
 
-    public BoatInsurance createNewBoatInsurance(String boatType, String length, String model, String engineType, String enginePower) throws InvalidInsurancePropertiesException {
+    public BoatInsurance createNewBoatInsurance(String insuranceYearlyPayment, String insuranceAmount, String insuranceInfo, String boatType, String length, String model, String engineType, String enginePower) throws InvalidInsurancePropertiesException {
 
         if (!isPresent(boatType)) {
             throw new InvalidInsurancePropertiesException(MESSAGE_NO_EMPTY_FIELDS);
@@ -25,7 +25,7 @@ public class InsuranceValidator {
             throw new InvalidInsurancePropertiesException(MESSAGE_NO_EMPTY_FIELDS);
         }
 
-        return new BoatInsurance(boatType, length, model, engineType, enginePower);
+        return new BoatInsurance(boatType, length, model, engineType, enginePower, insuranceYearlyPayment, insuranceAmount, insuranceInfo);
     }
 
     private boolean isPresent(String stringToValidate) {

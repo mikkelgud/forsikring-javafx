@@ -7,8 +7,7 @@ import javafx.beans.property.StringProperty;
 
 import java.time.LocalDateTime;
 
-//Denne skal extende generalInsurance, men må dessverre implementere dette senere.
-public class BoatInsurance {
+public class BoatInsurance extends GeneralInsurance {
     private final StringProperty boatType = new SimpleStringProperty();
     private final StringProperty model = new SimpleStringProperty();
     private final StringProperty engineType = new SimpleStringProperty();
@@ -16,8 +15,8 @@ public class BoatInsurance {
     private final StringProperty length = new SimpleStringProperty();
     private final LocalDateTime createdAt;
 
-
-    public BoatInsurance(String boatType, String length, String model, String engineType, String enginePower) {
+    public BoatInsurance(String insuranceYearlyPayment, String insuranceAmount, String insuranceCoverageInfo, String boatType, String length, String model, String engineType, String enginePower) {
+        super(insuranceYearlyPayment, insuranceAmount, insuranceCoverageInfo);
         this.createdAt = LocalDateTime.now();
         this.boatType.set(boatType);
         this.model.set(model);
@@ -90,7 +89,6 @@ public class BoatInsurance {
         this.length.set(length);
     }
 
-
     public Observable[] getBoatInsurancePropertiesAsList() {
         return new Observable[]{
                 new SimpleStringProperty(String.format("Båttype - %s", getBoatType())),
@@ -98,7 +96,8 @@ public class BoatInsurance {
                 new SimpleStringProperty(String.format("Båtmodell - %s", getModel())),
                 new SimpleStringProperty(String.format("Motortype - %s", getEngineType())),
                 new SimpleStringProperty(String.format("Motorkraft - %s", getEnginePower())),
-                new SimpleStringProperty(String.format("Opprettetlses dato - %S", getCreatedAt()))
+                new SimpleStringProperty(String.format("Opprettetlses dato - %S", getCreatedAt())),
+                new SimpleStringProperty(String.format(""))
         };
     }
 

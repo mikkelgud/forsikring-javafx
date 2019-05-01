@@ -8,7 +8,7 @@
 <?import java.lang.*?>
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="558.0"
             prefWidth="436.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="com.mikkelgud.Insurance.InsurancesController">
+            fx:controller="com.mikkelgud.Insurance.HouseInsuranceController">
    <children>
       <Label alignment="CENTER" layoutX="15.0" layoutY="14.0" style="&#10;" text="Registreringsskjema Bygning og innboforsikring" textAlignment="CENTER" wrapText="false">
          <font>
