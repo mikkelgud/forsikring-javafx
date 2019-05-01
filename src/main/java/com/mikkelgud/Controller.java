@@ -1,5 +1,7 @@
 package com.mikkelgud;
 
+//import SaveToFile.SaveStrategy;
+
 import com.mikkelgud.person.InvalidPersonPropertiesException;
 import com.mikkelgud.person.Person;
 import com.mikkelgud.person.PersonListModel;
@@ -53,7 +55,6 @@ public class Controller implements Initializable {
     //search input
     @FXML
     private void initSearchInputField() {
-        System.out.println("written");
         customerSearchInput.selectedTextProperty().addListener((obs, oldValue, newValue) -> {
             System.out.println("hello" + oldValue + newValue);
             personListModel.setFilteredPersonList((personListModel.getPersonList().filtered(person -> !newValue.isEmpty() ||
@@ -126,7 +127,7 @@ public class Controller implements Initializable {
 
 
     @FXML
-    public void newInsuranceUserWindowOpener() {
+    public void newInsuranceUserWinddowOpener() {
         URL resource = getClass().getClassLoader().getResource("registrering.fxml");
         FXMLLoader loader = new FXMLLoader(resource);
         try {

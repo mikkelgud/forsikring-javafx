@@ -3,12 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package readFromFile;
+package com.mikkelgud.readFromFile;
 
 import com.mikkelgud.person.InvalidPersonPropertiesException;
+
 import java.io.File;
 import java.io.IOException;
-import javafx.stage.Stage;
 
 
 /**

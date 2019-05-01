@@ -1,31 +1,23 @@
 
 package com.mikkelgud.Insurance;
 
-import java.util.ArrayList;
-import java.util.Date;
+import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.property.StringProperty;
 
-public class CabinInsurance extends GeneralInsurance {
-    public String adress;
-    public String buildingMaterial;
-    public String housingState;
-    public String squareMeter;
-    public int yearBuilt;
-    public float insurancePriceBuilding;
-    public float insurancePriceHouseholdGoods;
+// will soooooon extends GeneralInsurance, but for now, sorry bro fix me if you can.
 
-    public CabinInsurance(String firstName, String lastName, String billingAddress,
-                          float insurancePremium, Date date, float insuranceSalary,
-                          ArrayList insuranceInfo, String adress, int yearBuilt, String buildingMaterial,
-                          String housingState, String squareMeter, float insurancePriceBuilding,
-                          float insurancePriceHouseholdGoods) {
-        super(firstName, lastName, billingAddress, insurancePremium,
-                date, insuranceSalary, insuranceInfo);
-        this.adress = adress;
-        this.yearBuilt = yearBuilt;
-        this.buildingMaterial = buildingMaterial;
-        this.housingState = housingState;
-        this.squareMeter = squareMeter;
-        this.insurancePriceBuilding = insurancePriceBuilding;
-        this.insurancePriceHouseholdGoods = insurancePriceHouseholdGoods;
+public class CabinInsurance {
+
+    private final StringProperty adress = new SimpleStringProperty();
+    private final StringProperty buildingMaterial = new SimpleStringProperty();
+    private final StringProperty housingState = new SimpleStringProperty();
+    private final StringProperty squareMeter = new SimpleStringProperty();
+    private final StringProperty yearBuilt = new SimpleStringProperty();
+    private final StringProperty insurancePriceBuilding = new SimpleStringProperty();
+    private final StringProperty insurancePriceHouseholdGoods = new SimpleStringProperty();
+
+    public CabinInsurance(String adress, String buildingMaterial, String housingState) {
+        this.adress.set(adress);
+
     }
 }
