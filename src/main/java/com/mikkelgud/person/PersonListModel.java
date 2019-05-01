@@ -19,15 +19,15 @@ public class PersonListModel {
             });
 
     //    This method is not yet in use , but will be helpful when we make the searching method
-    private ObservableList<Person> filteredPersonList = FXCollections.observableArrayList(person -> new Observable[]{
-            person.firstNameProperty(),
-            person.lastNameProperty(),
-            person.billingAddressProperty(),
-            person.insuranceBoatProperty(),
-            person.insuranceCabinProperty(),
-            person.insuranceHouseProperty(),
-            person.insuranceTravelProperty(),
-    });
+//    private ObservableList<Person> filteredPersonList = FXCollections.observableArrayList(person -> new Observable[]{
+//            person.firstNameProperty(),
+//            person.lastNameProperty(),
+//            person.billingAddressProperty(),
+//            person.insuranceBoatProperty(),
+//            person.insuranceCabinProperty(),
+//            person.insuranceHouseProperty(),
+//            person.insuranceTravelProperty(),
+//    });
 
     private final ObservableList<Observable> currentPersonListAttributes =
             FXCollections.observableArrayList(item -> new Observable[]{item});
@@ -57,15 +57,15 @@ public class PersonListModel {
         return currentPersonListAttributes;
     }
 
-
-    public ObservableList<Person> getFilteredPersonList() {
-        return filteredPersonList;
-    }
-
-    public void setFilteredPersonList(ObservableList<Person> filteredPersonList) {
-        this.filteredPersonList = filteredPersonList;
-    }
-    
+    //
+//    public ObservableList<Person> getFilteredPersonList() {
+//        return filteredPersonList;
+//    }
+//
+//    public void setFilteredPersonList(ObservableList<Person> filteredPersonList) {
+//        this.filteredPersonList = filteredPersonList;
+//    }
+//
     @Override
     public String toString(){
         StringBuilder outData = new StringBuilder();

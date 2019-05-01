@@ -3,7 +3,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1"
+<AnchorPane prefHeight="322.0" prefWidth="553.0" xmlns="http://javafx.com/javafx/11.0.1"
             xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mikkelgud.Insurance.TravellInsuranceController">
 
     <Label alignment="CENTER" layoutX="131.0" layoutY="23.0" style="&#10;" text="Registreringsskjema Reiseforsikring"
@@ -18,7 +18,6 @@
     <CheckBox layoutX="344.0" layoutY="100.0" mnemonicParsing="false" text="Nord Amerika"/>
     <CheckBox layoutX="101.0" layoutY="157.0" mnemonicParsing="false" text="Sør Amerika"/>
     <CheckBox layoutX="227.0" layoutY="157.0" mnemonicParsing="false" text="Oseania"/>
-    <CheckBox layoutX="100.0" layoutY="214.0" mnemonicParsing="false" text="Hele Verden"/>
     <CheckBox layoutX="344.0" layoutY="157.0" mnemonicParsing="false" text="Afrika"/>
-    <Button layoutX="269.0" layoutY="330.0" mnemonicParsing="false" text="Registrer"/>
+    <Button layoutX="97.0" layoutY="220.0" mnemonicParsing="false" text="Registrer"/>
 </AnchorPane>

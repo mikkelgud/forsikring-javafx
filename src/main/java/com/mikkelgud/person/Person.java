@@ -1,7 +1,10 @@
 package com.mikkelgud.person;
 
 import javafx.beans.Observable;
-import javafx.beans.property.*;
+import javafx.beans.property.BooleanProperty;
+import javafx.beans.property.SimpleBooleanProperty;
+import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.property.StringProperty;
 
 import java.time.LocalDateTime;
 
@@ -96,6 +99,22 @@ public class Person {
         this.insuranceBoat.set(isInsured);
     }
 
+    public boolean isInsuranceHouse() {
+        return insuranceHouse.get();
+    }
+
+    public boolean isInsuranceTravel() {
+        return insuranceTravel.get();
+    }
+
+    public boolean isInsuranceCabin() {
+        return insuranceCabin.get();
+    }
+
+    public boolean isInsuranceBoat() {
+        return insuranceBoat.get();
+    }
+
     @Override
     public String toString() {
         return String.format("%s %s",  getFirstName(), getLastName());
@@ -111,6 +130,10 @@ public class Person {
                 new SimpleStringProperty(String.format("Etternavn - %s", getLastName())),
                 new SimpleStringProperty(String.format("Fakturaadresse - %s", getBillingAddress())),
                 new SimpleStringProperty(String.format("Opprettet -  %s", getCreatedAt().toString())),
+                new SimpleStringProperty(String.format("Husforsikring - %s", isInsuranceHouse())),
+                new SimpleStringProperty(String.format("Fritidsboligforsikring - %s", isInsuranceCabin())),
+                new SimpleStringProperty(String.format("Båtforsikring - %s", isInsuranceBoat())),
+                new SimpleStringProperty(String.format("Reiseforsikring - %s", isInsuranceTravel()))
         };
     }
 

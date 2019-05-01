@@ -36,7 +36,6 @@ public class RegistratorController {
     @FXML
     private Label errorLabel;
 
-
     @FXML
     public Button closeRegistrationPageButton;
 
@@ -91,7 +90,6 @@ public class RegistratorController {
     @FXML
     public void closeRegistrationButtonHandeler(ActionEvent event) {
         Stage stage = (Stage) closeRegistrationPageButton.getScene().getWindow();
-
         stage.close();
     }
 

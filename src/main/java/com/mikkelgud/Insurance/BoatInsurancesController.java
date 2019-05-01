@@ -24,6 +24,8 @@ public class BoatInsurancesController {
     private String insuranceAmount = "300 000";
     private String insuranceCoverage = "Dekker all skade med båt";
 
+    private final String EMPTY_STRING = "";
+
     private final InsuranceValidator validator = new InsuranceValidator();
 
     private BoatInsuranceList boatInsuranceList;
@@ -35,10 +37,18 @@ public class BoatInsurancesController {
         try {
             BoatInsurance newBoatInsurance = validator.createNewBoatInsurance(insuranceYearlyPayment, insuranceAmount, insuranceCoverage, boatType.getText(), length.getText(), model.getText(), engineType.getText(), enginePower.getText());
             boatInsuranceList.getBoatInsuranceList().addAll(newBoatInsurance);
-
+            resetFieldValues();
         } catch (InvalidInsurancePropertiesException ex) {
             errorLabel.setText(ex.getMessage());
         }
+    }
+
+    private void resetFieldValues() {
+        boatType.setText(EMPTY_STRING);
+        length.setText(EMPTY_STRING);
+        model.setText(EMPTY_STRING);
+        engineType.setText(EMPTY_STRING);
+        enginePower.setText(EMPTY_STRING);
     }
 
 

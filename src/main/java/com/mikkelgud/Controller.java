@@ -15,7 +15,6 @@ import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
-import com.mikkelgud.readFromFile.ReadStrategy;
 
 import java.io.IOException;
 import java.net.URL;
@@ -47,20 +46,20 @@ public class Controller implements Initializable {
         initPersonListView(personListModel);
         initCurrentPersonView(personListModel.getCurrentPerson());
         initCurrentPersonInsuranceView(personListModel.getCurrentPerson());
-        initSearchInputField();
+//        initSearchInputField();
     }
 
-    //search input
-    @FXML
-    private void initSearchInputField() {
-        customerSearchInput.selectedTextProperty().addListener((obs, oldValue, newValue) -> {
-            System.out.println("hello" + oldValue + newValue);
-            personListModel.setFilteredPersonList((personListModel.getPersonList().filtered(person -> !newValue.isEmpty() ||
-                    !(person.getFirstName().toLowerCase().contains(newValue.toLowerCase()))
-                    || person.getLastName().toLowerCase().contains(newValue.toLowerCase())
-            )));
-        });
-    }
+    //search input coming soon
+//    @FXML
+//    private void initSearchInputField() {
+//        customerSearchInput.selectedTextProperty().addListener((obs, oldValue, newValue) -> {
+//            System.out.println("hello" + oldValue + newValue);
+//            personListModel.setFilteredPersonList((personListModel.getPersonList().filtered(person -> !newValue.isEmpty() ||
+//                    !(person.getFirstName().toLowerCase().contains(newValue.toLowerCase()))
+//                    || person.getLastName().toLowerCase().contains(newValue.toLowerCase())
+//            )));
+//        });
+//    }
 // getCustomerSearchInput().isEmpty()
 
 //                                || !(person.getFirstName().toLowerCase().contains(getCustomerSearchInput().toLowerCase())
