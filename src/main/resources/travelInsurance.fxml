@@ -13,13 +13,12 @@
         </font>
     </Label>
     <Label layoutX="110.0" layoutY="68.0" prefHeight="17.0" prefWidth="159.0" text="Velg forsikringsområdet"/>
-    <CheckBox layoutX="101.0" layoutY="100.0" mnemonicParsing="false" text="Europa"/>
-    <CheckBox layoutX="227.0" layoutY="100.0" mnemonicParsing="false" text="Asia"/>
-    <CheckBox layoutX="344.0" layoutY="100.0" mnemonicParsing="false" text="Nord Amerika"/>
-    <CheckBox layoutX="101.0" layoutY="157.0" mnemonicParsing="false" text="Sør Amerika"/>
-    <CheckBox layoutX="227.0" layoutY="157.0" mnemonicParsing="false" text="Oseania"/>
-    <CheckBox layoutX="344.0" layoutY="157.0" mnemonicParsing="false" text="Afrika"/>
+    <CheckBox fx:id="europe" layoutX="101.0" layoutY="100.0" mnemonicParsing="false" text="Europa"/>
+    <CheckBox fx:id="asia" layoutX="227.0" layoutY="100.0" mnemonicParsing="false" text="Asia"/>
+    <CheckBox fx:id="northAmerica" layoutX="344.0" layoutY="100.0" mnemonicParsing="false" text="Nord Amerika"/>
+    <CheckBox fx:id="southAmerica" layoutX="101.0" layoutY="157.0" mnemonicParsing="false" text="Sør Amerika"/>
+    <CheckBox fx:id="oseania" layoutX="227.0" layoutY="157.0" mnemonicParsing="false" text="Oseania"/>
+    <CheckBox fx:id="africa" layoutX="344.0" layoutY="157.0" mnemonicParsing="false" text="Afrika"/>
     <Button layoutX="307.0" layoutY="211.0" mnemonicParsing="false" text="Registrer"/>
     <Label layoutX="98.0" layoutY="265.0" prefHeight="18.0" prefWidth="330.0"/>
-    <RadioButton layoutX="101.0" layoutY="216.0" mnemonicParsing="false" text="Merk av alle"/>
 </AnchorPane>

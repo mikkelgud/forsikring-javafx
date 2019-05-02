@@ -34,7 +34,6 @@ public class RegisterPersonController {
     public TextField billingAddress;
     @FXML
     private Label errorLabel;
-
     @FXML
     public Button closeRegistrationPageButton;
 
