@@ -34,7 +34,6 @@ public class RegisterPersonController {
     public TextField billingAddress;
     @FXML
     private Label errorLabel;
-
     @FXML
     public Button closeRegistrationPageButton;
 
@@ -62,7 +61,6 @@ public class RegisterPersonController {
 
     private void openCheckedOutInsurances(Person newPerson) {
         insurancesModel.setCurrentPersonId(newPerson.getPersonId());
-
         if (insuranceBoat.isSelected()) {
             mainController.newBoatInsurance();
         }

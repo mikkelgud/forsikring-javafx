@@ -10,7 +10,7 @@ import java.time.LocalDateTime;
 
 public class BoatInsurance extends GeneralInsurance {
     private final StringProperty boatType = new SimpleStringProperty();
-    private final StringProperty model = new SimpleStringProperty();
+    private final StringProperty modelYear = new SimpleStringProperty();
     private final StringProperty engineType = new SimpleStringProperty();
     private final StringProperty enginePower = new SimpleStringProperty();
     private final StringProperty length = new SimpleStringProperty();
@@ -20,7 +20,7 @@ public class BoatInsurance extends GeneralInsurance {
         super(insuranceYearlyPayment, insuranceAmount, insuranceCoverageInfo);
         this.createdAt = LocalDateTime.now();
         this.boatType.set(boatType);
-        this.model.set(model);
+        this.modelYear.set(model);
         this.engineType.set(engineType);
         this.enginePower.set(enginePower);
         this.length.set(length);
@@ -31,8 +31,8 @@ public class BoatInsurance extends GeneralInsurance {
         return boatType.get();
     }
 
-    public String getModel() {
-        return model.get();
+    public String getModelYear() {
+        return modelYear.get();
     }
 
     public String getEngineType() {
@@ -59,8 +59,8 @@ public class BoatInsurance extends GeneralInsurance {
         return length;
     }
 
-    public StringProperty modelProperty() {
-        return model;
+    public StringProperty modelYearProperty() {
+        return modelYear;
     }
 
     public StringProperty engineTypeProperty() {
@@ -75,8 +75,8 @@ public class BoatInsurance extends GeneralInsurance {
         this.boatType.set(boatType);
     }
 
-    public void setModel(String model) {
-        this.model.set(model);
+    public void setModelYear(String modelYear) {
+        this.modelYear.set(modelYear);
     }
 
     public void setEngineType(String engineType) {
@@ -98,7 +98,7 @@ public class BoatInsurance extends GeneralInsurance {
                 new SimpleStringProperty(String.format("Kunde - %s", getPersonId())),
                 new SimpleStringProperty(String.format("Båttype - %s", getBoatType())),
                 new SimpleStringProperty(String.format("Båtlengde - %s", getLength())),
-                new SimpleStringProperty(String.format("Båtmodell - %s", getModel())),
+                new SimpleStringProperty(String.format("Båtmodell - %s", getModelYear())),
                 new SimpleStringProperty(String.format("Motortype - %s", getEngineType())),
                 new SimpleStringProperty(String.format("Motorkraft - %s", getEnginePower())),
                 new SimpleStringProperty(String.format("Opprettet -  %s", createdAt.toString())),
