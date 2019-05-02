@@ -18,6 +18,10 @@ public class CabinInsurance extends GeneralInsurance {
     private final StringProperty insurancePriceBuilding = new SimpleStringProperty();
     private final StringProperty insurancePriceHouseholdGoods = new SimpleStringProperty();
     private final LocalDateTime createdAt;
+//    private final StringProperty insuranceAmount = new SimpleStringProperty();
+//    private final StringProperty insuranceCoverageInfo = new SimpleStringProperty();
+//    private final StringProperty insuranceYearlyPayment =  new SimpleStringProperty();
+
 
 
     protected CabinInsurance(String insuranceYearlyPayment, String insuranceAmount, String insuranceCoverageInfo, String address, String buildingMaterial, String housingState, String cabinSize, String yearBuilt, String insurancePriceBuilding, String insurancePriceHouseholdGoods) {

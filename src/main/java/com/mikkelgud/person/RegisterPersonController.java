@@ -61,7 +61,6 @@ public class RegisterPersonController {
 
     private void openCheckedOutInsurances(Person newPerson) {
         insurancesModel.setCurrentPersonId(newPerson.getPersonId());
-
         if (insuranceBoat.isSelected()) {
             mainController.newBoatInsurance();
         }
