@@ -24,8 +24,28 @@ public class CabinInsuranceController {
     @FXML
     ComboBox buildingType;
 
+    private String insuranceYearlyPayment = "12123+";
+    private String insuranceAmount = "300 000";
+    private String insuranceCoverage = "Dekker skade med innbo og bygningsmasse";
+
+    private final String EMPTY_STRING = "";
+
+    private final InsuranceValidator validator = new InsuranceValidator();
+
+    private InsurancesModel insurancesModel;
 
     @FXML
     public void registerCabinInsurance() {
+       // errorLabel.setText()
+        try{
+            CabinInsurance newCabinInsurance = validator.createNewCabinInsurance(insurancesModel.getCurrentPersonId(),
+                    insuranceYearlyPayment, insuranceAmount, insuranceCoverage, adress.getText(), buildingMaterial.getValue().toString(),
+                    standard.getValue().toString(),
+                    cabinSize.getText(), insurancePremiumBuilding.getText(), insurancePremiumHousing.getText(),
+                    buildingType.getValue().toString());
+        } catch(InvalidInsurancePropertiesException ex){
+
+        }
+      //  errorLabel.setText(ex.getMessage());
     }
 }

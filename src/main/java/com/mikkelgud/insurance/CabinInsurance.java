@@ -45,68 +45,40 @@ public class CabinInsurance extends GeneralInsurance {
         return address.get();
     }
 
-    public StringProperty addressProperty() {
-        return address;
-    }
-
-    public String getBuildingMaterial() {
-        return buildingMaterial.get();
-    }
-
-    public StringProperty buildingMaterialProperty() {
-        return buildingMaterial;
-    }
-
     public String getHousingState() {
         return housingState.get();
-    }
-
-    public StringProperty housingStateProperty() {
-        return housingState;
     }
 
     public String getCabinSize() {
         return cabinSize.get();
     }
 
-    public StringProperty cabinSizeProperty() {
-        return cabinSize;
-    }
-
     public String getYearBuilt() {
         return yearBuilt.get();
     }
 
-    public StringProperty yearBuiltProperty() {
-        return yearBuilt;
-    }
-
-    public String getInsurancePriceBuilding() {
-        return insurancePriceBuilding.get();
-    }
-
-    public StringProperty insurancePriceBuildingProperty() {
-        return insurancePriceBuilding;
-    }
 
     public String getInsurancePriceHouseholdGoods() {
         return insurancePriceHouseholdGoods.get();
     }
 
-    public StringProperty insurancePriceHouseholdGoodsProperty() {
-        return insurancePriceHouseholdGoods;
-    }
+
 
     @Override
     public Observable[] getPropertiesAsList() {
         return new Observable[]{
-                address,
-                buildingMaterial,
-                housingState,
-                cabinSize,
-                yearBuilt,
-                insurancePriceBuilding,
-                insurancePriceHouseholdGoods
+                new SimpleStringProperty("-- Hytte og innbo --"),
+                new SimpleStringProperty(String.format("Kunde - %s", getPersonId())),
+                new SimpleStringProperty(String.format("Adresse - %s", getAddress())),
+                new SimpleStringProperty(String.format("Bygningsmatriale", getYearBuilt())),
+                new SimpleStringProperty(String.format("Byggeår - %s", getYearBuilt())),
+                new SimpleStringProperty(String.format("Tilstand - %s", getHousingState())),
+                new SimpleStringProperty(String.format("Størrelse - %s", getCabinSize())),
+                new SimpleStringProperty(String.format("Forsikringspremie bygning - %s", getYearBuilt())),
+                new SimpleStringProperty(String.format("Forsikringspremie innbo - %s", getInsurancePriceHouseholdGoods())),
+                new SimpleStringProperty(String.format("Opprettet -  %s", createdAt.toString())),
+                new SimpleStringProperty("-------------------")
+
         };
     }
 
