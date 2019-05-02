@@ -11,7 +11,7 @@ public class BoatInsurancesController {
     @FXML
     public TextField length;
     @FXML
-    public TextField model;
+    public TextField modelYear;
     @FXML
     public TextField engineType;
     @FXML
@@ -33,18 +33,10 @@ public class BoatInsurancesController {
     private void registerBoatInsurance(ActionEvent event) {
         errorLabel.setText("");
         try {
-            BoatInsurance newBoatInsurance = validator.createNewBoatInsurance(insurancesModel.getCurrentPersonId(), insuranceYearlyPayment, insuranceAmount, insuranceCoverage,
-                    boatType.getText(), length.getText(), model.getText(), engineType.getText(), enginePower.getText());
+            BoatInsurance newBoatInsurance = validator.createNewBoatInsurance(insurancesModel.getCurrentPersonId(),
+                    insuranceYearlyPayment, insuranceAmount, insuranceCoverage,
+                    boatType.getText(), length.getText(), modelYear.getText(), engineType.getText(), enginePower.getText());
             insurancesModel.getAllInsurances().add(newBoatInsurance);
-            System.out.println(
-                    insurancesModel.getCurrentPersonId() +
-                            insuranceYearlyPayment +
-                            insuranceAmount + insuranceCoverage +
-                            boatType.getText() +
-                            length.getText() +
-                            model.getText() +
-                            engineType.getText() +
-                            enginePower.getText());
             resetFieldValues();
         } catch (InvalidInsurancePropertiesException ex) {
             errorLabel.setText(ex.getMessage());
@@ -54,7 +46,7 @@ public class BoatInsurancesController {
     private void resetFieldValues() {
         boatType.setText(EMPTY_STRING);
         length.setText(EMPTY_STRING);
-        model.setText(EMPTY_STRING);
+        modelYear.setText(EMPTY_STRING);
         engineType.setText(EMPTY_STRING);
         enginePower.setText(EMPTY_STRING);
     }
