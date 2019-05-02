@@ -23,6 +23,7 @@ public class HouseInsuranceController {
     private String insuranceCoverage = "Dekker all skade med båt";
     private String insuranceBP = "300 000";
     private String insuranceHG = "100 000";
+    
 
     private final String EMPTY_STRING = "";
 
