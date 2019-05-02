@@ -9,16 +9,16 @@
       fx:controller="com.mikkelgud.Controller">
 
     <children>
-        <MenuBar VBox.vgrow="NEVER">
+        <MenuBar prefHeight="0.0" prefWidth="867.0" VBox.vgrow="NEVER">
             <menus>
                 <Menu mnemonicParsing="false" text="File">
                     <items>
-                        <MenuItem mnemonicParsing="false" onAction="#newHouseInsurance" text="New housing insurance"/>
-                        <MenuItem mnemonicParsing="false" onAction="#newBoatInsurance" text="New boat insurance"/>
+                        <MenuItem mnemonicParsing="false" onAction="#newHouseInsurance" text="Ny Husforsikring"/>
+                        <MenuItem mnemonicParsing="false" onAction="#newBoatInsurance" text="Ny Båtforsikring"/>
                         <MenuItem mnemonicParsing="false" onAction="#newCabinInsurance"
-                                  text="Ny fritidsboligforsikring"/>
-                        <MenuItem mnemonicParsing="false" onAction="#newTravelInsurance" text="New travel insurance"/>
-                        <SeparatorMenuItem mnemonicParsing="false" text="Meld ny skade"/>
+                                  text="Ny Fritidsboligforsikring"/>
+                        <MenuItem mnemonicParsing="false" onAction="#newTravelInsurance" text="Ny Reiseforsikring"/>
+                        <MenuItem mnemonicParsing="false" text="Meld ny skade"/>
                         <MenuItem mnemonicParsing="false" onAction="#openFile" text="Open file"/>
                         <MenuItem mnemonicParsing="false" onAction="#saveFile" text="Save"/>
                         <MenuItem mnemonicParsing="false" text="Save As…" />
@@ -50,26 +50,48 @@
                 </AnchorPane>
                 <ScrollPane prefHeight="-1.0" prefWidth="-1.0">
                     <content>
-                        <AnchorPane id="Content" minHeight="-1.0" minWidth="-1.0" prefHeight="545.0" prefWidth="430.0">
+                        <AnchorPane id="Content" minHeight="-1.0" minWidth="-1.0" prefHeight="545.0" prefWidth="460.0">
                             <children>
                                 <Label alignment="CENTER" font="$x1" layoutX="14.0" layoutY="14.0" style="&#10;" text="Kundeinformasjon" textAlignment="CENTER" textFill="$x2" wrapText="false" />
                                 <ListView fx:id="currPersonListView" layoutX="14.0" layoutY="73.0" prefHeight="467.0"
-                                          prefWidth="405.0"/>
+                                          prefWidth="192.0"/>
+                                <ListView fx:id="currPersonListView1" layoutX="207.0" layoutY="73.0" prefHeight="467.0"
+                                          prefWidth="161.0"/>
+                                <Label alignment="CENTER" layoutX="200.0" layoutY="50.0" prefHeight="23.0"
+                                       prefWidth="167.0" style="&#10;" text="skadetilbakebetaling"
+                                       textAlignment="CENTER" wrapText="false">
+                                    <font>
+                                        <Font size="14.0" fx:id="x11"/>
+                                    </font>
+                                    <textFill>
+                                        <Color blue="0.624" green="0.624" red="0.624" fx:id="x21"/>
+                                    </textFill>
+                                </Label>
+                                <Label alignment="CENTER" layoutX="-24.0" layoutY="50.0" prefHeight="23.0"
+                                       prefWidth="167.0" style="&#10;" text="Generell info" textAlignment="CENTER"
+                                       wrapText="false">
+                                    <font>
+                                        <Font size="14.0" fx:id="x111"/>
+                                    </font>
+                                    <textFill>
+                                        <Color blue="0.624" green="0.624" red="0.624" fx:id="x211"/>
+                                    </textFill>
+                                </Label>
                             </children>
                         </AnchorPane>
                     </content>
                 </ScrollPane>
-                <AnchorPane>
+                <AnchorPane prefHeight="545.0" prefWidth="240.0">
                     <children>
                         <Label alignment="CENTER" font="$x1" layoutX="14.0" layoutY="14.0" style="&#10;"
                                text="Kundeforsikringer" textAlignment="CENTER" textFill="$x2" wrapText="false"/>
-                        <ListView fx:id="currPersonInsuranceListView" layoutX="10.0" layoutY="75.0" prefHeight="465.0"
-                                  prefWidth="200.0"/>
+                        <ListView fx:id="currPersonInsuranceListView" layoutX="-10.0" layoutY="59.0" prefHeight="481.0"
+                                  prefWidth="220.0"/>
                     </children>
                 </AnchorPane>
             </items>
         </SplitPane>
-        <HBox id="HBox" alignment="CENTER_LEFT" spacing="5.0" VBox.vgrow="NEVER">
+        <HBox id="HBox" alignment="CENTER_LEFT" prefHeight="17.0" prefWidth="900.0" spacing="5.0" VBox.vgrow="NEVER">
             <children>
                 <Label maxHeight="1.7976931348623157E308" maxWidth="-1.0" text="Left status" HBox.hgrow="ALWAYS">
                     <font>

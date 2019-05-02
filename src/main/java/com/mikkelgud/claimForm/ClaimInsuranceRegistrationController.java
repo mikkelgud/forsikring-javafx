@@ -20,4 +20,5 @@ public class ClaimInsuranceRegistrationController {
     @FXML
     protected Label moneyBack;
 
+
 }
