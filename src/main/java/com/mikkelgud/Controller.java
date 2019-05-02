@@ -1,9 +1,15 @@
 package com.mikkelgud;
 
-//import SaveToFile.SaveStrategy;
+//import com.mikkelgud.filehandling.SaveStrategy;
 
-import com.mikkelgud.person.*;
-import com.mikkelgud.readFromFile.ReadStrategy;
+import com.mikkelgud.filehandling.ReadStrategy;
+import com.mikkelgud.insurance.BoatInsurancesController;
+import com.mikkelgud.insurance.HouseInsuranceController;
+import com.mikkelgud.insurance.InsurancesModel;
+import com.mikkelgud.person.InvalidPersonPropertiesException;
+import com.mikkelgud.person.Person;
+import com.mikkelgud.person.PersonListModel;
+import com.mikkelgud.person.RegisterPersonController;
 import javafx.beans.property.StringProperty;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -34,18 +40,21 @@ public class Controller implements Initializable {
     public ListView currPersonInsuranceListView;
 
     private static PersonListModel personListModel;
-    public CostumerID costumerID = new CostumerID();
+    private static InsurancesModel insurancesModel;
+
     // Using init-method to tell what will be printed to the GUI
     @FXML
-    public void init(PersonListModel personListModel) {
+    public void init(PersonListModel personListModel, InsurancesModel insurancesModel) {
         if (this.personListModel != null) {
             System.err.println("Wops! We shouldn't have more than one person list model!");
             System.exit(0);
         }
         this.personListModel = personListModel;
-        initPersonListView(personListModel);
+        this.insurancesModel = insurancesModel;
+
+        initPersonListView();
         initCurrentPersonView(personListModel.getCurrentPerson());
-        initCurrentPersonInsuranceView(personListModel.getCurrentPerson());
+        initCurrentPersonInsuranceView();
 //        initSearchInputField();
     }
 
@@ -69,7 +78,28 @@ public class Controller implements Initializable {
 
 
     @FXML
-    private void initCurrentPersonInsuranceView(Person currentPerson) {
+    private void initCurrentPersonInsuranceView() {
+        currPersonInsuranceListView.setItems(insurancesModel.getCurrentPersonsInsurances());
+
+        currPersonInsuranceListView.setCellFactory(lv -> new ListCell<>() {
+            @Override
+            public void updateItem(Object s, boolean empty) {
+
+                if (s != null) {
+                    super.updateItem(s, empty);
+                    StringProperty y = (StringProperty) s;
+
+                    if (empty) {
+                        setText(null);
+                    } else {
+                        setText(y.getValue());
+                    }
+                } else {
+                    super.updateItem(null, true);
+                    setText("");
+                }
+            }
+        });
     }
 
     @FXML
@@ -93,12 +123,17 @@ public class Controller implements Initializable {
     }
 
     @FXML
-    private void initPersonListView(PersonListModel personListModel) {
+    private void initPersonListView() {
         personListView.setItems(personListModel.getPersonList());
 
         // Handle when user clicks a person (set clicked person to current person).
         personListView.getSelectionModel().selectedItemProperty().addListener(
-                (observer, oldSelection, newSelection) -> personListModel.setCurrentPerson((Person) newSelection));
+                (observer, oldSelection, newSelection) -> {
+                    personListModel.setCurrentPerson((Person) newSelection);
+                    insurancesModel.setCurrentPersonId(((Person) newSelection).getPersonId());
+                    insurancesModel.setCurrentPersonsInsurances();
+                }
+        );
 
         // Handle when new person is clicked (after another one has been selected).
         personListModel.currentPersonProperty().addListener((obs, oldPerson, newPerson) -> {
@@ -122,33 +157,34 @@ public class Controller implements Initializable {
         });
     }
 
-    @FXML
-    private void initInsuranceView() {
-        // Denne skal vise Personen som er klikket sine forsikringer.
-    }
-
 
     @FXML
-    public void newInsuranceUserWinddowOpener() {
+    public void newInsuranceUserWindowOpener() {
         URL resource = getClass().getClassLoader().getResource("registrering.fxml");
         FXMLLoader loader = new FXMLLoader(resource);
-        costumerID.generateID();
+
         try {
             Parent root = loader.load();
-            RegistratorController controller = loader.getController();
+            RegisterPersonController controller = loader.getController();
             controller.setPersonModel(personListModel);
-            Scene scene = new Scene(root);
-
-            Stage stage = new Stage();
-            stage.initModality(Modality.APPLICATION_MODAL);
-            stage.setTitle("Registrering");
-            stage.setScene(scene);
-            stage.setResizable(false);
-            stage.show();
+            controller.setMainController(this);
+            controller.setInsurancesModel(insurancesModel);
+            openWindow(root, "Registrering");
 
         } catch (IOException ex) {
             Logger.getLogger(Controller.class.getName()).log(Level.SEVERE, null, ex);
         }
+    }
+
+    private void openWindow(Parent root, String registrering) {
+        Scene scene = new Scene(root);
+
+        Stage stage = new Stage();
+        stage.initModality(Modality.APPLICATION_MODAL);
+        stage.setTitle(registrering);
+        stage.setScene(scene);
+        stage.setResizable(false);
+        stage.show();
     }
 
     @FXML
@@ -158,16 +194,10 @@ public class Controller implements Initializable {
 
         try {
             Parent root = loader.load();
-            loader.setController(this);
+            HouseInsuranceController controller = loader.getController();
+            openWindow(root, "Registrering");
 
-            Scene scene = new Scene(root);
-
-            Stage stage = new Stage();
-            stage.initModality(Modality.APPLICATION_MODAL);
-            stage.setTitle("Registrer din husholdningsforsikring");
-            stage.setScene(scene);
-            stage.setResizable(false);
-            stage.show();
+            openWindow(root, "Registrer din husholdningsforsikring");
         } catch (IOException ex) {
             Logger.getLogger(Controller.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -181,16 +211,9 @@ public class Controller implements Initializable {
 
         try {
             Parent root = loader.load();
-            loader.setController(this);
-
-            Scene scene = new Scene(root);
-
-            Stage stage = new Stage();
-            stage.initModality(Modality.APPLICATION_MODAL);
-            stage.setTitle("Registrer din båtforsikring");
-            stage.setScene(scene);
-            stage.setResizable(false);
-            stage.show();
+            BoatInsurancesController insurancesController = loader.getController();
+            insurancesController.setInsurancesModel(insurancesModel);
+            openWindow(root, "Registrer din båtforsikring");
         } catch (IOException ex) {
             Logger.getLogger(Controller.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -206,14 +229,7 @@ public class Controller implements Initializable {
             Parent root = loader.load();
             loader.setController(this);
 
-            Scene scene = new Scene(root);
-
-            Stage stage = new Stage();
-            stage.initModality(Modality.APPLICATION_MODAL);
-            stage.setTitle("Registrer din fritidsbolig");
-            stage.setScene(scene);
-            stage.setResizable(false);
-            stage.show();
+            openWindow(root, "Registrer din fritidsbolig");
         } catch (IOException ex) {
             Logger.getLogger(Controller.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -228,15 +244,7 @@ public class Controller implements Initializable {
         try {
             Parent root = loader.load();
             loader.setController(this);
-
-            Scene scene = new Scene(root);
-
-            Stage stage = new Stage();
-            stage.initModality(Modality.APPLICATION_MODAL);
-            stage.setTitle("Registrer din reiseforsikring");
-            stage.setScene(scene);
-            stage.setResizable(false);
-            stage.show();
+            openWindow(root, "Registrer din reiseforsikring");
         } catch (IOException ex) {
             Logger.getLogger(Controller.class.getName()).log(Level.SEVERE, null, ex);
         }

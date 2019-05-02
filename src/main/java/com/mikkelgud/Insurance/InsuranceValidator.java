@@ -1,10 +1,10 @@
-package com.mikkelgud.Insurance;
+package com.mikkelgud.insurance;
 
 public class InsuranceValidator {
     //Only validating one thing so only one message i needed
     private static final String MESSAGE_NO_EMPTY_FIELDS = "Venligst fyll ut alle feltetene i registreringen";
 
-    public BoatInsurance createNewBoatInsurance(String insuranceYearlyPayment, String insuranceAmount, String insuranceInfo, String boatType, String length, String model, String engineType, String enginePower) throws InvalidInsurancePropertiesException {
+    public BoatInsurance createNewBoatInsurance(String currentPersonId, String insuranceYearlyPayment, String insuranceAmount, String insuranceInfo, String boatType, String length, String model, String engineType, String enginePower) throws InvalidInsurancePropertiesException {
 
         if (!isPresent(boatType)) {
             throw new InvalidInsurancePropertiesException(MESSAGE_NO_EMPTY_FIELDS);
@@ -26,7 +26,7 @@ public class InsuranceValidator {
             throw new InvalidInsurancePropertiesException(MESSAGE_NO_EMPTY_FIELDS);
         }
 
-        return new BoatInsurance(boatType, length, model, engineType, enginePower, insuranceYearlyPayment, insuranceAmount, insuranceInfo);
+        return new BoatInsurance(currentPersonId, boatType, length, model, engineType, enginePower, insuranceYearlyPayment, insuranceAmount, insuranceInfo);
     }
 
 

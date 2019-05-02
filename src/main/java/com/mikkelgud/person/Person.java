@@ -7,9 +7,10 @@ import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 
 import java.time.LocalDateTime;
+import java.util.UUID;
 
 public class Person {
-
+    private final StringProperty personId = new SimpleStringProperty();
     private final StringProperty firstName = new SimpleStringProperty();
     private final StringProperty lastName = new SimpleStringProperty();
     private final StringProperty billingAddress = new SimpleStringProperty();
@@ -28,9 +29,10 @@ public class Person {
         this.firstName.set(firstName);
         this.lastName.set(lastName);
         this.billingAddress.set(billingAddress);
+        //Når vi registrerer en ny person vil dette lagre registreringsdatoen til personen.
         this.createdAt = LocalDateTime.now();
-
-
+        // Når vi registrerer en ny person, vil denne gi personen en "unik" identifikator.
+        this.personId.set(UUID.randomUUID().toString());
     }
 
     public String getFirstName() {
@@ -134,6 +136,10 @@ public class Person {
         return isInsuranceBoat() ? USER_IS_REGISTERED : USER_IS_NOT_REGISTERED;
     }
 
+    public String getPersonId() {
+        return personId.get();
+    }
+
     @Override
     public String toString() {
         return String.format("%s %s",  getFirstName(), getLastName());
@@ -145,6 +151,7 @@ public class Person {
 
     public Observable[] getPropertiesAsList() {
         return new Observable[]{
+                new SimpleStringProperty(String.format("Kundenummer - %s", getPersonId())),
                 new SimpleStringProperty(String.format("Fornavn - %s", getFirstName())),
                 new SimpleStringProperty(String.format("Etternavn - %s", getLastName())),
                 new SimpleStringProperty(String.format("Fakturaadresse - %s", getBillingAddress())),

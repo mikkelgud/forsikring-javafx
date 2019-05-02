@@ -1,27 +1,29 @@
 
-package com.mikkelgud.Insurance;
+package com.mikkelgud.insurance;
 
+import javafx.beans.Observable;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 
 import java.time.LocalDateTime;
 
-public abstract class GeneralInsurance {
+public abstract class GeneralInsurance implements Observable {
     private StringProperty insuranceYearlyPayment = new SimpleStringProperty();
     private StringProperty insuranceAmount = new SimpleStringProperty();
     private StringProperty insuranceCoverageInfo = new SimpleStringProperty();
+
+    // Det må finnes en eier av en forsikring.
+    private StringProperty personId = new SimpleStringProperty();
     private final LocalDateTime createdAt;
 
-    public abstract LocalDateTime getCreatedAt();
-
-
-    protected GeneralInsurance(String insuranceYearlyPayment, String insuranceAmount, String insuranceCoverageInfo) {
+    GeneralInsurance(String insuranceYearlyPayment, String insuranceAmount, String insuranceCoverageInfo) {
         this.insuranceAmount.set(insuranceAmount);
         this.insuranceCoverageInfo.set(insuranceCoverageInfo);
         this.insuranceYearlyPayment.set(insuranceYearlyPayment);
         this.createdAt = LocalDateTime.now();
     }
 
+    public abstract Observable[] getPropertiesAsList();
 
     public String getInsuranceYearlyPayment() {
         return insuranceYearlyPayment.get();
@@ -47,4 +49,19 @@ public abstract class GeneralInsurance {
         return insuranceCoverageInfo;
     }
 
+    public LocalDateTime getCreatedAt() {
+        return createdAt;
+    }
+
+    public String getPersonId() {
+        return personId.get();
+    }
+
+    public StringProperty personIdProperty() {
+        return personId;
+    }
+
+    public void setPersonId(String personId) {
+        this.personId.set(personId);
+    }
 }

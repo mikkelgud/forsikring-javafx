@@ -4,7 +4,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 <AnchorPane prefHeight="325.0" prefWidth="534.0" xmlns="http://javafx.com/javafx/11.0.1"
-            xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mikkelgud.Insurance.TravelInsuranceController">
+            xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mikkelgud.insurance.TravelInsuranceController">
 
     <Label alignment="CENTER" layoutX="131.0" layoutY="23.0" style="&#10;" text="Registreringsskjema Reiseforsikring"
            textAlignment="CENTER" wrapText="false">

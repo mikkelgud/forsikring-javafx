@@ -4,7 +4,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 <AnchorPane prefHeight="381.0" prefWidth="575.0" xmlns="http://javafx.com/javafx/11.0.1"
-            xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mikkelgud.Insurance.BoatInsurancesController">
+            xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mikkelgud.insurance.BoatInsurancesController">
     <children>
         <Label alignment="CENTER" contentDisplay="CENTER" layoutX="25.0" layoutY="14.0" prefHeight="42.0"
                prefWidth="550.0" text="Registrer båtforsikring">
@@ -22,6 +22,6 @@
         <Label fx:id="errorLabel" alignment="CENTER" layoutX="149.0" layoutY="315.0" prefHeight="17.0" prefWidth="279.0"
                textFill="#ee0303"/>
         <Button layoutX="222.0" layoutY="248.0" mnemonicParsing="false"
-                onAction="#registrateBoatInsuranceButtonHandeler" prefHeight="27.0" prefWidth="132.0" text="Registrer"/>
+                onAction="#registerBoatInsurance" prefHeight="27.0" prefWidth="132.0" text="Registrer"/>
     </children>
 </AnchorPane>

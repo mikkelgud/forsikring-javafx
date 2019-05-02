@@ -1,4 +1,4 @@
-package com.mikkelgud.Insurance;
+package com.mikkelgud.insurance;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -27,15 +27,15 @@ public class BoatInsurancesController {
 
     private final InsuranceValidator validator = new InsuranceValidator();
 
-    private BoatInsuranceList boatInsuranceList;
+    private InsurancesModel insurancesModel;
 
     @FXML
-    private void registrateBoatInsuranceButtonHandeler(ActionEvent event) {
+    private void registerBoatInsurance(ActionEvent event) {
         errorLabel.setText("");
         try {
-            BoatInsurance newBoatInsurance = validator.createNewBoatInsurance(insuranceYearlyPayment, insuranceAmount, insuranceCoverage,
+            BoatInsurance newBoatInsurance = validator.createNewBoatInsurance(insurancesModel.getCurrentPersonId(), insuranceYearlyPayment, insuranceAmount, insuranceCoverage,
                     boatType.getText(), length.getText(), model.getText(), engineType.getText(), enginePower.getText());
-            boatInsuranceList.getBoatInsuranceList().addAll(newBoatInsurance);
+            insurancesModel.getAllInsurances().add(newBoatInsurance);
             resetFieldValues();
         } catch (InvalidInsurancePropertiesException ex) {
             errorLabel.setText(ex.getMessage());
@@ -50,7 +50,7 @@ public class BoatInsurancesController {
         enginePower.setText(EMPTY_STRING);
     }
 
-    public void setBoatInsuranceList(BoatInsuranceList boatInsuranceList) {
-        this.boatInsuranceList = boatInsuranceList;
+    public void setInsurancesModel(InsurancesModel insurancesModel) {
+        this.insurancesModel = insurancesModel;
     }
 }

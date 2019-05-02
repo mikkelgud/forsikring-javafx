@@ -1,6 +1,7 @@
 
-package com.mikkelgud.Insurance;
+package com.mikkelgud.insurance;
 
+import javafx.beans.InvalidationListener;
 import javafx.beans.Observable;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
@@ -15,7 +16,7 @@ public class BoatInsurance extends GeneralInsurance {
     private final StringProperty length = new SimpleStringProperty();
     private final LocalDateTime createdAt;
 
-    public BoatInsurance(String insuranceYearlyPayment, String insuranceAmount, String insuranceCoverageInfo, String boatType, String length, String model, String engineType, String enginePower) {
+    public BoatInsurance(String currentPersonId, String insuranceYearlyPayment, String insuranceAmount, String insuranceCoverageInfo, String boatType, String length, String model, String engineType, String enginePower) {
         super(insuranceYearlyPayment, insuranceAmount, insuranceCoverageInfo);
         this.createdAt = LocalDateTime.now();
         this.boatType.set(boatType);
@@ -23,6 +24,7 @@ public class BoatInsurance extends GeneralInsurance {
         this.engineType.set(engineType);
         this.enginePower.set(enginePower);
         this.length.set(length);
+        setPersonId(currentPersonId);
     }
 
     public String getBoatType() {
@@ -53,7 +55,7 @@ public class BoatInsurance extends GeneralInsurance {
         return boatType;
     }
 
-    public StringProperty LengthProperty() {
+    public StringProperty lengthProperty() {
         return length;
     }
 
@@ -89,16 +91,28 @@ public class BoatInsurance extends GeneralInsurance {
         this.length.set(length);
     }
 
-    public Observable[] getBoatInsurancePropertiesAsList() {
+    @Override
+    public Observable[] getPropertiesAsList() {
         return new Observable[]{
+                new SimpleStringProperty("-- BÅTFORSIKRING --"),
+                new SimpleStringProperty(String.format("Kunde - %s", getPersonId())),
                 new SimpleStringProperty(String.format("Båttype - %s", getBoatType())),
                 new SimpleStringProperty(String.format("Båtlengde - %s", getLength())),
                 new SimpleStringProperty(String.format("Båtmodell - %s", getModel())),
                 new SimpleStringProperty(String.format("Motortype - %s", getEngineType())),
                 new SimpleStringProperty(String.format("Motorkraft - %s", getEnginePower())),
                 new SimpleStringProperty(String.format("Opprettet -  %s", createdAt.toString())),
+                new SimpleStringProperty("-------------------")
         };
     }
 
+    @Override
+    public void addListener(InvalidationListener invalidationListener) {
+        invalidationListener.invalidated(this);
+    }
 
+    @Override
+    public void removeListener(InvalidationListener invalidationListener) {
+        invalidationListener.invalidated(this);
+    }
 }

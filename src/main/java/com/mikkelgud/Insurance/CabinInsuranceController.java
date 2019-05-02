@@ -1,4 +1,4 @@
-package com.mikkelgud.Insurance;
+package com.mikkelgud.insurance;
 
 public class CabinInsuranceController {
 }

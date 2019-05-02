@@ -1,16 +1,16 @@
 
-package com.mikkelgud.Insurance;
+package com.mikkelgud.insurance;
 
+import javafx.beans.InvalidationListener;
+import javafx.beans.Observable;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 
 import java.time.LocalDateTime;
 
-// will soooooon extends GeneralInsurance, but for now, sorry bro fix me if you can.
-
 public class CabinInsurance extends GeneralInsurance {
 
-    private final StringProperty adress = new SimpleStringProperty();
+    private final StringProperty address = new SimpleStringProperty();
     private final StringProperty buildingMaterial = new SimpleStringProperty();
     private final StringProperty housingState = new SimpleStringProperty();
     private final StringProperty cabinSize = new SimpleStringProperty();
@@ -20,10 +20,10 @@ public class CabinInsurance extends GeneralInsurance {
     private final LocalDateTime createdAt;
 
 
-    protected CabinInsurance(String insuranceYearlyPayment, String insuranceAmount, String insuranceCoverageInfo, String adress, String buildingMaterial, String housingState, String cabinSize, String yearBuilt, String insurancePriceBuilding, String insurancePriceHouseholdGoods) {
+    protected CabinInsurance(String insuranceYearlyPayment, String insuranceAmount, String insuranceCoverageInfo, String address, String buildingMaterial, String housingState, String cabinSize, String yearBuilt, String insurancePriceBuilding, String insurancePriceHouseholdGoods) {
         super(insuranceYearlyPayment, insuranceAmount, insuranceCoverageInfo);
         this.createdAt = LocalDateTime.now();
-        this.adress.set(adress);
+        this.address.set(address);
         this.buildingMaterial.set(buildingMaterial);
         this.housingState.set(housingState);
         this.cabinSize.set(cabinSize);
@@ -37,12 +37,12 @@ public class CabinInsurance extends GeneralInsurance {
     }
 
 
-    public String getAdress() {
-        return adress.get();
+    public String getAddress() {
+        return address.get();
     }
 
-    public StringProperty adressProperty() {
-        return adress;
+    public StringProperty addressProperty() {
+        return address;
     }
 
     public String getBuildingMaterial() {
@@ -93,6 +93,28 @@ public class CabinInsurance extends GeneralInsurance {
         return insurancePriceHouseholdGoods;
     }
 
+    @Override
+    public Observable[] getPropertiesAsList() {
+        return new Observable[]{
+                address,
+                buildingMaterial,
+                housingState,
+                cabinSize,
+                yearBuilt,
+                insurancePriceBuilding,
+                insurancePriceHouseholdGoods
+        };
+    }
+
+    @Override
+    public void addListener(InvalidationListener invalidationListener) {
+        invalidationListener.invalidated(this);
+    }
+
+    @Override
+    public void removeListener(InvalidationListener invalidationListener) {
+        invalidationListener.invalidated(this);
+    }
 }
 
 

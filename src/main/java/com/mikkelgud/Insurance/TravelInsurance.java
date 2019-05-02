@@ -1,6 +1,8 @@
 
-package com.mikkelgud.Insurance;
+package com.mikkelgud.insurance;
 
+import javafx.beans.InvalidationListener;
+import javafx.beans.Observable;
 import javafx.beans.property.BooleanProperty;
 import javafx.beans.property.SimpleBooleanProperty;
 
@@ -10,19 +12,30 @@ import java.time.LocalDateTime;
 public class TravelInsurance extends GeneralInsurance {
     private final BooleanProperty europa = new SimpleBooleanProperty();
     private final BooleanProperty asia = new SimpleBooleanProperty();
-    private final BooleanProperty nordAmerica = new SimpleBooleanProperty();
-    private final BooleanProperty oseania = new SimpleBooleanProperty();
+    private final BooleanProperty northAmerica = new SimpleBooleanProperty();
+    private final BooleanProperty oceania = new SimpleBooleanProperty();
     private final BooleanProperty africa = new SimpleBooleanProperty();
     private final LocalDateTime createdAt;
 
-    public TravelInsurance(String insuranceYearlyPayment, String insuranceAmount, String insuranceCoverageInfo, boolean europa, boolean asia, boolean nordAmerica, boolean oseania, boolean africa) {
+    public TravelInsurance(String insuranceYearlyPayment, String insuranceAmount, String insuranceCoverageInfo, boolean europa, boolean asia, boolean northAmerica, boolean oceania, boolean africa) {
         super(insuranceYearlyPayment, insuranceAmount, insuranceCoverageInfo);
         this.africa.set(africa);
         this.europa.set(europa);
         this.asia.set(asia);
-        this.nordAmerica.set(nordAmerica);
-        this.oseania.set(oseania);
+        this.northAmerica.set(northAmerica);
+        this.oceania.set(oceania);
         this.createdAt = LocalDateTime.now();
+    }
+
+    @Override
+    public Observable[] getPropertiesAsList() {
+        return new Observable[]{
+                europa,
+                asia,
+                northAmerica,
+                oceania,
+                africa,
+        };
     }
 
     public LocalDateTime getCreatedAt() {
@@ -45,20 +58,20 @@ public class TravelInsurance extends GeneralInsurance {
         return asia;
     }
 
-    public boolean isNordAmerica() {
-        return nordAmerica.get();
+    public boolean getNorthAmerica() {
+        return northAmerica.get();
     }
 
-    public BooleanProperty nordAmericaProperty() {
-        return nordAmerica;
+    public BooleanProperty northAmericaProperty() {
+        return northAmerica;
     }
 
-    public boolean isOseania() {
-        return oseania.get();
+    public boolean getOceania() {
+        return oceania.get();
     }
 
-    public BooleanProperty oseaniaProperty() {
-        return oseania;
+    public BooleanProperty oceaniaProperty() {
+        return oceania;
     }
 
     public boolean isAfrica() {
@@ -70,4 +83,13 @@ public class TravelInsurance extends GeneralInsurance {
     }
 
 
+    @Override
+    public void addListener(InvalidationListener invalidationListener) {
+        invalidationListener.invalidated(this);
+    }
+
+    @Override
+    public void removeListener(InvalidationListener invalidationListener) {
+        invalidationListener.invalidated(this);
+    }
 }

@@ -1,5 +1,6 @@
 package com.mikkelgud;
 
+import com.mikkelgud.insurance.InsurancesModel;
 import com.mikkelgud.person.PersonListModel;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -13,6 +14,7 @@ import java.net.URL;
 public class Main extends Application {
 
     PersonListModel personListModel = new PersonListModel();
+    InsurancesModel insurancesModel = new InsurancesModel();
 
     @Override
     public void start(Stage stage) throws Exception {
@@ -20,7 +22,7 @@ public class Main extends Application {
         FXMLLoader loader = new FXMLLoader(resource);
         Parent root = loader.load();
         Controller controller = loader.getController();
-        controller.init(personListModel);
+        controller.init(personListModel, insurancesModel);
         Scene scene = new Scene(root);
 
         stage.setScene(scene);

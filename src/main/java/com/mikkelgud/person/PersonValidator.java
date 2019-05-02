@@ -3,7 +3,7 @@ package com.mikkelgud.person;
 public class PersonValidator {
 
     private static final int MIN_LENGTH_LASTNAME = 3;
-    private static final int MIN_LENGTH_FIRSTNAME = 2;
+    private static final int MIN_LENGTH_FIRSTNAME = 3;
     private static final int MIN_LENGTH_BILLINGADDRESS = 3;
 
     public static final String MESSAGE_NO_EMPTY_FIRSTNAME = "Personen må ha et fornavn.";
