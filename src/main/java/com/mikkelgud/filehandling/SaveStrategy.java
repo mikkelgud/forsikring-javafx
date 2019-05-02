@@ -1,6 +1,7 @@
 
 package com.mikkelgud.filehandling;
 
+import com.mikkelgud.person.InvalidPersonPropertiesException;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 
@@ -8,7 +9,10 @@ import java.io.File;
 import java.io.IOException;
 
 
-public class SaveStrategy implements SaveToFile {
+public class SaveStrategy extends ReadFromFile {
+
+
+
     public static void save(Stage stage) throws IOException {
         FileChooser fc = new FileChooser();
         File selectedFile = fc.showSaveDialog(stage);
@@ -27,8 +31,9 @@ public class SaveStrategy implements SaveToFile {
 
     }
 
+
     @Override
-    public boolean SaveFile(String fileName) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public void readFile() throws InvalidPersonPropertiesException {
+
     }
 }

@@ -52,6 +52,7 @@ public class RegisterPersonController {
             newPerson.setInsuranceHouse(insuranceHouse.isSelected());
             newPerson.setInsuranceTravel(insuranceTravel.isSelected());
 
+
             openCheckedOutInsurances(newPerson);
             resetFieldValues();
         } catch (InvalidPersonPropertiesException ex) {
@@ -73,7 +74,6 @@ public class RegisterPersonController {
         if (insuranceTravel.isSelected()) {
             mainController.newTravelInsurance();
         }
-
         personListModel.getPersonList().add(newPerson);
     }
 

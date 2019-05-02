@@ -22,8 +22,6 @@ public class PersonData {
     public PersonData() {
 
     }
-
-
     public void setBillingAddress(String billingAddress) {
         this.billingAddress = billingAddress;
     }
@@ -52,10 +50,17 @@ public class PersonData {
         try {
             Person newPerson = validator.createNewPerson(getFirstName(), getLastName(), getBillingAddress());
             personListModel.getPersonList().add(newPerson);
-            personListModel.toString();
+
         } catch (InvalidPersonPropertiesException ex) {
             ex.printStackTrace();
         }
     }
 
+//    @Override
+//    public String toString() {
+////        String out = "First name: " + firstName + "Last name: " + lastName + "Billing address: " + billingAddress + "\n";
+////        System.out.print(out);
+////
+////  return "First name: " + firstName + "Last name: " + lastName + "Billing address: " + billingAddress + "\n";
+//    }
 }

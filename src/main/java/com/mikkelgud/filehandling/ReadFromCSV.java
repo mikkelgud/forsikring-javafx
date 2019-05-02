@@ -9,7 +9,7 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 
-public class ReadFromCSV extends ReadFromFile {
+public class ReadFromCSV {
     public String fileName;
     public File file;
 

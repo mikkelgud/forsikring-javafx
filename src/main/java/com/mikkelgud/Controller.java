@@ -260,7 +260,7 @@ public class Controller implements Initializable {
     
     public void openFile() throws IOException, InvalidPersonPropertiesException {
         ReadStrategy readStrat = new ReadStrategy();
-        readStrat.read();
+        readStrat.readFile();
     }
 
     @Override
