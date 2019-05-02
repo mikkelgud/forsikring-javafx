@@ -33,9 +33,17 @@ public class BoatInsurancesController {
     private void registerBoatInsurance(ActionEvent event) {
         errorLabel.setText("");
         try {
-            BoatInsurance newBoatInsurance = validator.createNewBoatInsurance(insurancesModel.getCurrentPersonId(),
-                    insuranceYearlyPayment, insuranceAmount, insuranceCoverage,
-                    boatType.getText(), length.getText(), modelYear.getText(), engineType.getText(), enginePower.getText());
+            BoatInsurance newBoatInsurance = validator.createNewBoatInsurance(
+                    insurancesModel.getCurrentPersonId(),
+                    insuranceYearlyPayment,
+                    insuranceAmount,
+                    insuranceCoverage,
+                    boatType.getText(),
+                    length.getText(),
+                    modelYear.getText(),
+                    engineType.getText(),
+                    enginePower.getText());
+
             insurancesModel.getAllInsurances().add(newBoatInsurance);
             resetFieldValues();
         } catch (InvalidInsurancePropertiesException ex) {
