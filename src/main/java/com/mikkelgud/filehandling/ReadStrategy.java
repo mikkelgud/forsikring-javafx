@@ -8,11 +8,10 @@ package com.mikkelgud.filehandling;
 import com.mikkelgud.person.InvalidPersonPropertiesException;
 
 import java.io.File;
-import java.io.IOException;
 
 public class ReadStrategy extends ReadFromFile {
 
-    public void read() throws IOException, InvalidPersonPropertiesException {
+    public void readFile() throws InvalidPersonPropertiesException {
         FileHandler filehandler = new FileHandler();
         File file = filehandler.openReadFile();
         switch (filehandler.getFileExtension()) {

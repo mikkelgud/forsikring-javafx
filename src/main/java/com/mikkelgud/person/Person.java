@@ -33,7 +33,6 @@ public class Person {
         this.createdAt = LocalDateTime.now();
         // Når vi registrerer en ny person, vil denne gi personen en "unik" identifikator.
         this.personId.set(UUID.randomUUID().toString());
-        System.out.print("yoyo");
     }
 
     public String getFirstName() {
