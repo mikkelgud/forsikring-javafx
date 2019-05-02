@@ -26,7 +26,9 @@ public class HouseInsurance extends GeneralInsurance {
     private final StringProperty insurancePriceHouseholdGoods = new SimpleStringProperty();
     private final LocalDateTime createdAt;
 
-    protected HouseInsurance(String insuranceYearlyPayment, String insuranceAmount, String insuranceCoverageInfo, String housingAddress, String housingType, String buildingMaterial, String housingState, String builtYear, String squareMeter, String insuranceBP, String insuranceHG) {
+    protected HouseInsurance(String insuranceYearlyPayment, String insuranceAmount, String insuranceCoverageInfo,
+                             String housingAddress, String housingType, String buildingMaterial, String housingState,
+                             String builtYear, String squareMeter, String insuranceBP, String insuranceHG) {
         super(insuranceYearlyPayment, insuranceAmount, insuranceCoverageInfo);
         this.createdAt = LocalDateTime.now();
         this.housingAddress.set(housingAddress);

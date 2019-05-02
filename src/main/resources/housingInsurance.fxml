@@ -43,6 +43,8 @@
        <TextField fx:id="housingSize" layoutX="144.0" layoutY="300.0" prefHeight="27.0" prefWidth="150.0" promptText="Husstørelse" />
        <TextField fx:id="insurancePremiumBuilding" layoutX="127.0" layoutY="359.0" prefHeight="27.0" prefWidth="182.0" promptText="Forsikringsbeløp for bygningForsikringsbeløp for bygning" />
        <TextField fx:id="insurancePremiumInnbo" layoutX="127.0" layoutY="418.0" prefHeight="27.0" prefWidth="182.0" promptText="Forsikringsbeløp for innbo" />
+       <Label fx:id="errorLabel" alignment="CENTER" layoutX="149.0" layoutY="315.0" prefHeight="17.0" prefWidth="279.0"
+              textFill="#ee0303"/>
        <Button layoutX="150.0" layoutY="479.0" mnemonicParsing="false" text="Registrer forsikring" onAction="#registrateInsurance"/>
    </children>
 </AnchorPane>
