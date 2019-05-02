@@ -160,7 +160,7 @@ public class Controller implements Initializable {
 
     @FXML
     public void newInsuranceUserWindowOpener() {
-        URL resource = getClass().getClassLoader().getResource("registrering.fxml");
+        URL resource = getClass().getClassLoader().getResource("personRegistration.fxml");
         FXMLLoader loader = new FXMLLoader(resource);
 
         try {
