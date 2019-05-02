@@ -33,8 +33,7 @@ public class BoatInsurancesController {
     private void registerBoatInsurance(ActionEvent event) {
         errorLabel.setText("");
         try {
-            BoatInsurance newBoatInsurance = validator.createNewBoatInsurance(insurancesModel.getCurrentPersonId(), insuranceYearlyPayment, insuranceAmount, insuranceCoverage,
-                    boatType.getText(), length.getText(), model.getText(), engineType.getText(), enginePower.getText());
+            BoatInsurance newBoatInsurance = validator.createNewBoatInsurance(insurancesModel.getCurrentPersonId(), insuranceYearlyPayment, insuranceAmount, insuranceCoverage, boatType.getText(), length.getText(), model.getText(), engineType.getText(), enginePower.getText());
             insurancesModel.getAllInsurances().add(newBoatInsurance);
             System.out.println(
                     insurancesModel.getCurrentPersonId() +
