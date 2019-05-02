@@ -17,6 +17,7 @@ public class HouseInsurance extends GeneralInsurance {
 
 
     private final StringProperty housingAddress = new SimpleStringProperty();
+    private final StringProperty yearBuilt = new SimpleStringProperty();
     private final StringProperty housingType = new SimpleStringProperty();
     private final StringProperty buildingMaterial = new SimpleStringProperty();
     private final StringProperty housingState = new SimpleStringProperty();
@@ -26,12 +27,13 @@ public class HouseInsurance extends GeneralInsurance {
     private final StringProperty insurancePriceHouseholdGoods = new SimpleStringProperty();
     private final LocalDateTime createdAt;
 
-    protected HouseInsurance(String insuranceYearlyPayment, String insuranceAmount, String insuranceCoverageInfo,
-                             String housingAddress, String housingType, String buildingMaterial, String housingState,
+    protected HouseInsurance(String currentPersonId, String insuranceYearlyPayment, String insuranceAmount, String insuranceCoverageInfo,
+                             String housingAddress, String yearBuilt, String housingType, String buildingMaterial, String housingState,
                              String builtYear, String squareMeter, String insuranceBP, String insuranceHG) {
         super(insuranceYearlyPayment, insuranceAmount, insuranceCoverageInfo);
         this.createdAt = LocalDateTime.now();
         this.housingAddress.set(housingAddress);
+        this.yearBuilt.set(yearBuilt);
         this.housingType.set(housingType);
         this.buildingMaterial.set(buildingMaterial);
         this.housingState.set(housingState);
@@ -39,102 +41,31 @@ public class HouseInsurance extends GeneralInsurance {
         this.houseSize.set(squareMeter);
         this.insuranceBuildingPrice.set(insuranceBP);
         this.insurancePriceHouseholdGoods.set(insuranceHG);
+        setPersonId(currentPersonId);
     }
 
     public String getHousingAddress() {
         return housingAddress.get();
     }
 
-    public StringProperty housingAddressProperty() {
-        return housingAddress;
-    }
-
-    public void setHousingAddress(String housingAddress) {
-        this.housingAddress.set(housingAddress);
-    }
-
     public String getHousingType() {
         return housingType.get();
-    }
-
-    public StringProperty housingTypeProperty() {
-        return housingType;
-    }
-
-    public void setHousingType(String housingType) {
-        this.housingType.set(housingType);
-    }
-
-    public String getBuildingMaterial() {
-        return buildingMaterial.get();
-    }
-
-    public StringProperty buildingMaterialProperty() {
-        return buildingMaterial;
-    }
-
-    public void setBuildingMaterial(String buildingMaterial) {
-        this.buildingMaterial.set(buildingMaterial);
-    }
-
-    public String getHousingState() {
-        return housingState.get();
-    }
-
-    public StringProperty housingStateProperty() {
-        return housingState;
-    }
-
-    public void setHousingState(String housingState) {
-        this.housingState.set(housingState);
     }
 
     public String getBuiltYear() {
         return builtYear.get();
     }
 
-    public StringProperty builtYearProperty() {
-        return builtYear;
-    }
-
-    public void setBuiltYear(String builtYear) {
-        this.builtYear.set(builtYear);
-    }
-
     public String getHouseSize() {
         return houseSize.get();
-    }
-
-    public StringProperty houseSizeProperty() {
-        return houseSize;
-    }
-
-    public void setHouseSize(String houseSize) {
-        this.houseSize.set(houseSize);
     }
 
     public String getInsuranceBuildingPrice() {
         return insuranceBuildingPrice.get();
     }
 
-    public StringProperty insuranceBuildingPriceProperty() {
-        return insuranceBuildingPrice;
-    }
-
-    public void setInsuranceBuildingPrice(String insuranceBuildingPrice) {
-        this.insuranceBuildingPrice.set(insuranceBuildingPrice);
-    }
-
     public String getInsurancePriceHouseholdGoods() {
         return insurancePriceHouseholdGoods.get();
-    }
-
-    public StringProperty insurancePriceHouseholdGoodsProperty() {
-        return insurancePriceHouseholdGoods;
-    }
-
-    public void setInsurancePriceHouseholdGoods(String insurancePriceHouseholdGoods) {
-        this.insurancePriceHouseholdGoods.set(insurancePriceHouseholdGoods);
     }
 
     public LocalDateTime getCreatedAt() {
@@ -144,14 +75,17 @@ public class HouseInsurance extends GeneralInsurance {
     @Override
     public Observable[] getPropertiesAsList() {
         return new Observable[]{
-                housingAddressProperty(),
-                housingTypeProperty(),
-                buildingMaterialProperty(),
-                housingStateProperty(),
-                builtYearProperty(),
-                houseSizeProperty(),
-                insuranceBuildingPriceProperty(),
-                insurancePriceHouseholdGoodsProperty()
+                new SimpleStringProperty("-- Hus og innbo --"),
+                new SimpleStringProperty(String.format("Kunde - %s", getPersonId())),
+                new SimpleStringProperty(String.format("Adresse - %s", getHousingAddress())),
+                new SimpleStringProperty(String.format("Byggeår - %s", getBuiltYear())),
+                new SimpleStringProperty(String.format("Type - %s", getHousingType())),
+                new SimpleStringProperty(String.format("Størrelse - %s", getHouseSize())),
+                new SimpleStringProperty(String.format("Forsikringspremie bygning - %s", getInsuranceBuildingPrice())),
+                new SimpleStringProperty(String.format("Forsikringspremie innbo - %s", getInsurancePriceHouseholdGoods())),
+                new SimpleStringProperty(String.format("Opprettet -  %s", createdAt.toString())),
+                new SimpleStringProperty("-------------------")
+
         };
     }
 

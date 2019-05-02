@@ -27,36 +27,43 @@ public class InsuranceValidator {
     }
 
 
-//    public HouseInsurance createNewHouseInsurance(String currentPersonId, String insuranceYearlyPayment, String insuranceAmount,
-//                                                  String insuranceInfo, String housingSize, String insurancePremiumBuilding,
-//                                                  String insurancePremiumInnbo, String houseType, String buildingMaterial) throws InvalidInsurancePropertiesException {
-//
-//        if (!isPresent(housingSize)) {
-//            throw new InvalidInsurancePropertiesException(MESSAGE_NO_EMPTY_FIELDS);
-//        }
-//
-//        if (!isPresent(insurancePremiumBuilding)) {
-//            throw new InvalidInsurancePropertiesException(MESSAGE_NO_EMPTY_FIELDS);
-//        }
-//
-//        if (!isPresent(insurancePremiumInnbo)) {
-//            throw new InvalidInsurancePropertiesException(MESSAGE_NO_EMPTY_FIELDS);
-//        }
-//
-//        if (!isPresent(houseType)) {
-//            throw new InvalidInsurancePropertiesException(MESSAGE_NO_EMPTY_FIELDS);
-//        }
-//
-//        if (!isPresent(buildingMaterial)) {
-//            throw new InvalidInsurancePropertiesException(MESSAGE_NO_EMPTY_FIELDS);
-//        }
-//
-//        String insuranceBP = "300 000";
-//        String insuranceHG = "100 000";
-//
-//        return new HouseInsurance(currentPersonId, housingSize, insurancePremiumBuilding, insurancePremiumInnbo, houseType,
-//                buildingMaterial, insuranceYearlyPayment, insuranceAmount, insuranceInfo, insuranceBP, insuranceHG);
-//    }
+
+    public HouseInsurance createNewHouseInsurance(String currentPersonId, String insuranceYearlyPayment, String insuranceAmount,
+                                                  String insuranceInfo,String insuranceAddress, String yearBuilt, String housingSize, String insurancePremiumBuilding,
+                                                  String insurancePremiumInnbo, String houseType, String buildingMaterial) throws InvalidInsurancePropertiesException {
+
+        if (!isPresent(housingSize)) {
+            throw new InvalidInsurancePropertiesException(MESSAGE_NO_EMPTY_FIELDS);
+        }
+
+        if (!isPresent(yearBuilt)) {
+            throw new InvalidInsurancePropertiesException(MESSAGE_NO_EMPTY_FIELDS);
+        }
+
+        if (!isPresent(insurancePremiumBuilding)) {
+            throw new InvalidInsurancePropertiesException(MESSAGE_NO_EMPTY_FIELDS);
+        }
+
+        if (!isPresent(insurancePremiumInnbo)) {
+            throw new InvalidInsurancePropertiesException(MESSAGE_NO_EMPTY_FIELDS);
+        }
+
+        if (!isPresent(houseType)) {
+            throw new InvalidInsurancePropertiesException(MESSAGE_NO_EMPTY_FIELDS);
+        }
+
+        if (!isPresent(buildingMaterial)) {
+            throw new InvalidInsurancePropertiesException(MESSAGE_NO_EMPTY_FIELDS);
+        }
+
+        String insuranceBP = "300 000";
+        String insuranceHG = "100 000";
+
+        return new HouseInsurance(currentPersonId,insuranceYearlyPayment, insuranceAmount, insuranceInfo, insuranceAddress,
+                yearBuilt, housingSize, insurancePremiumBuilding, insurancePremiumInnbo, houseType, buildingMaterial,
+                insuranceBP, insuranceHG);
+    }
+
 
     private boolean isPresent(String stringToValidate) {
         return stringToValidate != null && !stringToValidate.isEmpty();

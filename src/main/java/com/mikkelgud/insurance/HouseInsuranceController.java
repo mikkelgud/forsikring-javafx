@@ -9,6 +9,10 @@ import javafx.scene.control.TextField;
 public class HouseInsuranceController {
 
     @FXML
+    public TextField homeAddress;
+    @FXML
+    public TextField yearBuilt;
+    @FXML
     public TextField housingSize;
     @FXML
     public TextField insurancePremiumBuilding;
@@ -39,11 +43,27 @@ public class HouseInsuranceController {
         errorLabel.setText("");
         try {
             HouseInsurance newHouseInsurance = validator.createNewHouseInsurance(insurancesModel.getCurrentPersonId(),
-                    insuranceYearlyPayment, insuranceAmount, insuranceCoverage, housingSize.getText(), insurancePremiumBuilding.getText(),
-                    insurancePremiumInnbo.getText(), houseType.getValue().toString(), buildingMaterial.getValue().toString()
+                    insuranceYearlyPayment, insuranceAmount, insuranceCoverage, homeAddress.getText(), yearBuilt.getText(),
+                    housingSize.getText(),  insurancePremiumBuilding.getText(), insurancePremiumInnbo.getText(),
+                    houseType.getValue().toString(), buildingMaterial.getValue().toString()
+
             );
+            insurancesModel.getAllInsurances().add(newHouseInsurance);
+            resetFieldValues();
         }catch (InvalidInsurancePropertiesException ex) {
             errorLabel.setText(ex.getMessage());
         }
+    }
+    private void resetFieldValues() {
+        homeAddress.setText(EMPTY_STRING);
+        yearBuilt.setText(EMPTY_STRING);
+        housingSize.setText(EMPTY_STRING);
+        insurancePremiumBuilding.setText(EMPTY_STRING);
+        insurancePremiumInnbo.setText(EMPTY_STRING);
+        houseType.getSelectionModel().clearAndSelect(0);
+        buildingMaterial.getSelectionModel().clearAndSelect(0);
+    }
+    public void setInsurancesModel(InsurancesModel insurancesModel) {
+        this.insurancesModel = insurancesModel;
     }
 }

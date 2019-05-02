@@ -194,9 +194,8 @@ public class Controller implements Initializable {
 
         try {
             Parent root = loader.load();
-            HouseInsuranceController controller = loader.getController();
-            openWindow(root, "Registrering");
-
+            HouseInsuranceController insurancesController = loader.getController();
+            insurancesController.setInsurancesModel(insurancesModel);
             openWindow(root, "Registrer din husholdningsforsikring");
         } catch (IOException ex) {
             Logger.getLogger(Controller.class.getName()).log(Level.SEVERE, null, ex);

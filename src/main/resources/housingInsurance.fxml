@@ -20,8 +20,8 @@
             <Color blue="0.624" green="0.624" red="0.624" fx:id="x2" />
          </textFill>
       </Label>
-       <TextField layoutX="144.0" layoutY="67.0" prefHeight="27.0" prefWidth="150.0" promptText="Hjemmeadressse" />
-       <TextField layoutX="144.0" layoutY="126.0" prefHeight="27.0" prefWidth="150.0" promptText="Byggeår eks. 1984" />
+       <TextField fx:id="homeAddress" layoutX="144.0" layoutY="67.0" prefHeight="27.0" prefWidth="150.0" promptText="Hjemmeadressse" />
+       <TextField fx:id="yearBuilt" layoutX="144.0" layoutY="126.0" prefHeight="27.0" prefWidth="150.0" promptText="Byggeår eks. 1984" />
        <ComboBox fx:id="houseType" layoutX="143.0" layoutY="185.0" prefWidth="150.0" promptText="Hustype">
         <items>
           <FXCollections fx:factory="observableArrayList">
