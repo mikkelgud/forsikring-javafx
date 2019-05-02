@@ -6,5 +6,6 @@ module com.mikkelgud {
     opens com.mikkelgud to javafx.fxml;
     opens com.mikkelgud.person to javafx.fxml;
     opens com.mikkelgud.insurance to javafx.fxml;
+    opens com.mikkelgud.filehandling to javafx.fxml;
     exports com.mikkelgud;
 }

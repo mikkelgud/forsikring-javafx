@@ -1,11 +1,9 @@
 
 package com.mikkelgud.person;
 
-
 public class PersonData {
     private PersonListModel personListModel = new PersonListModel();
     private final PersonValidator validator = new PersonValidator();
-
 
     public String firstName;
     public String lastName;
@@ -53,10 +51,8 @@ public class PersonData {
     public void attatchToGUI(){
         try {
             Person newPerson = validator.createNewPerson(getFirstName(), getLastName(), getBillingAddress());
-            System.out.print("heihei");
             personListModel.getPersonList().add(newPerson);
-
-
+            personListModel.toString();
         } catch (InvalidPersonPropertiesException ex) {
             ex.printStackTrace();
         }
