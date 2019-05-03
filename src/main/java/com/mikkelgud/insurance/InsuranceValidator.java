@@ -63,7 +63,7 @@ public class InsuranceValidator {
 
     public CabinInsurance createNewCabinInsurance(String currentPersonID, String insuranceYearlyPayment, String insuranceAmount,
                                                   String insuranceCoverageInfo, String address, String buildingMaterial,
-                                                  String housingState, String cabinSize, String yearBuilt,
+                                                  String housingState, String buildingType, String cabinSize, String yearBuilt,
                                                   String insurancePriceBuilding, String insurancePriceHouseholdGoods) throws InvalidInsurancePropertiesException {
 
 
