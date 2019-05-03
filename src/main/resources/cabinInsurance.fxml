@@ -62,10 +62,10 @@
         <Button layoutX="451.0" layoutY="341.0" mnemonicParsing="false" text="test pris"/>
         <Label layoutX="69.0" layoutY="396.0" prefHeight="17.0" prefWidth="236.0"
                text="Denne forsikringen vil koste per år:"/>
-        <Label layoutX="78.0" layoutY="434.0" prefHeight="17.0" prefWidth="385.0"
-               text="Her kommmer bedskjed om hvor stort forsikringsbeløpet er"/>
-        <Label layoutX="73.0" layoutY="471.0" text="Her kommer generell info om hva denne forsikringen dekker"
-               wrapText="true"/>
+        <Label fx:id="insuranceYearlyPaymentOutPrint" layoutX="69.0" layoutY="396.0" prefHeight="17.0"
+               prefWidth="236.0"/>
+        <Label fx:id="insuranceAmountOutPrint" layoutX="78.0" layoutY="434.0" prefHeight="17.0" prefWidth="385.0"/>
+        <Label fx:id="insuranceCoverageInfoOutPrint" layoutX="73.0" layoutY="471.0" wrapText="true"/>
         <Label fx:id="errorLabel" layoutX="73.0" layoutY="471.0" wrapText="true"/>
     </children>
 </AnchorPane>

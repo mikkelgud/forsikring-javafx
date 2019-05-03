@@ -43,17 +43,17 @@ public class Controller implements Initializable {
     // Using init-method to tell what will be printed to the GUI
     @FXML
     public void init(PersonListModel personListModel, InsurancesModel insurancesModel) {
-        if (this.personListModel != null) {
+        if (Controller.personListModel != null) {
             System.err.println("Wops! We shouldn't have more than one person list model!");
             System.exit(0);
         }
-        this.personListModel = personListModel;
-        this.insurancesModel = insurancesModel;
+        Controller.personListModel = personListModel;
+        Controller.insurancesModel = insurancesModel;
 
         initPersonListView();
         initCurrentPersonView(personListModel.getCurrentPerson());
         initCurrentPersonInsuranceView();
-//        initSearchInputField();
+        //initSearchInputField();
     }
 
     //search input coming soon
@@ -274,8 +274,8 @@ public class Controller implements Initializable {
     public void saveFile() {
         
     }
-    
-    public void openFile() throws IOException, InvalidPersonPropertiesException {
+
+    public void openFile() throws InvalidPersonPropertiesException {
         ReadStrategy readStrat = new ReadStrategy();
         readStrat.readFile();
     }

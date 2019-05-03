@@ -36,14 +36,16 @@ public class HouseInsuranceController {
     public Button registrateHousing;
 
 
-    private String insuranceYearlyPayment = "12123";
+    private String insuranceYearlyPayment = "500 000";
     // skal være summen av insuranceBP og HG
     private String insuranceAmount = "300 000";
     private String insuranceCoverage = "Dekker skade med innbo og bygningsmasse";
 
     // disse skal komme inn fra bruker og regnese ut
-    private int insuranceBP = Integer.parseInt(getInsurancePremiumBuilding().getCharacters().toString());
-    private int insuranceHG = Integer.parseInt(insurancePremiumInnbo.getCharacters().toString());
+//    private int parsedInsuranceBP = Integer.parseInt(getInsurancePremiumBuilding().getCharacters().toString());
+//    private int parsedInsuranceHG = Integer.parseInt(insurancePremiumInnbo.getCharacters().toString());
+
+//    private int sum = getParsedInsuranceBP() + getParsedInsuranceHG();
 
     private final String EMPTY_STRING = "";
 
@@ -57,6 +59,7 @@ public class HouseInsuranceController {
         try {
             //Må kjøre denne testen her da den valideringen ikke fungerer om ikke det er gjort noe med den
             if (buildingMaterial.getValue() == null || houseType.getValue() == null) {
+//                System.out.println(sum);
                 throw new InvalidInsurancePropertiesException("Husk at alle feltene må fylles ut før registrering");
             } else {
                 HouseInsurance newHouseInsurance = validator.createNewHouseInsurance(insurancesModel.getCurrentPersonId(),
@@ -70,8 +73,8 @@ public class HouseInsuranceController {
                         insurancePremiumInnbo.getText(),
                         houseType.getValue().toString(),
                         buildingMaterial.getValue().toString());
-
                 insurancesModel.getAllInsurances().add(newHouseInsurance);
+                resetFieldValues();
                 closePage();
             }
         }catch (InvalidInsurancePropertiesException ex) {
@@ -114,5 +117,12 @@ public class HouseInsuranceController {
     public TextField getInsurancePremiumInnbo() {
         return insurancePremiumInnbo;
     }
+//    public int getParsedInsuranceBP() {
+//        return parsedInsuranceBP;
+//    }
+//
+//    public int getParsedInsuranceHG() {
+//        return parsedInsuranceHG;
+//    }
 }
 

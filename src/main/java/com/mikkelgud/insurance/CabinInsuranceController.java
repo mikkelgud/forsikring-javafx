@@ -50,7 +50,7 @@ public class CabinInsuranceController {
 
     @FXML
     public void registerCabinInsurance() throws InvalidInsurancePropertiesException {
-       errorLabel.setText("");
+        errorLabel.setText("");
         if (buildingMaterial.getValue() == null || standard.getValue() == null || buildingType.getValue() == null) {
             throw new InvalidInsurancePropertiesException("Husk at alle feltene må fylles ut før registrering");
         } else {
@@ -69,14 +69,17 @@ public class CabinInsuranceController {
                         insurancePremiumBuilding.getText(),
                         insurancePremiumHousing.getText());
                 insurancesModel.getAllInsurances().add(newCabinInsurance);
-                Stage stage = (Stage) registrateCabin.getScene().getWindow();
-                stage.close();
+                closePage();
             } catch (InvalidInsurancePropertiesException ex) {
                 errorLabel.setText(ex.getMessage());
             }
         }
+    }
 
-        }
+    private void closePage() {
+        Stage stage = (Stage) registrateCabin.getScene().getWindow();
+        stage.close();
+    }
 
     public void setInsurancesModel(InsurancesModel insurancesModel) {
         this.insurancesModel = insurancesModel;
@@ -87,4 +90,4 @@ public class CabinInsuranceController {
         insuranceAmountOutPrint.setText(insuranceAmount);
         insuranceCoverageInfoOutPrint.setText(insuranceCoverage);
     }
-    }
+}
