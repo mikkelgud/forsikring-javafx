@@ -16,6 +16,7 @@ public class BoatInsurancesController {
     public TextField engineType;
     @FXML
     public TextField enginePower;
+
     @FXML
     private Label errorLabel;
     @FXML
