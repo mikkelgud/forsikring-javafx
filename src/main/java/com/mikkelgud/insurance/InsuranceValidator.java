@@ -65,7 +65,13 @@ public class InsuranceValidator {
                                                   String insuranceCoverageInfo, String address, String buildingMaterial,
                                                   String housingState, String cabinSize, String yearBuilt,
                                                   String insurancePriceBuilding, String insurancePriceHouseholdGoods) throws InvalidInsurancePropertiesException {
-    if(!isPresent(insuranceYearlyPayment)){
+
+
+        if (!isPresent(currentPersonID)) {
+            throw new InvalidInsurancePropertiesException(MESSAGE_MUST_REGISTRATE_A_USER);
+        }
+
+        if(!isPresent(insuranceYearlyPayment)){
         throw new InvalidInsurancePropertiesException(MESSAGE_NO_EMPTY_FIELDS);
     }
 
@@ -104,7 +110,7 @@ public class InsuranceValidator {
     if(!isPresent(insurancePriceHouseholdGoods)){
         throw new InvalidInsurancePropertiesException(MESSAGE_NO_EMPTY_FIELDS);
     }
-    return new CabinInsurance(insuranceYearlyPayment,insuranceAmount,
+    return new CabinInsurance(currentPersonID, insuranceYearlyPayment,insuranceAmount,
             insuranceCoverageInfo, address, buildingMaterial,
             housingState, cabinSize, yearBuilt,
             insurancePriceBuilding, insurancePriceHouseholdGoods);

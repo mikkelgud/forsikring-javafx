@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.String?>
 <?import javafx.collections.FXCollections?>
-<?import javafx.scene.control.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 <?import java.lang.*?>
@@ -23,27 +27,27 @@
                   promptText="Byggemateriale">
             <items>
                 <FXCollections fx:factory="observableArrayList">
-                    <String fx:value="Betong"/>
-                    <String fx:value="Treeverk"/>
-                    <String fx:value="Murstein"/>
+                    <String fx:value="Betong" />
+                    <String fx:value="Treeverk" />
+                    <String fx:value="Murstein" />
                 </FXCollections>
             </items>
         </ComboBox>
         <ComboBox fx:id="standard" layoutX="319.0" layoutY="170.0" prefWidth="150.0" promptText="Standard">
             <items>
                 <FXCollections fx:factory="observableArrayList">
-                    <String fx:value="Dårlig"/>
-                    <String fx:value="Middels"/>
-                    <String fx:value="God"/>
+                    <String fx:value="Dårlig" />
+                    <String fx:value="Middels" />
+                    <String fx:value="God" />
                 </FXCollections>
             </items>
         </ComboBox>
         <ComboBox fx:id="buildingType" layoutX="319.0" layoutY="93.0" prefWidth="150.0" promptText="Boligtype">
             <items>
                 <FXCollections fx:factory="observableArrayList">
-                    <String fx:value="Leilighet"/>
-                    <String fx:value="Byhus"/>
-                    <String fx:value="Hus"/>
+                    <String fx:value="Leilighet" />
+                    <String fx:value="Byhus" />
+                    <String fx:value="Hus" />
                 </FXCollections>
             </items>
         </ComboBox>

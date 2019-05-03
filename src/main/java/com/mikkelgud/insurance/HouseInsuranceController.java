@@ -31,7 +31,7 @@ public class HouseInsuranceController {
     @FXML
     public Label InsuranceCoverageInfoOutPrint;
 
-    private String insuranceYearlyPayment = "12123+";
+    private String insuranceYearlyPayment = "12123";
     private String insuranceAmount = "300 000";
     private String insuranceCoverage = "Dekker skade med innbo og bygningsmasse";
     private String insuranceBP = "300 000";
@@ -53,9 +53,17 @@ public class HouseInsuranceController {
                 throw new InvalidInsurancePropertiesException("Husk at alle feltene må fylles ut før registrering");
             } else {
                 HouseInsurance newHouseInsurance = validator.createNewHouseInsurance(insurancesModel.getCurrentPersonId(),
-                        insuranceYearlyPayment, insuranceAmount, insuranceCoverage, homeAddress.getText(), yearBuilt.getText(),
-                        housingSize.getText(), insurancePremiumBuilding.getText(), insurancePremiumInnbo.getText(),
-                        houseType.getValue().toString(), buildingMaterial.getValue().toString());
+                        insuranceYearlyPayment,
+                        insuranceAmount,
+                        insuranceCoverage,
+                        homeAddress.getText(),
+                        yearBuilt.getText(),
+                        housingSize.getText(),
+                        insurancePremiumBuilding.getText(),
+                        insurancePremiumInnbo.getText(),
+                        houseType.getValue().toString(),
+                        buildingMaterial.getValue().toString());
+
                 insurancesModel.getAllInsurances().add(newHouseInsurance);
                 resetFieldValues();
             }

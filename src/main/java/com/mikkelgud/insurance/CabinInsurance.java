@@ -24,7 +24,9 @@ public class CabinInsurance extends GeneralInsurance {
 
 
 
-    protected CabinInsurance(String insuranceYearlyPayment, String insuranceAmount, String insuranceCoverageInfo, String address, String buildingMaterial, String housingState, String cabinSize, String yearBuilt, String insurancePriceBuilding, String insurancePriceHouseholdGoods) {
+    protected CabinInsurance(String currentPersonId, String insuranceYearlyPayment, String insuranceAmount,
+                             String insuranceCoverageInfo, String address, String buildingMaterial, String housingState,
+                             String cabinSize, String yearBuilt, String insurancePriceBuilding, String insurancePriceHouseholdGoods) {
         super(insuranceYearlyPayment, insuranceAmount, insuranceCoverageInfo);
         this.createdAt = LocalDateTime.now();
         this.address.set(address);
@@ -34,6 +36,7 @@ public class CabinInsurance extends GeneralInsurance {
         this.yearBuilt.set(yearBuilt);
         this.insurancePriceBuilding.set(insurancePriceBuilding);
         this.insurancePriceHouseholdGoods.set(insurancePriceHouseholdGoods);
+        setPersonId(currentPersonId);
     }
 
     public LocalDateTime getCreatedAt() {
@@ -57,10 +60,13 @@ public class CabinInsurance extends GeneralInsurance {
         return yearBuilt.get();
     }
 
+    public String getBuildingMaterial(){ return  buildingMaterial.get(); }
 
     public String getInsurancePriceHouseholdGoods() {
         return insurancePriceHouseholdGoods.get();
     }
+
+    public String getInsurancePriceBuilding() { return insurancePriceBuilding.get(); }
 
 
 
@@ -70,11 +76,11 @@ public class CabinInsurance extends GeneralInsurance {
                 new SimpleStringProperty("-- Hytte og innbo --"),
                 new SimpleStringProperty(String.format("Kunde - %s", getPersonId())),
                 new SimpleStringProperty(String.format("Adresse - %s", getAddress())),
-                new SimpleStringProperty(String.format("Bygningsmatriale", getYearBuilt())),
+                new SimpleStringProperty(String.format("Bygningsmatriale", getBuildingMaterial())),
                 new SimpleStringProperty(String.format("Byggeår - %s", getYearBuilt())),
                 new SimpleStringProperty(String.format("Tilstand - %s", getHousingState())),
                 new SimpleStringProperty(String.format("Størrelse - %s", getCabinSize())),
-                new SimpleStringProperty(String.format("Forsikringspremie bygning - %s", getYearBuilt())),
+                new SimpleStringProperty(String.format("Forsikringspremie bygning - %s", getInsurancePriceBuilding())),
                 new SimpleStringProperty(String.format("Forsikringspremie innbo - %s", getInsurancePriceHouseholdGoods())),
                 new SimpleStringProperty(String.format("Opprettet -  %s", createdAt.toString())),
                 new SimpleStringProperty("-------------------")
