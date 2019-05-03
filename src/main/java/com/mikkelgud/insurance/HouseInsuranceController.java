@@ -27,7 +27,7 @@ public class HouseInsuranceController {
     @FXML
     public Label insuranceYearlyPaymentOutPrint;
     @FXML
-    public Label inuranceAmountOutPrint;
+    public Label insuranceAmountOutPrint;
     @FXML
     public Label InsuranceCoverageInfoOutPrint;
 
@@ -84,4 +84,11 @@ public class HouseInsuranceController {
     public void setInsurancesModel(InsurancesModel insurancesModel) {
         this.insurancesModel = insurancesModel;
     }
+
+    public void getPrintImportantInformation() {
+        insuranceYearlyPaymentOutPrint.setText(insuranceYearlyPayment);
+        insuranceAmountOutPrint.setText(insuranceAmount);
+        InsuranceCoverageInfoOutPrint.setText(insuranceCoverage);
+    }
 }
+

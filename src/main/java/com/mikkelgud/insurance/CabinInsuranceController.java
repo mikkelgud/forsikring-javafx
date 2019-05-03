@@ -27,7 +27,7 @@ public class CabinInsuranceController {
     @FXML
     protected Label insuranceYearlyPaymentOutPrint;
     @FXML
-    protected Label inuranceAmountOutPrint;
+    protected Label insuranceAmountOutPrint;
     @FXML
     protected Label InsuranceCoverageInfoOutPrint;
     @FXML
@@ -45,7 +45,7 @@ public class CabinInsuranceController {
 
     @FXML
     public void registerCabinInsurance() throws InvalidInsurancePropertiesException {
-       errorLabel.setText("");
+        errorLabel.setText("");
 
         System.out.print(insurancesModel.getCurrentPersonId().isEmpty());
         System.out.print(adress.getText());
@@ -84,7 +84,7 @@ public class CabinInsuranceController {
     }
     public void getPrintImportantInformation() {
         insuranceYearlyPaymentOutPrint.setText(insuranceYearlyPayment);
-        inuranceAmountOutPrint.setText(insuranceAmount);
+        insuranceAmountOutPrint.setText(insuranceAmount);
         InsuranceCoverageInfoOutPrint.setText(insuranceCoverage);
     }
 
