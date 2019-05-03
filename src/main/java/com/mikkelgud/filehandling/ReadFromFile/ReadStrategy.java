@@ -3,8 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.mikkelgud.filehandling;
+package com.mikkelgud.filehandling.ReadFromFile;
 
+import com.mikkelgud.filehandling.FileHandler;
 import com.mikkelgud.person.InvalidPersonPropertiesException;
 
 import java.io.File;

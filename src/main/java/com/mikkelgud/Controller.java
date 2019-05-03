@@ -1,8 +1,8 @@
 package com.mikkelgud;
 
-//import com.mikkelgud.filehandling.SaveStrategy;
+//import com.mikkelgud.filehandling.SaveToFile.SaveStrategy;
 
-import com.mikkelgud.filehandling.ReadStrategy;
+import com.mikkelgud.filehandling.ReadFromFile.ReadStrategy;
 import com.mikkelgud.insurance.*;
 import com.mikkelgud.person.InvalidPersonPropertiesException;
 import com.mikkelgud.person.Person;
@@ -246,7 +246,7 @@ public class Controller implements Initializable {
             TravelInsuranceController insuranceController = loader.getController();
             insuranceController.setInsurancesModel(insurancesModel);
             openWindow(root, "Registrer din reiseforsikring");
-           // insuranceController.getPrintImportantInformation();
+            insuranceController.getPrintImportantInformation();
         } catch (IOException ex) {
             Logger.getLogger(Controller.class.getName()).log(Level.SEVERE, null, ex);
         }

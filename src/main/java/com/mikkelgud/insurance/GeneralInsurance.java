@@ -27,9 +27,16 @@ public abstract class GeneralInsurance implements Observable {
     }
 
 
-    public abstract Observable[] getPropertiesAsList();
+    public Observable[] getPropertiesAsList(){
+        return new Observable[] {
+                new SimpleStringProperty("-- GENERELL FORSIKRINGSINFO --"),
+                new SimpleStringProperty(String.format("Totalt forsikringsbeløp: %s", getInsuranceAmount())),
+                new SimpleStringProperty(String.format("Årlig fakturering: %s", getInsuranceYearlyPayment()))
+        };
+    }
 
     public String getInsuranceYearlyPayment() {
+        //insuranceYearlyPayment =null;
         return insuranceYearlyPayment.get();
     }
 

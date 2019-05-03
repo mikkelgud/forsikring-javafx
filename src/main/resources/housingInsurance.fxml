@@ -54,11 +54,9 @@
        <Label layoutX="57.0" layoutY="201.0" prefHeight="17.0" prefWidth="169.0" text="Skriv inn ønskelig:"/>
        <Label layoutX="46.0" layoutY="298.0" prefHeight="23.0" prefWidth="318.0"
               text="Med dine ønskelige parametere koster forsikringen:"/>
-       <Button layoutX="462.0" layoutY="241.0" mnemonicParsing="false" text="Test pris"/>
-       <Label layoutX="381.0" layoutY="301.0" prefHeight="17.0" prefWidth="169.0" text="Her skal prisen komme inn"/>
-       <Label layoutX="96.0" layoutY="346.0" prefHeight="17.0" prefWidth="385.0"
-              text="Her kommmer bedskjed om hvor stort forsikringsbeløpet er"/>
-       <Label layoutX="96.0" layoutY="390.0" text="Her kommer generell info om hva denne forsikringen dekker"
-              wrapText="true"/>
+       <Button fx:id="registrateHousing" layoutX="462.0" layoutY="241.0" mnemonicParsing="false" text="Test pris"/>
+       <Label fx:id="insuranceYearlyPaymentOutPrint" layoutX="381.0" layoutY="301.0" prefHeight="17.0" prefWidth="169.0" />
+       <Label fx:id="insuranceAmountOutPrint" layoutX="96.0" layoutY="346.0" prefHeight="17.0" prefWidth="385.0"/>
+       <Label fx:id="InsuranceCoverageInfoOutPrint" layoutX="96.0" layoutY="390.0" wrapText="true"/>
    </children>
 </AnchorPane>

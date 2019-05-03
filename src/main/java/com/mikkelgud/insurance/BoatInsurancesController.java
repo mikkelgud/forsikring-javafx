@@ -2,8 +2,10 @@ package com.mikkelgud.insurance;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
 
 public class BoatInsurancesController {
     @FXML
@@ -18,6 +20,8 @@ public class BoatInsurancesController {
     public TextField enginePower;
     @FXML
     private Label errorLabel;
+    @FXML
+    public Button registrateBoat;
     @FXML
     public Label insuranceYearlyPaymentOutPrint;
     @FXML
@@ -52,7 +56,8 @@ public class BoatInsurancesController {
                     enginePower.getText());
 
             insurancesModel.getAllInsurances().add(newBoatInsurance);
-            resetFieldValues();
+            Stage stage = (Stage) registrateBoat.getScene().getWindow();
+            stage.close();
         } catch (InvalidInsurancePropertiesException ex) {
             errorLabel.setText(ex.getMessage());
         }

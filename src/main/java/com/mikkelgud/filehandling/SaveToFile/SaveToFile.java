@@ -1,5 +1,5 @@
 
-package com.mikkelgud.filehandling;
+package com.mikkelgud.filehandling.SaveToFile;
 
 /**
  * @author alexanderbjorlo

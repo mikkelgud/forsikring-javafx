@@ -2,8 +2,10 @@ package com.mikkelgud.insurance;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
+import javafx.stage.Stage;
 
 public class TravelInsuranceController {
     @FXML
@@ -24,6 +26,8 @@ public class TravelInsuranceController {
     public Label insuranceAmountOutPrint;
     @FXML
     public Label InsuranceCoverageInfoOutPrint;
+    @FXML
+    public Button registrateTravel;
 
     private final String insuranceYearlyPayment = "1000";
     private final String insuranceAmount = "300 000";
@@ -46,6 +50,8 @@ public class TravelInsuranceController {
                     europe.isSelected()
                     );
             insurancesModel.getAllInsurances().add(newTravelInsurance);
+            Stage stage = (Stage) registrateTravel.getScene().getWindow();
+            stage.close();
         } catch (InvalidInsurancePropertiesException e) {
             e.printStackTrace();
         }
@@ -55,10 +61,10 @@ public class TravelInsuranceController {
         this.insurancesModel = insurancesModel;
     }
 
-  //  public void getPrintImportantInformation() {
-    //    insuranceYearlyPaymentOutPrint.setText(insuranceYearlyPayment);
-      //  insuranceAmountOutPrint.setText(insuranceAmount);
-    //    InsuranceCoverageInfoOutPrint.setText(insuranceCoverage);
-    //}
+    public void getPrintImportantInformation() {
+        insuranceYearlyPaymentOutPrint.setText(insuranceYearlyPayment);
+        insuranceAmountOutPrint.setText(insuranceAmount);
+        InsuranceCoverageInfoOutPrint.setText(insuranceCoverage);
+    }
 
 }

@@ -2,9 +2,11 @@ package com.mikkelgud.insurance;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
 
 public class HouseInsuranceController {
 
@@ -30,6 +32,8 @@ public class HouseInsuranceController {
     public Label insuranceAmountOutPrint;
     @FXML
     public Label InsuranceCoverageInfoOutPrint;
+    @FXML
+    public Button registrateHousing;
 
 
     private String insuranceYearlyPayment = "12123";
@@ -67,7 +71,8 @@ public class HouseInsuranceController {
                         buildingMaterial.getValue().toString());
 
                 insurancesModel.getAllInsurances().add(newHouseInsurance);
-                resetFieldValues();
+                Stage stage = (Stage) registrateHousing.getScene().getWindow();
+                stage.close();
             }
         }catch (InvalidInsurancePropertiesException ex) {
             errorLabel.setText(ex.getMessage());
@@ -87,6 +92,9 @@ public class HouseInsuranceController {
     }
 
     public void getPrintImportantInformation() {
+        System.out.print(insuranceYearlyPayment);
+        System.out.print(insuranceAmount);
+        System.out.print(insuranceCoverage);
         insuranceYearlyPaymentOutPrint.setText(insuranceYearlyPayment);
         insuranceAmountOutPrint.setText(insuranceAmount);
         InsuranceCoverageInfoOutPrint.setText(insuranceCoverage);

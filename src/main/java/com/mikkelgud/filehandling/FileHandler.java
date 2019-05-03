@@ -6,7 +6,6 @@ import javafx.stage.FileChooser;
 import java.io.File;
 
 public class FileHandler implements Runnable {
-    //Threading
 
     public String getFileExtension() {
         File selectedFile = openReadFile();

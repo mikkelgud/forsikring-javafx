@@ -1,9 +1,11 @@
 package com.mikkelgud.insurance;
 
 import javafx.fxml.FXML;
+import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
 
 public class CabinInsuranceController {
     @FXML
@@ -24,6 +26,8 @@ public class CabinInsuranceController {
     TextField insurancePremiumHousing;
     @FXML
     ComboBox buildingType;
+    @FXML
+    Button registrateCabin;
     @FXML
     public Label errorLabel;
     @FXML
@@ -65,6 +69,8 @@ public class CabinInsuranceController {
                         insurancePremiumBuilding.getText(),
                         insurancePremiumHousing.getText());
                 insurancesModel.getAllInsurances().add(newCabinInsurance);
+                Stage stage = (Stage) registrateCabin.getScene().getWindow();
+                stage.close();
             } catch (InvalidInsurancePropertiesException ex) {
                 errorLabel.setText(ex.getMessage());
             }

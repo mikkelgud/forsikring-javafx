@@ -44,14 +44,15 @@ public class TravelInsurance extends GeneralInsurance {
     public Observable[] getPropertiesAsList() {
 
         return new Observable[]{
-        new SimpleStringProperty("-- REISEFORSIKRING --"),
-        new SimpleStringProperty(isEuropa()),
-        new SimpleStringProperty(isAsia()),
-        new SimpleStringProperty(isNorthAmerica()),
-        new SimpleStringProperty(isSouthAmerica()),
-        new SimpleStringProperty(isOceania()),
-        new SimpleStringProperty(isAfrica()),
-        new SimpleStringProperty(String.format("Opprettet - %s", createdAt.toString()))
+            new SimpleStringProperty("-- REISEFORSIKRING --"),
+            new SimpleStringProperty(isEuropa()),
+            new SimpleStringProperty(isAsia()),
+            new SimpleStringProperty(isNorthAmerica()),
+            new SimpleStringProperty(isSouthAmerica()),
+            new SimpleStringProperty(isOceania()),
+            new SimpleStringProperty(isAfrica()),
+                new SimpleStringProperty(String.format("Opprettet - %s", createdAt.toString())),
+            new SimpleStringProperty("----------------------")
         };
     }
 

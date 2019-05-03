@@ -68,6 +68,10 @@ public class HouseInsurance extends GeneralInsurance {
         return insurancePriceHouseholdGoods.get();
     }
 
+    public double getHousingInsuranceYearlyPayment(){
+        return (Integer.parseInt(getInsurancePriceHouseholdGoods())+Integer.parseInt(getInsurancePriceHouseholdGoods()))*0.05;
+    }
+
     public LocalDateTime getCreatedAt() {
         return createdAt;
     }
