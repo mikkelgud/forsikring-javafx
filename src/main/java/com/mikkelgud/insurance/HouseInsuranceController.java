@@ -37,12 +37,13 @@ public class HouseInsuranceController {
 
 
     private String insuranceYearlyPayment = "12123";
+    // skal være summen av insuranceBP og HG
     private String insuranceAmount = "300 000";
     private String insuranceCoverage = "Dekker skade med innbo og bygningsmasse";
-    private String insuranceBP = "300 000";
-    private String insuranceHG = "100 000";
 
-
+    // disse skal komme inn fra bruker og regnese ut
+    private int insuranceBP = Integer.parseInt(getInsurancePremiumBuilding().getCharacters().toString());
+    private int insuranceHG = Integer.parseInt(insurancePremiumInnbo.getCharacters().toString());
 
     private final String EMPTY_STRING = "";
 
@@ -51,7 +52,7 @@ public class HouseInsuranceController {
     private InsurancesModel insurancesModel;
 
     @FXML
-    private void registrateInsurance(ActionEvent event) throws InvalidInsurancePropertiesException {
+    private void registrateInsurance(ActionEvent event) {
         errorLabel.setText("");
         try {
             //Må kjøre denne testen her da den valideringen ikke fungerer om ikke det er gjort noe med den
@@ -71,13 +72,13 @@ public class HouseInsuranceController {
                         buildingMaterial.getValue().toString());
 
                 insurancesModel.getAllInsurances().add(newHouseInsurance);
-                Stage stage = (Stage) registrateHousing.getScene().getWindow();
-                stage.close();
+                closePage();
             }
         }catch (InvalidInsurancePropertiesException ex) {
             errorLabel.setText(ex.getMessage());
         }
     }
+
     private void resetFieldValues() {
         homeAddress.setText(EMPTY_STRING);
         yearBuilt.setText(EMPTY_STRING);
@@ -87,8 +88,14 @@ public class HouseInsuranceController {
         houseType.getSelectionModel().clearAndSelect(0);
         buildingMaterial.getSelectionModel().clearAndSelect(0);
     }
+
     public void setInsurancesModel(InsurancesModel insurancesModel) {
         this.insurancesModel = insurancesModel;
+    }
+
+    private void closePage() {
+        Stage stage = (Stage) registrateHousing.getScene().getWindow();
+        stage.close();
     }
 
     public void getPrintImportantInformation() {
@@ -98,6 +105,14 @@ public class HouseInsuranceController {
         insuranceYearlyPaymentOutPrint.setText(insuranceYearlyPayment);
         insuranceAmountOutPrint.setText(insuranceAmount);
         InsuranceCoverageInfoOutPrint.setText(insuranceCoverage);
+    }
+
+    public TextField getInsurancePremiumBuilding() {
+        return insurancePremiumBuilding;
+    }
+
+    public TextField getInsurancePremiumInnbo() {
+        return insurancePremiumInnbo;
     }
 }
 

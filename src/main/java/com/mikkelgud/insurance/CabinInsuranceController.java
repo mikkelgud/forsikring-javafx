@@ -31,11 +31,11 @@ public class CabinInsuranceController {
     @FXML
     public Label errorLabel;
     @FXML
-    protected Label insuranceYearlyPaymentOutPrint;
+    public Label insuranceYearlyPaymentOutPrint;
     @FXML
-    protected Label insuranceAmountOutPrint;
+    public Label insuranceAmountOutPrint;
     @FXML
-    protected Label InsuranceCoverageInfoOutPrint;
+    public Label insuranceCoverageInfoOutPrint;
 
 
     private String insuranceYearlyPayment = "12123+";
@@ -83,9 +83,8 @@ public class CabinInsuranceController {
     }
 
     public void getPrintImportantInformation() {
-//        insuranceYearlyPaymentOutPrint.setText(insuranceYearlyPayment);
-//        insuranceAmountOutPrint.setText(insuranceAmount);
-//        InsuranceCoverageInfoOutPrint.setText(insuranceCoverage);
+        insuranceYearlyPaymentOutPrint.setText(insuranceYearlyPayment);
+        insuranceAmountOutPrint.setText(insuranceAmount);
+        insuranceCoverageInfoOutPrint.setText(insuranceCoverage);
     }
-
     }

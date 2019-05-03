@@ -29,8 +29,6 @@ public class InsuranceValidator {
         return new BoatInsurance(currentPersonId, insuranceYearlyPayment, insuranceAmount, insuranceInfo, boatType, length, model, engineType, enginePower);
     }
 
-
-
     public HouseInsurance createNewHouseInsurance(String currentPersonId, String insuranceYearlyPayment, String insuranceAmount,
                                                   String insuranceInfo, String insuranceAddress, String yearBuilt, String housingSize,
                                                   String insurancePremiumBuilding, String insurancePremiumInnbo, String houseType, String buildingMaterial) throws InvalidInsurancePropertiesException {
@@ -126,35 +124,19 @@ public class InsuranceValidator {
         return stringToValidate != null && !stringToValidate.isEmpty();
     }
 
-    public TravelInsurance createNewTravelInsurance(String currentPersonId,
-                                                    String insuranceYearlyPayment,
-                                                    String insuranceAmount,
-                                                    String insuranceCoverage,
-                                                    boolean southAmerica,
+    public TravelInsurance createNewTravelInsurance(String currentPersonId, String insuranceYearlyPayment, String insuranceAmount, String insuranceCoverage, boolean southAmerica,
                                                     boolean northAmerica,
                                                     boolean asia,
                                                     boolean oseania,
                                                     boolean africa,
                                                     boolean europe) throws InvalidInsurancePropertiesException {
-        if(southAmerica == false && northAmerica == false && asia == false && oseania == false && africa == false &&
-                europe == false){
-            throw new InvalidInsurancePropertiesException(MESSAGE_ONLY_EMPTY_FIELDS);
-        }
 
         if (!isPresent(currentPersonId)) {
             throw new InvalidInsurancePropertiesException(MESSAGE_MUST_REGISTRATE_A_USER);
         }
 
-        if(!isPresent(insuranceYearlyPayment)){
-            throw new InvalidInsurancePropertiesException(MESSAGE_NO_EMPTY_FIELDS);
-        }
-
-        if (!isPresent(insuranceAmount)) {
-            throw new InvalidInsurancePropertiesException(MESSAGE_NO_EMPTY_FIELDS);
-        }
-
-        if (!isPresent(insuranceCoverage)){
-            throw new InvalidInsurancePropertiesException(MESSAGE_NO_EMPTY_FIELDS);
+        if (southAmerica == false && northAmerica == false && asia == false && oseania == false && africa == false && europe == false) {
+            throw new InvalidInsurancePropertiesException(MESSAGE_ONLY_EMPTY_FIELDS);
         }
         return new TravelInsurance(currentPersonId, insuranceYearlyPayment, insuranceAmount, insuranceCoverage,
                 europe, asia, northAmerica, southAmerica, oseania,africa);
