@@ -31,6 +31,7 @@ public class HouseInsuranceController {
     @FXML
     public Label InsuranceCoverageInfoOutPrint;
 
+
     private String insuranceYearlyPayment = "12123";
     private String insuranceAmount = "300 000";
     private String insuranceCoverage = "Dekker skade med innbo og bygningsmasse";
