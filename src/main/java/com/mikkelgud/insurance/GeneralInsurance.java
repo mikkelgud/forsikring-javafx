@@ -9,11 +9,11 @@ import java.time.LocalDateTime;
 
 public abstract class GeneralInsurance implements Observable {
     //forsikringspremie
-    private StringProperty insuranceYearlyPayment = new SimpleStringProperty();
+    private final StringProperty insuranceYearlyPayment = new SimpleStringProperty();
     //Beløpet de er forsikret for
-    private StringProperty insuranceAmount = new SimpleStringProperty();
+    private final StringProperty insuranceAmount = new SimpleStringProperty();
     // forsikringsbetinglelsene hva den dekker
-    private StringProperty insuranceCoverageInfo = new SimpleStringProperty();
+    private final StringProperty insuranceCoverageInfo = new SimpleStringProperty();
 
     // Det må finnes en eier av en forsikring.
     private StringProperty personId = new SimpleStringProperty();
@@ -25,6 +25,7 @@ public abstract class GeneralInsurance implements Observable {
         this.insuranceYearlyPayment.set(insuranceYearlyPayment);
         this.createdAt = LocalDateTime.now();
     }
+
 
     public abstract Observable[] getPropertiesAsList();
 

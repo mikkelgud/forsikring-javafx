@@ -24,6 +24,12 @@ public class HouseInsuranceController {
     public ComboBox buildingMaterial;
     @FXML
     public Label errorLabel;
+    @FXML
+    public Label insuranceYearlyPaymentOutPrint;
+    @FXML
+    public Label inuranceAmountOutPrint;
+    @FXML
+    public Label InsuranceCoverageInfoOutPrint;
 
     private String insuranceYearlyPayment = "12123+";
     private String insuranceAmount = "300 000";

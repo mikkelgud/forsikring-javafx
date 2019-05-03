@@ -58,7 +58,6 @@ public class BoatInsurance extends GeneralInsurance {
     public StringProperty lengthProperty() {
         return length;
     }
-
     public StringProperty modelYearProperty() {
         return modelYear;
     }

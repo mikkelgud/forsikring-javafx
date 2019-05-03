@@ -2,6 +2,7 @@ package com.mikkelgud.insurance;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 
 public class CabinInsuranceController {
@@ -23,6 +24,12 @@ public class CabinInsuranceController {
     TextField insurancePremiumHousing;
     @FXML
     ComboBox buildingType;
+    @FXML
+    protected Label insuranceYearlyPaymentOutPrint;
+    @FXML
+    protected Label inuranceAmountOutPrint;
+    @FXML
+    protected Label InsuranceCoverageInfoOutPrint;
 
     private String insuranceYearlyPayment = "12123+";
     private String insuranceAmount = "300 000";

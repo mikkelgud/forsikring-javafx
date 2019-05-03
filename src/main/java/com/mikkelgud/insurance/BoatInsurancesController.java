@@ -18,10 +18,17 @@ public class BoatInsurancesController {
     public TextField enginePower;
     @FXML
     private Label errorLabel;
+    @FXML
+    public Label insuranceYearlyPaymentOutPrint;
+    @FXML
+    public Label insuranceAmountOutPrint;
+    @FXML
+    public Label insuranceCoverageInfoOutPrint;
 
-    private String insuranceYearlyPayment = "12123+";
-    private String insuranceAmount = "300 000";
-    private String insuranceCoverage = "Dekker all skade med båt";
+
+    private final String insuranceYearlyPayment = "1000";
+    private final String insuranceAmount = "300 000";
+    private final String insuranceCoverage = "Dekker all skade i forbindelse med din båt på vannet eller under henholdsmessig frakt.";
 
     private final String EMPTY_STRING = "";
 
@@ -61,5 +68,11 @@ public class BoatInsurancesController {
 
     public void setInsurancesModel(InsurancesModel insurancesModel) {
         this.insurancesModel = insurancesModel;
+    }
+
+    public void getPrintImportantInformation() {
+        insuranceYearlyPaymentOutPrint.setText(insuranceYearlyPayment);
+        insuranceAmountOutPrint.setText(insuranceAmount);
+        insuranceCoverageInfoOutPrint.setText(insuranceCoverage);
     }
 }

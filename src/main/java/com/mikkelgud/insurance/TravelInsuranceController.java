@@ -2,6 +2,7 @@ package com.mikkelgud.insurance;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.CheckBox;
+import javafx.scene.control.Label;
 
 public class TravelInsuranceController {
     @FXML
@@ -16,6 +17,12 @@ public class TravelInsuranceController {
     public CheckBox africa;
     @FXML
     public CheckBox europe;
+    @FXML
+    public Label insuranceYearlyPaymentOutPrint;
+    @FXML
+    public Label inuranceAmountOutPrint;
+    @FXML
+    public Label InsuranceCoverageInfoOutPrint;
 
 
 

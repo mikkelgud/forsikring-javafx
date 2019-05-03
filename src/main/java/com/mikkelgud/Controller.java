@@ -213,6 +213,7 @@ public class Controller implements Initializable {
             BoatInsurancesController insurancesController = loader.getController();
             insurancesController.setInsurancesModel(insurancesModel);
             openWindow(root, "Registrer din båtforsikring");
+            insurancesController.getPrintImportantInformation();
         } catch (IOException ex) {
             Logger.getLogger(Controller.class.getName()).log(Level.SEVERE, null, ex);
         }

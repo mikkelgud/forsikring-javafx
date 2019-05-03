@@ -6,11 +6,11 @@
 <?import javafx.scene.paint.Color?>
 <?import javafx.scene.text.Font?>
 <?import java.lang.*?>
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="395.0"
-            prefWidth="483.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1"
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="558.0"
+            prefWidth="577.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1"
             fx:controller="com.mikkelgud.insurance.HouseInsuranceController">
    <children>
-       <Label alignment="CENTER" layoutX="28.0" layoutY="14.0" prefHeight="23.0" prefWidth="427.0" style="&#10;"
+       <Label alignment="CENTER" layoutX="71.0" layoutY="14.0" prefHeight="23.0" prefWidth="427.0" style="&#10;"
               text="Registreringsskjema Bygning og innboforsikring" textAlignment="CENTER" wrapText="false">
          <font>
             <Font size="18.0" fx:id="x1" />
@@ -19,11 +19,11 @@
             <Color blue="0.624" green="0.624" red="0.624" fx:id="x2" />
          </textFill>
       </Label>
-       <Label fx:id="errorLabel" alignment="CENTER" layoutX="38.0" layoutY="354.0" prefHeight="17.0" prefWidth="361.0"
+       <Label fx:id="errorLabel" alignment="CENTER" layoutX="99.0" layoutY="493.0" prefHeight="17.0" prefWidth="361.0"
               textFill="#ee0303"/>
-       <TextField fx:id="yearBuilt" layoutX="264.0" layoutY="184.0" prefHeight="27.0" prefWidth="136.0"
+       <TextField fx:id="yearBuilt" layoutX="395.0" layoutY="68.0" prefHeight="27.0" prefWidth="136.0"
                   promptText="Byggeår eks. 1984"/>
-       <ComboBox fx:id="houseType" layoutX="264.0" layoutY="123.0" prefWidth="150.0" promptText="Hustype">
+       <ComboBox fx:id="houseType" layoutX="308.0" layoutY="137.0" prefWidth="150.0" promptText="Hustype">
            <items>
                <FXCollections fx:factory="observableArrayList">
                    <String fx:value="Appartment"/>
@@ -32,7 +32,7 @@
                </FXCollections>
            </items>
       </ComboBox>
-       <ComboBox fx:id="buildingMaterial" layoutX="51.0" layoutY="123.0" prefWidth="150.0" promptText="Byggemateriale">
+       <ComboBox fx:id="buildingMaterial" layoutX="83.0" layoutY="137.0" prefWidth="150.0" promptText="Byggemateriale">
            <items>
                <FXCollections fx:factory="observableArrayList">
                    <String fx:value="Concrete"/>
@@ -41,15 +41,24 @@
                </FXCollections>
            </items>
       </ComboBox>
-       <TextField fx:id="housingSize" layoutX="264.0" layoutY="68.0" prefHeight="27.0" prefWidth="136.0"
+       <TextField fx:id="housingSize" layoutX="233.0" layoutY="68.0" prefHeight="27.0" prefWidth="136.0"
                   promptText="Husstørelse"/>
-       <Button layoutX="167.0" layoutY="284.0" mnemonicParsing="false" onAction="#registrateInsurance" prefHeight="34.0"
+       <Button layoutX="195.0" layoutY="444.0" mnemonicParsing="false" onAction="#registrateInsurance" prefHeight="34.0"
                prefWidth="150.0" text="Registrer forsikring"/>
-       <TextField fx:id="homeAddress" layoutX="55.0" layoutY="68.0" prefHeight="27.0" prefWidth="150.0"
+       <TextField fx:id="homeAddress" layoutX="49.0" layoutY="68.0" prefHeight="27.0" prefWidth="150.0"
                   promptText="Hjemmeadressse"/>
-       <TextField fx:id="insurancePremiumBuilding" layoutX="144.0" layoutY="236.0" prefHeight="27.0" prefWidth="195.0"
+       <TextField fx:id="insurancePremiumBuilding" layoutX="247.0" layoutY="241.0" prefHeight="27.0" prefWidth="195.0"
                   promptText="Forsikringsbeløp for bygning"/>
-       <TextField fx:id="insurancePremiumInnbo" layoutX="38.0" layoutY="184.0" prefHeight="27.0" prefWidth="176.0"
+       <TextField fx:id="insurancePremiumInnbo" layoutX="49.0" layoutY="241.0" prefHeight="27.0" prefWidth="184.0"
                   promptText="Forsikringsbeløp for innbo"/>
+       <Label layoutX="57.0" layoutY="201.0" prefHeight="17.0" prefWidth="169.0" text="Skriv inn ønskelig:"/>
+       <Label layoutX="46.0" layoutY="298.0" prefHeight="23.0" prefWidth="318.0"
+              text="Med dine ønskelige parametere koster forsikringen:"/>
+       <Button layoutX="462.0" layoutY="241.0" mnemonicParsing="false" text="Test pris"/>
+       <Label layoutX="381.0" layoutY="301.0" prefHeight="17.0" prefWidth="169.0" text="Her skal prisen komme inn"/>
+       <Label layoutX="96.0" layoutY="346.0" prefHeight="17.0" prefWidth="385.0"
+              text="Her kommmer bedskjed om hvor stort forsikringsbeløpet er"/>
+       <Label layoutX="96.0" layoutY="390.0" text="Her kommer generell info om hva denne forsikringen dekker"
+              wrapText="true"/>
    </children>
 </AnchorPane>

@@ -3,7 +3,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
-<AnchorPane prefHeight="381.0" prefWidth="575.0" xmlns="http://javafx.com/javafx/11.0.1"
+<AnchorPane prefHeight="434.0" prefWidth="575.0" xmlns="http://javafx.com/javafx/11.0.1"
             xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mikkelgud.insurance.BoatInsurancesController">
     <children>
         <Label alignment="CENTER" contentDisplay="CENTER" layoutX="25.0" layoutY="14.0" prefHeight="42.0"
@@ -19,9 +19,14 @@
         <TextField fx:id="modelYear" layoutX="200.0" layoutY="198.0" promptText="Årsmodell(f.eks.: 2001)"/>
         <TextField fx:id="engineType" layoutX="322.0" layoutY="86.0" promptText="Motortype"/>
         <TextField fx:id="enginePower" layoutX="322.0" layoutY="145.0" promptText="Motorkraft"/>
-        <Label fx:id="errorLabel" alignment="CENTER" layoutX="40.0" layoutY="315.0" prefHeight="17.0" prefWidth="490.0"
+        <Label fx:id="errorLabel" alignment="CENTER" layoutX="43.0" layoutY="375.0" prefHeight="17.0" prefWidth="490.0"
                textFill="#ee0303"/>
-        <Button layoutX="222.0" layoutY="248.0" mnemonicParsing="false" onAction="#registerBoatInsurance"
+        <Button layoutX="222.0" layoutY="341.0" mnemonicParsing="false" onAction="#registerBoatInsurance"
                 prefHeight="27.0" prefWidth="132.0" text="Registrer"/>
+        <Label fx:id="insuranceAmountOutPrint" layoutX="122.0" layoutY="239.0" prefHeight="17.0" prefWidth="385.0"/>
+        <Label fx:id="insuranceYearlyPaymentOutPrint" layoutX="118.0" layoutY="270.0"
+               text="Her kommer en bedkskjed på hvor mye dette kommer til å kosta"/>
+        <Label fx:id="insuranceCoverageInfoOutPrint" layoutX="115.0" layoutY="293.0" prefHeight="27.0" prefWidth="368.0"
+               text="Her kommer generell info om hva denne forsikringen dekker"/>
     </children>
 </AnchorPane>
