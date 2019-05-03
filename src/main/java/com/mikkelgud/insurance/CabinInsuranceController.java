@@ -29,7 +29,7 @@ public class CabinInsuranceController {
     @FXML
     protected Label insuranceYearlyPaymentOutPrint;
     @FXML
-    protected Label inuranceAmountOutPrint;
+    protected Label insuranceAmountOutPrint;
     @FXML
     protected Label InsuranceCoverageInfoOutPrint;
 
@@ -78,7 +78,7 @@ public class CabinInsuranceController {
 
     public void getPrintImportantInformation() {
 //        insuranceYearlyPaymentOutPrint.setText(insuranceYearlyPayment);
-//        inuranceAmountOutPrint.setText(insuranceAmount);
+//        insuranceAmountOutPrint.setText(insuranceAmount);
 //        InsuranceCoverageInfoOutPrint.setText(insuranceCoverage);
     }
 
