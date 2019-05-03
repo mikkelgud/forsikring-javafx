@@ -38,6 +38,7 @@ public class HouseInsuranceController {
     private String insuranceHG = "100 000";
 
 
+
     private final String EMPTY_STRING = "";
 
     private final InsuranceValidator validator = new InsuranceValidator();

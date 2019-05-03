@@ -79,5 +79,13 @@ public class CabinInsuranceController {
         }
 
         }
-      //  errorLabel.setText(ex.getMessage());
+    public void setInsurancesModel(InsurancesModel insurancesModel) {
+        this.insurancesModel = insurancesModel;
+    }
+    public void getPrintImportantInformation() {
+        insuranceYearlyPaymentOutPrint.setText(insuranceYearlyPayment);
+        inuranceAmountOutPrint.setText(insuranceAmount);
+        InsuranceCoverageInfoOutPrint.setText(insuranceCoverage);
+    }
+
     }

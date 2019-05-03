@@ -3,9 +3,7 @@ package com.mikkelgud;
 //import com.mikkelgud.filehandling.SaveStrategy;
 
 import com.mikkelgud.filehandling.ReadStrategy;
-import com.mikkelgud.insurance.BoatInsurancesController;
-import com.mikkelgud.insurance.HouseInsuranceController;
-import com.mikkelgud.insurance.InsurancesModel;
+import com.mikkelgud.insurance.*;
 import com.mikkelgud.person.InvalidPersonPropertiesException;
 import com.mikkelgud.person.Person;
 import com.mikkelgud.person.PersonListModel;
@@ -227,9 +225,10 @@ public class Controller implements Initializable {
 
         try {
             Parent root = loader.load();
-            loader.setController(this);
-
+            CabinInsuranceController insuranceController = loader.getController();
+            insuranceController.setInsurancesModel(insurancesModel);
             openWindow(root, "Registrer din fritidsbolig");
+            insuranceController.getPrintImportantInformation();
         } catch (IOException ex) {
             Logger.getLogger(Controller.class.getName()).log(Level.SEVERE, null, ex);
         }
