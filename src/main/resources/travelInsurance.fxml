@@ -19,7 +19,7 @@
     <CheckBox fx:id="southAmerica" layoutX="72.0" layoutY="158.0" mnemonicParsing="false" text="Sør Amerika"/>
     <CheckBox fx:id="oseania" layoutX="198.0" layoutY="158.0" mnemonicParsing="false" text="Oseania"/>
     <CheckBox fx:id="africa" layoutX="315.0" layoutY="158.0" mnemonicParsing="false" text="Afrika"/>
-    <Button layoutX="65.0" layoutY="334.0" mnemonicParsing="false" text="Registrer"/>
+    <Button layoutX="65.0" layoutY="334.0" mnemonicParsing="false" text="Registrer" onAction="#registrateTravelInsurance"/>
     <Label layoutX="106.0" layoutY="379.0" prefHeight="18.0" prefWidth="330.0"/>
     <Label layoutX="59.0" layoutY="213.0" prefHeight="17.0" prefWidth="385.0"
            text="Her kommmer bedskjed om hvor stort forsikringsbeløpet er"/>

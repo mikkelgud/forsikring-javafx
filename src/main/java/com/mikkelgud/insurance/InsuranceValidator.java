@@ -125,4 +125,33 @@ public class InsuranceValidator {
     private boolean isPresent(String stringToValidate) {
         return stringToValidate != null && !stringToValidate.isEmpty();
     }
+
+    public TravelInsurance createNewTravelInsurance(String insuranceYearlyPayment,
+                                                    String insuranceAmount,
+                                                    String insuranceCoverage,
+                                                    boolean southAmerica,
+                                                    boolean northAmerica,
+                                                    boolean asia,
+                                                    boolean oseania,
+                                                    boolean africa,
+                                                    boolean europe) throws InvalidInsurancePropertiesException {
+        if(southAmerica == false && northAmerica == false && asia == false && oseania == false && africa == false &&
+                europe == false){
+            throw new InvalidInsurancePropertiesException(MESSAGE_ONLY_EMPTY_FIELDS);
+        }
+
+        if(!isPresent(insuranceYearlyPayment)){
+            throw new InvalidInsurancePropertiesException(MESSAGE_NO_EMPTY_FIELDS);
+        }
+
+        if (!isPresent(insuranceAmount)) {
+            throw new InvalidInsurancePropertiesException(MESSAGE_NO_EMPTY_FIELDS);
+        }
+
+        if (!isPresent(insuranceCoverage)){
+            throw new InvalidInsurancePropertiesException(MESSAGE_NO_EMPTY_FIELDS);
+        }
+        return new TravelInsurance(insuranceYearlyPayment, insuranceAmount, insuranceCoverage,
+                europe, asia, northAmerica, southAmerica, oseania,africa);
+    }
 }
