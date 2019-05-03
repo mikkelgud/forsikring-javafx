@@ -126,7 +126,8 @@ public class InsuranceValidator {
         return stringToValidate != null && !stringToValidate.isEmpty();
     }
 
-    public TravelInsurance createNewTravelInsurance(String insuranceYearlyPayment,
+    public TravelInsurance createNewTravelInsurance(String currentPersonId,
+                                                    String insuranceYearlyPayment,
                                                     String insuranceAmount,
                                                     String insuranceCoverage,
                                                     boolean southAmerica,
@@ -140,6 +141,10 @@ public class InsuranceValidator {
             throw new InvalidInsurancePropertiesException(MESSAGE_ONLY_EMPTY_FIELDS);
         }
 
+        if (!isPresent(currentPersonId)) {
+            throw new InvalidInsurancePropertiesException(MESSAGE_MUST_REGISTRATE_A_USER);
+        }
+
         if(!isPresent(insuranceYearlyPayment)){
             throw new InvalidInsurancePropertiesException(MESSAGE_NO_EMPTY_FIELDS);
         }
@@ -151,7 +156,7 @@ public class InsuranceValidator {
         if (!isPresent(insuranceCoverage)){
             throw new InvalidInsurancePropertiesException(MESSAGE_NO_EMPTY_FIELDS);
         }
-        return new TravelInsurance(insuranceYearlyPayment, insuranceAmount, insuranceCoverage,
+        return new TravelInsurance(currentPersonId, insuranceYearlyPayment, insuranceAmount, insuranceCoverage,
                 europe, asia, northAmerica, southAmerica, oseania,africa);
     }
 }

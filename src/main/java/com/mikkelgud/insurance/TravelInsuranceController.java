@@ -27,6 +27,8 @@ public class TravelInsuranceController {
     @FXML
     public Label InsuranceCoverageInfoOutPrint;
     @FXML
+    public Label errorLabel;
+    @FXML
     public Button registrateTravel;
 
     private final String insuranceYearlyPayment = "1000";
@@ -39,7 +41,8 @@ public class TravelInsuranceController {
 
     public void registrateTravelInsurance(ActionEvent event){
         try{
-            TravelInsurance newTravelInsurance = validator.createNewTravelInsurance(insuranceYearlyPayment,
+            TravelInsurance newTravelInsurance = validator.createNewTravelInsurance(insurancesModel.getCurrentPersonId(),
+                    insuranceYearlyPayment,
                     insuranceAmount,
                     insuranceCoverage,
                     southAmerica.isSelected(),
@@ -53,7 +56,7 @@ public class TravelInsuranceController {
             Stage stage = (Stage) registrateTravel.getScene().getWindow();
             stage.close();
         } catch (InvalidInsurancePropertiesException e) {
-            e.printStackTrace();
+            errorLabel.setText(e.getMessage());
         }
     }
 

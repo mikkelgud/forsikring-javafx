@@ -20,7 +20,8 @@ public class TravelInsurance extends GeneralInsurance {
     private final BooleanProperty southAmerica = new SimpleBooleanProperty();
     private final LocalDateTime createdAt;
 
-    public TravelInsurance(String insuranceYearlyPayment,
+    public TravelInsurance(String currentPersonId,
+                           String insuranceYearlyPayment,
                            String insuranceAmount,
                            String insuranceCoverageInfo,
                            boolean europa,
@@ -38,6 +39,7 @@ public class TravelInsurance extends GeneralInsurance {
         this.southAmerica.set(southAmerica);
         this.oceania.set(oceania);
         this.createdAt = LocalDateTime.now();
+        setPersonId(currentPersonId);
     }
 
     @Override
@@ -61,6 +63,7 @@ public class TravelInsurance extends GeneralInsurance {
     }
 
     public String isEuropa() {
+        System.out.print(europa);
         if(europa.equals(true)){
             return "Forsikret for reiser i Europa";
         } else {
@@ -68,9 +71,6 @@ public class TravelInsurance extends GeneralInsurance {
         }
     }
 
-    public BooleanProperty europaProperty() {
-        return europa;
-    }
 
     public String isAsia() {
         if(asia.equals(true)) {
@@ -80,9 +80,6 @@ public class TravelInsurance extends GeneralInsurance {
         }
     }
 
-    public BooleanProperty asiaProperty() {
-        return asia;
-    }
 
     public String isNorthAmerica() {
         if(northAmerica.equals(true)){
@@ -90,10 +87,6 @@ public class TravelInsurance extends GeneralInsurance {
         } else {
             return "Ikke forsikret for reiser i Nord Amerika";
         }
-    }
-
-    public BooleanProperty northAmericaProperty() {
-        return northAmerica;
     }
 
     public String isSouthAmerica(){
@@ -112,9 +105,6 @@ public class TravelInsurance extends GeneralInsurance {
         }
     }
 
-    public BooleanProperty oceaniaProperty() {
-        return oceania;
-    }
 
     public String isAfrica() {
         if(africa.equals(true)){
@@ -124,9 +114,6 @@ public class TravelInsurance extends GeneralInsurance {
         }
     }
 
-    public BooleanProperty africaProperty() {
-        return africa;
-    }
 
 
     @Override
