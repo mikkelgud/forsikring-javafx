@@ -19,9 +19,9 @@
         <TextField fx:id="modelYear" layoutX="200.0" layoutY="198.0" promptText="Årsmodell(f.eks.: 2001)"/>
         <TextField fx:id="engineType" layoutX="322.0" layoutY="86.0" promptText="Motortype"/>
         <TextField fx:id="enginePower" layoutX="322.0" layoutY="145.0" promptText="Motorkraft"/>
-        <Label fx:id="errorLabel" alignment="CENTER" layoutX="149.0" layoutY="315.0" prefHeight="17.0" prefWidth="279.0"
+        <Label fx:id="errorLabel" alignment="CENTER" layoutX="40.0" layoutY="315.0" prefHeight="17.0" prefWidth="490.0"
                textFill="#ee0303"/>
-        <Button layoutX="222.0" layoutY="248.0" mnemonicParsing="false"
-                onAction="#registerBoatInsurance" prefHeight="27.0" prefWidth="132.0" text="Registrer"/>
+        <Button layoutX="222.0" layoutY="248.0" mnemonicParsing="false" onAction="#registerBoatInsurance"
+                prefHeight="27.0" prefWidth="132.0" text="Registrer"/>
     </children>
 </AnchorPane>

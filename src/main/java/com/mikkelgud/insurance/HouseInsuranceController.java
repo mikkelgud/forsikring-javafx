@@ -42,14 +42,17 @@ public class HouseInsuranceController {
     private void registrateInsurance(ActionEvent event) throws InvalidInsurancePropertiesException {
         errorLabel.setText("");
         try {
-            HouseInsurance newHouseInsurance = validator.createNewHouseInsurance(insurancesModel.getCurrentPersonId(),
-                    insuranceYearlyPayment, insuranceAmount, insuranceCoverage, homeAddress.getText(), yearBuilt.getText(),
-                    housingSize.getText(),  insurancePremiumBuilding.getText(), insurancePremiumInnbo.getText(),
-                    houseType.getValue().toString(), buildingMaterial.getValue().toString()
-
-            );
-            insurancesModel.getAllInsurances().add(newHouseInsurance);
-            resetFieldValues();
+            //Må kjøre denne testen her da den valideringen ikke fungerer om ikke det er gjort noe med den
+            if (buildingMaterial.getValue() == null || houseType.getValue() == null) {
+                throw new InvalidInsurancePropertiesException("Husk at alle feltene må fylles ut før registrering");
+            } else {
+                HouseInsurance newHouseInsurance = validator.createNewHouseInsurance(insurancesModel.getCurrentPersonId(),
+                        insuranceYearlyPayment, insuranceAmount, insuranceCoverage, homeAddress.getText(), yearBuilt.getText(),
+                        housingSize.getText(), insurancePremiumBuilding.getText(), insurancePremiumInnbo.getText(),
+                        houseType.getValue().toString(), buildingMaterial.getValue().toString());
+                insurancesModel.getAllInsurances().add(newHouseInsurance);
+                resetFieldValues();
+            }
         }catch (InvalidInsurancePropertiesException ex) {
             errorLabel.setText(ex.getMessage());
         }

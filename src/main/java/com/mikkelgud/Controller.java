@@ -247,6 +247,20 @@ public class Controller implements Initializable {
         } catch (IOException ex) {
             Logger.getLogger(Controller.class.getName()).log(Level.SEVERE, null, ex);
         }
+    }
+
+    @FXML
+    public void openClaimInsurance() {
+        URL resource = getClass().getClassLoader().getResource("claimInsuranceRegistration.fxml");
+        FXMLLoader loader = new FXMLLoader(resource);
+
+        try {
+            Parent root = loader.load();
+            loader.setController(this);
+            openWindow(root, "Registrer din skademelding");
+        } catch (IOException ex) {
+            Logger.getLogger(Controller.class.getName()).log(Level.SEVERE, null, ex);
+        }
 
     }
 

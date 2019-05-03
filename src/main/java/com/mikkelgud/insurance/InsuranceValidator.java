@@ -2,11 +2,15 @@ package com.mikkelgud.insurance;
 
 public class InsuranceValidator {
     //Only validating one thing so only one message i needed
+    private static final String MESSAGE_MUST_REGISTRATE_A_USER = "Vennligst merk registrer en person før du oppretter en forsikring";
     private static final String MESSAGE_NO_EMPTY_FIELDS = "Venligst fyll ut alle feltetene i registreringen";
     private static final String MESSAGE_ONLY_EMPTY_FIELDS = "Kryss av minst ett felt!";
 
     public BoatInsurance createNewBoatInsurance(String currentPersonId, String insuranceYearlyPayment, String insuranceAmount, String insuranceInfo, String boatType, String length, String model, String engineType, String enginePower) throws InvalidInsurancePropertiesException {
 
+        if (!isPresent(currentPersonId)) {
+            throw new InvalidInsurancePropertiesException(MESSAGE_MUST_REGISTRATE_A_USER);
+        }
         if (!isPresent(boatType)) {
             throw new InvalidInsurancePropertiesException(MESSAGE_NO_EMPTY_FIELDS);
         }
@@ -22,37 +26,30 @@ public class InsuranceValidator {
         if (!isPresent(enginePower)) {
             throw new InvalidInsurancePropertiesException(MESSAGE_NO_EMPTY_FIELDS);
         }
-
         return new BoatInsurance(currentPersonId, insuranceYearlyPayment, insuranceAmount, insuranceInfo, boatType, length, model, engineType, enginePower);
     }
 
 
 
     public HouseInsurance createNewHouseInsurance(String currentPersonId, String insuranceYearlyPayment, String insuranceAmount,
-                                                  String insuranceInfo,String insuranceAddress, String yearBuilt, String housingSize, String insurancePremiumBuilding,
-                                                  String insurancePremiumInnbo, String houseType, String buildingMaterial) throws InvalidInsurancePropertiesException {
-
+                                                  String insuranceInfo, String insuranceAddress, String yearBuilt, String housingSize,
+                                                  String insurancePremiumBuilding, String insurancePremiumInnbo, String houseType, String buildingMaterial) throws InvalidInsurancePropertiesException {
+        if (!isPresent(currentPersonId)) {
+            throw new InvalidInsurancePropertiesException(MESSAGE_MUST_REGISTRATE_A_USER);
+        }
         if (!isPresent(housingSize)) {
             throw new InvalidInsurancePropertiesException(MESSAGE_NO_EMPTY_FIELDS);
         }
-
         if (!isPresent(yearBuilt)) {
             throw new InvalidInsurancePropertiesException(MESSAGE_NO_EMPTY_FIELDS);
         }
-
         if (!isPresent(insurancePremiumBuilding)) {
             throw new InvalidInsurancePropertiesException(MESSAGE_NO_EMPTY_FIELDS);
         }
-
         if (!isPresent(insurancePremiumInnbo)) {
             throw new InvalidInsurancePropertiesException(MESSAGE_NO_EMPTY_FIELDS);
         }
-
-        if (!isPresent(houseType)) {
-            throw new InvalidInsurancePropertiesException(MESSAGE_NO_EMPTY_FIELDS);
-        }
-
-        if (!isPresent(buildingMaterial)) {
+        if (!isPresent(insuranceAddress)) {
             throw new InvalidInsurancePropertiesException(MESSAGE_NO_EMPTY_FIELDS);
         }
 

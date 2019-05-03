@@ -5,21 +5,22 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 <?import java.lang.*?>
-<AnchorPane prefHeight="700.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1"
+<AnchorPane prefHeight="425.0" prefWidth="556.0" xmlns="http://javafx.com/javafx/11.0.1"
             xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mikkelgud.insurance.CabinInsuranceController">
     <children>
-        <Label alignment="CENTER" contentDisplay="CENTER" layoutX="25.0" layoutY="14.0" prefHeight="42.0"
-               prefWidth="550.0" text="Registrer fritidsboligforsikring">
+        <Label alignment="CENTER" contentDisplay="CENTER" layoutX="18.0" layoutY="14.0" prefHeight="42.0"
+               prefWidth="530.0" text="Registrer fritidsboligforsikring">
             <font>
                 <Font size="25.0"/>
             </font>
         </Label>
         <Label layoutX="283.0" layoutY="82.0" prefHeight="17.0" prefWidth="0.0"/>
         <Label alignment="CENTER" layoutX="225.0" layoutY="65.0" prefHeight="17.0" prefWidth="151.0"/>
-        <TextField fx:id="adress" layoutX="217.0" layoutY="91.0" promptText="Adresse"/>
-        <Label alignment="CENTER" layoutX="208.0" layoutY="128.0" prefHeight="17.0" prefWidth="185.0"/>
-        <TextField fx:id="yearBuilt" layoutX="217.0" layoutY="153.0" promptText="Byggeår"/>
-        <ComboBox fx:id="buildingMaterial" layoutX="225.0" layoutY="257.0" prefWidth="150.0"
+        <TextField fx:id="adress" layoutX="59.0" layoutY="79.0" promptText="Adresse"/>
+        <Label alignment="CENTER" layoutX="75.0" layoutY="382.0" prefHeight="17.0" prefWidth="451.0"
+               textFill="#f50c00"/>
+        <TextField fx:id="yearBuilt" layoutX="59.0" layoutY="132.0" promptText="Byggeår"/>
+        <ComboBox fx:id="buildingMaterial" layoutX="319.0" layoutY="245.0" prefWidth="150.0"
                   promptText="Byggemateriale">
             <items>
                 <FXCollections fx:factory="observableArrayList">
@@ -29,7 +30,7 @@
                 </FXCollections>
             </items>
         </ComboBox>
-        <ComboBox fx:id="standard" layoutX="225.0" layoutY="308.0" prefWidth="150.0" promptText="Standard">
+        <ComboBox fx:id="standard" layoutX="319.0" layoutY="170.0" prefWidth="150.0" promptText="Standard">
             <items>
                 <FXCollections fx:factory="observableArrayList">
                     <String fx:value="Dårlig"/>
@@ -38,7 +39,7 @@
                 </FXCollections>
             </items>
         </ComboBox>
-        <ComboBox fx:id="buildingType" layoutX="225.0" layoutY="209.0" prefWidth="150.0" promptText="Boligtype">
+        <ComboBox fx:id="buildingType" layoutX="319.0" layoutY="93.0" prefWidth="150.0" promptText="Boligtype">
             <items>
                 <FXCollections fx:factory="observableArrayList">
                     <String fx:value="Leilighet"/>
@@ -47,18 +48,15 @@
                 </FXCollections>
             </items>
         </ComboBox>
-        <Label alignment="CENTER" layoutX="196.0" layoutY="350.0" prefHeight="17.0" prefWidth="210.0"/>
-        <TextField fx:id="extraStandardInfo" layoutX="217.0" layoutY="376.0"
+        <TextField fx:id="extraStandardInfo" layoutX="58.0" layoutY="183.0"
                    promptText="Tileggsinfo om standard på hus"/>
         <Label alignment="CENTER" layoutX="225.0" layoutY="413.0" prefHeight="17.0" prefWidth="151.0"/>
-        <TextField fx:id="cabinSize" layoutX="217.0" layoutY="430.0" promptText="Antall kvadratmeter"/>
-        <Label alignment="CENTER" layoutX="188.0" layoutY="488.0" prefHeight="17.0" prefWidth="225.0"/>
-        <TextField fx:id="insurancePremiumBuilding" layoutX="199.0" layoutY="492.0" prefHeight="27.0" prefWidth="192.0"
+        <TextField fx:id="cabinSize" layoutX="59.0" layoutY="231.0" promptText="Antall kvadratmeter"/>
+        <TextField fx:id="insurancePremiumBuilding" layoutX="47.0" layoutY="280.0" prefHeight="27.0" prefWidth="192.0"
                    promptText="Forsikringsbeløp for bygning"/>
-        <Label alignment="CENTER" layoutX="188.0" layoutY="561.0" prefHeight="17.0" prefWidth="225.0"/>
-        <TextField fx:id="insurancePremiumHousing" layoutX="200.0" layoutY="556.0" prefHeight="27.0" prefWidth="192.0"
+        <TextField fx:id="insurancePremiumHousing" layoutX="47.0" layoutY="327.0" prefHeight="27.0" prefWidth="192.0"
                    promptText="Forsikringsbeløp for innbo"/>
-        <Button onAction="#registerCabinInsurance" layoutX="234.0" layoutY="621.0" mnemonicParsing="false"
-                prefHeight="27.0" prefWidth="132.0" text="Registrer"/>
+        <Button layoutX="319.0" layoutY="327.0" mnemonicParsing="false" onAction="#registerCabinInsurance"
+                prefHeight="27.0" prefWidth="151.0" text="Registrer"/>
     </children>
 </AnchorPane>
