@@ -37,21 +37,20 @@ public class ReadFromCSV {
     }
 
     public PersonData parseData(String fields) {
-
-        PersonData personData = new PersonData();
         String[] splitted = fields.split(";");
-
-
-        if (splitted[0].equals("personData")) {
-
-            personData.setFirstName(splitted[1]);
-            personData.setLastName(splitted[2]);
-            personData.setBillingAddress(splitted[3]);
-            personData.toString();
+        System.out.print(splitted.length);
+        try {
+           return new PersonData(splitted[1],
+                    splitted[2],
+                    splitted[3],
+                    Boolean.parseBoolean(splitted[4]),
+                    Boolean.parseBoolean(splitted[5]),
+                    Boolean.parseBoolean(splitted[6]),
+                    Boolean.parseBoolean(splitted[7]));
+        } catch (Exception e) {
+            e.printStackTrace();
         }
-        personData.attatchToGUI();
-        return personData;
+        return null;
+
     }
-
-
 }

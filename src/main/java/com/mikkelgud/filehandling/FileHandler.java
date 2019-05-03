@@ -4,34 +4,31 @@ package com.mikkelgud.filehandling;
 import javafx.stage.FileChooser;
 
 import java.io.File;
+import java.nio.file.Path;
 
-public class FileHandler implements Runnable {
+public class FileHandler {
 
-    public String getFileExtension() {
-        File selectedFile = openReadFile();
-        return getFileName(selectedFile).substring(getFileName(selectedFile).lastIndexOf(".")
-                + 1, selectedFile.getName().length());
+    FileChooser fileChooser = new FileChooser();
+
+    public File getReadFile(){
+        return fileChooser.showOpenDialog(null);
+
     }
 
-    public File openReadFile() {
-        FileChooser fc = new FileChooser();
-        File file = fc.showOpenDialog(null);
-        if (file != null) {
-            return file;
-        } else {
-            return null;
-        }
-
+    private String getSavePath(){
+        File file =fileChooser.showSaveDialog(null);
+        return file.getAbsolutePath();
     }
 
     public String getFileName(File file) {
         return file.getName();
     }
 
-
-    @Override
-    public void run() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public String getFileExtension() {
+        File selectedFile = getReadFile();
+        return getFileName(selectedFile).substring(getFileName(selectedFile).lastIndexOf(".")
+                + 1, selectedFile.getName().length());
     }
+
 
 }

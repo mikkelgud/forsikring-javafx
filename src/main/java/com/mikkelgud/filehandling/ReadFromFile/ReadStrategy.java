@@ -11,13 +11,14 @@ import com.mikkelgud.person.InvalidPersonPropertiesException;
 import java.io.File;
 
 public class ReadStrategy extends ReadFromFile {
+    FileHandler fileHandler = new FileHandler();
+
 
     public void readFile() throws InvalidPersonPropertiesException {
-        FileHandler filehandler = new FileHandler();
-        File file = filehandler.openReadFile();
-        switch (filehandler.getFileExtension()) {
+        File file = fileHandler.getReadFile();
+        switch (fileHandler.getFileExtension()) {
             case "csv":
-                var csv = new ReadFromCSV(filehandler.getFileName(file), file).readCSV();
+                var csv = new ReadFromCSV(fileHandler.getFileName(file), file).readCSV();
                 break;
             case "jobj":
                 break;

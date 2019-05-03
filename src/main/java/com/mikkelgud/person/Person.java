@@ -91,7 +91,6 @@ public class Person {
         this.insuranceHouse.set(isInsured);
     }
 
-
     public void setInsuranceTravel(boolean isInsured) {
         this.insuranceTravel.set(isInsured);
     }

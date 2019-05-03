@@ -62,7 +62,7 @@ public class TravelInsurance extends GeneralInsurance {
         return createdAt;
     }
 
-    public String isEuropa() {
+    private String isEuropa() {
         System.out.print(europa);
         if(europa.equals(true)){
             return "Forsikret for reiser i Europa";
@@ -72,7 +72,7 @@ public class TravelInsurance extends GeneralInsurance {
     }
 
 
-    public String isAsia() {
+    private String isAsia() {
         if(asia.equals(true)) {
             return "Forsikret for reiser i Asia";
         } else {
@@ -81,7 +81,7 @@ public class TravelInsurance extends GeneralInsurance {
     }
 
 
-    public String isNorthAmerica() {
+    private String isNorthAmerica() {
         if(northAmerica.equals(true)){
             return "Forsikret for reiser i Nord Amerika";
         } else {
@@ -89,7 +89,7 @@ public class TravelInsurance extends GeneralInsurance {
         }
     }
 
-    public String isSouthAmerica(){
+    private String isSouthAmerica(){
         if(southAmerica.equals(true)){
             return "Forsikret for reiser i Sør Amerika";
         } else{
@@ -97,7 +97,7 @@ public class TravelInsurance extends GeneralInsurance {
         }
     }
 
-    public String isOceania() {
+    private String isOceania() {
         if(oceania.equals(true)){
             return"Forsikret for reiser i Oseania";
         } else {
@@ -106,7 +106,7 @@ public class TravelInsurance extends GeneralInsurance {
     }
 
 
-    public String isAfrica() {
+    private String isAfrica() {
         if(africa.equals(true)){
             return "Forsikret for reiser i Afrika";
         } else {
