@@ -1,5 +1,5 @@
 
-package com.mikkelgud.filehandling.SaveToFile;
+package com.mikkelgud.filehandling;
 
 import com.mikkelgud.person.Person;
 import com.mikkelgud.person.PersonListModel;

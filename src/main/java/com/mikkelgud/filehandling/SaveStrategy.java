@@ -1,9 +1,6 @@
-package com.mikkelgud.filehandling.SaveToFile;
+package com.mikkelgud.filehandling;
 
 
-import com.mikkelgud.filehandling.ReadFromFile.ReadFromFile;
-import com.mikkelgud.filehandling.SaveToFile.SaveToCSV;
-import com.mikkelgud.person.InvalidPersonPropertiesException;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 
@@ -35,7 +32,7 @@ public class SaveStrategy extends ReadFromFile {
 
 
     @Override
-    public void readFile() throws InvalidPersonPropertiesException {
+    public void readFile() {
 
     }
 }

@@ -49,10 +49,10 @@ public class CabinInsuranceController {
     private InsurancesModel insurancesModel;
 
     @FXML
-    public void registerCabinInsurance() throws InvalidInsurancePropertiesException {
+    public void registerCabinInsurance() {
         errorLabel.setText("");
         if (buildingMaterial.getValue() == null || standard.getValue() == null || buildingType.getValue() == null) {
-            throw new InvalidInsurancePropertiesException("Husk at alle feltene må fylles ut før registrering");
+            errorLabel.setText("fyll inn alt ellers blir det bare kluss");
         } else {
             try {
                 CabinInsurance newCabinInsurance = validator.createNewCabinInsurance(

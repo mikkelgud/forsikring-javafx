@@ -1,7 +1,6 @@
 
-package com.mikkelgud.filehandling.ReadFromFile;
+package com.mikkelgud.filehandling;
 
-import com.mikkelgud.person.InvalidPersonPropertiesException;
 import com.mikkelgud.person.PersonData;
 
 import java.io.BufferedReader;
@@ -18,7 +17,7 @@ public class ReadFromCSV {
         this.file = file;
     }
 
-    public boolean readCSV() throws InvalidPersonPropertiesException {
+    public boolean readCSV() {
 
         try {
             BufferedReader reader = new BufferedReader(new FileReader(file));

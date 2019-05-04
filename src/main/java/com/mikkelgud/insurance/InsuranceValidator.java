@@ -59,17 +59,11 @@ public class InsuranceValidator {
                 insuranceBP, insuranceHG);
     }
 
-    public CabinInsurance createNewCabinInsurance(String currentPersonID, String insuranceYearlyPayment, String insuranceAmount,
-                                                  String insuranceCoverageInfo, String address, String buildingMaterial,
-                                                  String housingState, String buildingType, String cabinSize, String yearBuilt,
-                                                  String insurancePriceBuilding, String insurancePriceHouseholdGoods) throws InvalidInsurancePropertiesException {
-
-
+    public CabinInsurance createNewCabinInsurance(String currentPersonID, String insuranceYearlyPayment, String insuranceAmount, String insuranceCoverageInfo, String address, String buildingMaterial, String housingState, String cabinSize, String buildingType, String yearBuilt, String insurancePriceBuilding, String insurancePriceHouseholdGoods) throws InvalidInsurancePropertiesException {
         if (!isPresent(currentPersonID)) {
             throw new InvalidInsurancePropertiesException(MESSAGE_MUST_REGISTRATE_A_USER);
         }
-
-        if(!isPresent(insuranceYearlyPayment)){
+        if (!isPresent(insuranceYearlyPayment)) {
         throw new InvalidInsurancePropertiesException(MESSAGE_NO_EMPTY_FIELDS);
     }
 
@@ -101,6 +95,10 @@ public class InsuranceValidator {
         throw new InvalidInsurancePropertiesException(MESSAGE_NO_EMPTY_FIELDS);
     }
 
+        if (!isPresent((buildingMaterial))) {
+            throw new InvalidInsurancePropertiesException(MESSAGE_NO_EMPTY_FIELDS);
+        }
+
     if(!isPresent(insurancePriceBuilding)){
         throw new InvalidInsurancePropertiesException(MESSAGE_NO_EMPTY_FIELDS);
     }
@@ -110,31 +108,18 @@ public class InsuranceValidator {
     }
     return new CabinInsurance(currentPersonID, insuranceYearlyPayment,insuranceAmount,
             insuranceCoverageInfo, address, buildingMaterial,
-            housingState, cabinSize, yearBuilt,
+            housingState, cabinSize, buildingType, yearBuilt,
             insurancePriceBuilding, insurancePriceHouseholdGoods);
-
     }
-
-    public TravelInsurance createNewTravelinsurance(){
-        return null;
-    }
-
 
     private boolean isPresent(String stringToValidate) {
         return stringToValidate != null && !stringToValidate.isEmpty();
     }
 
-    public TravelInsurance createNewTravelInsurance(String currentPersonId, String insuranceYearlyPayment, String insuranceAmount, String insuranceCoverage, boolean southAmerica,
-                                                    boolean northAmerica,
-                                                    boolean asia,
-                                                    boolean oseania,
-                                                    boolean africa,
-                                                    boolean europe) throws InvalidInsurancePropertiesException {
-
+    public TravelInsurance createNewTravelInsurance(String currentPersonId, String insuranceYearlyPayment, String insuranceAmount, String insuranceCoverage, boolean southAmerica, boolean northAmerica, boolean asia, boolean oseania, boolean africa, boolean europe) throws InvalidInsurancePropertiesException {
         if (!isPresent(currentPersonId)) {
             throw new InvalidInsurancePropertiesException(MESSAGE_MUST_REGISTRATE_A_USER);
         }
-
         if (southAmerica == false && northAmerica == false && asia == false && oseania == false && africa == false && europe == false) {
             throw new InvalidInsurancePropertiesException(MESSAGE_ONLY_EMPTY_FIELDS);
         }

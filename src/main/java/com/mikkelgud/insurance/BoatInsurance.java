@@ -51,45 +51,6 @@ public class BoatInsurance extends GeneralInsurance {
         return createdAt;
     }
 
-    public StringProperty boatTypeProperty() {
-        return boatType;
-    }
-
-    public StringProperty lengthProperty() {
-        return length;
-    }
-    public StringProperty modelYearProperty() {
-        return modelYear;
-    }
-
-    public StringProperty engineTypeProperty() {
-        return engineType;
-    }
-
-    public StringProperty enginePowerProperty() {
-        return enginePower;
-    }
-
-    public void setBoatType(String boatType) {
-        this.boatType.set(boatType);
-    }
-
-    public void setModelYear(String modelYear) {
-        this.modelYear.set(modelYear);
-    }
-
-    public void setEngineType(String engineType) {
-        this.engineType.set(engineType);
-    }
-
-    public void setEnginePower(String enginePower) {
-        this.enginePower.set(enginePower);
-    }
-
-    public void setLength(String length) {
-        this.length.set(length);
-    }
-
     @Override
     public Observable[] getPropertiesAsList() {
         return new Observable[]{

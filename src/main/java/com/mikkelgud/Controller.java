@@ -1,8 +1,8 @@
 package com.mikkelgud;
 
-//import com.mikkelgud.filehandling.SaveToFile.SaveStrategy;
+//import com.mikkelgud.filehandling.SaveStrategy;
 
-import com.mikkelgud.filehandling.ReadFromFile.ReadStrategy;
+import com.mikkelgud.filehandling.ReadStrategy;
 import com.mikkelgud.insurance.*;
 import com.mikkelgud.person.InvalidPersonPropertiesException;
 import com.mikkelgud.person.Person;

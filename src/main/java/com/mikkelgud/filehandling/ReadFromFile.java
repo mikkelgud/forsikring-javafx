@@ -1,5 +1,5 @@
 
-package com.mikkelgud.filehandling.ReadFromFile;
+package com.mikkelgud.filehandling;
 
 import com.mikkelgud.person.InvalidPersonPropertiesException;
 
