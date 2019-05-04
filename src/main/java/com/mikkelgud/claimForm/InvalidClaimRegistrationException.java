@@ -5,5 +5,3 @@ public class InvalidClaimRegistrationException extends Exception {
         super(message);
     }
 }
-
-

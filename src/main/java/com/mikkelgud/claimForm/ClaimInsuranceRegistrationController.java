@@ -33,6 +33,7 @@ public class ClaimInsuranceRegistrationController {
         try {
             ClaimInsurance newClaimedInsurance = validator.createNewClaimInsurance(claimInusranceModel.getCurrentPersonId(), typeOfDamage.getText(), dateOfDamage.getValue().toString(), descriptionOfDamage.getText(), taxationValue.getText(), witnesses.getText(), moneyBack.getText());
             claimInusranceModel.getAllClaimedInsurances().addAll(newClaimedInsurance);
+            ClaimInsurance.claimInsuranceCounter++;
             closePage();
 
         } catch (InvalidClaimRegistrationException ex) {

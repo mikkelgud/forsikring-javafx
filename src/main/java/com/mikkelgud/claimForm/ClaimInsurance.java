@@ -17,6 +17,8 @@ public class ClaimInsurance implements Observable {
     private StringProperty personId = new SimpleStringProperty();
     private final LocalDateTime createdAt;
 
+    public static int claimInsuranceCounter = 0;
+
     public ClaimInsurance(String personId, String damageType, String dateOfRegistration, String descriptionOfDamage, String taxationValue, String witnesses, String moneyBack) {
         setPersonId(personId);
         this.createdAt = LocalDateTime.now();
@@ -34,7 +36,7 @@ public class ClaimInsurance implements Observable {
     }
 
     public String getDamageType() {
-        return damageType.get();
+        return damageType.getValue();
     }
 
     public StringProperty damageTypeProperty() {
@@ -42,7 +44,7 @@ public class ClaimInsurance implements Observable {
     }
 
     public String getDateOfRegistration() {
-        return dateOfRegistration.get();
+        return dateOfRegistration.getValue();
     }
 
     public StringProperty dateOfRegistrationProperty() {
@@ -96,8 +98,16 @@ public class ClaimInsurance implements Observable {
 
     public Observable[] getPropertiesAsList() {
         return new Observable[]{
+                new SimpleStringProperty(String.format("-- Registrert skade %D --", claimInsuranceCounter)),
+                new SimpleStringProperty(String.format("PersonID- %s", getPersonId())),
+                new SimpleStringProperty(String.format("Registreringsdato- %s", getCreatedAt())),
                 new SimpleStringProperty(String.format("Skadetype- %s", getDamageType())),
-                new SimpleStringProperty(String.format("Hendelsesdato %s", getDateOfRegistration()))
+                new SimpleStringProperty(String.format("Hendelsesdato %s", getDateOfRegistration())),
+                new SimpleStringProperty(String.format("Beskrivelse %s", getDescriptionOfDamage())),
+                new SimpleStringProperty(String.format("Vitner- %s", getWitnesses())),
+                new SimpleStringProperty(String.format("Taksert til- %s", getTaxationValue())),
+                new SimpleStringProperty(String.format("Utbetalt %s", getMoneyBack())),
+                new SimpleStringProperty("-----------------------------")
         };
     }
 
