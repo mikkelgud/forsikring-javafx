@@ -26,6 +26,7 @@ public class ClaimInsuranceRegistrationController {
     ClaimInsuranceValidator validator = new ClaimInsuranceValidator();
     private ClaimInusranceModel claimInusranceModel;
 
+
     @FXML
     private void registerClaimedInsurance(ActionEvent event) {
         errorLabel.setText("");

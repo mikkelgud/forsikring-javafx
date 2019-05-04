@@ -28,4 +28,5 @@
         <Label fx:id="errorLabel" alignment="CENTER" layoutX="212.0" layoutY="417.0" prefHeight="17.0" prefWidth="357.0"
                textFill="#ee0707"/>
     </children>
+
 </AnchorPane>

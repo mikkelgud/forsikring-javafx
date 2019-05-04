@@ -28,6 +28,7 @@ public class ClaimInsurance implements Observable {
         this.moneyBack.set(moneyBack);
     }
 
+
     public void setPersonId(String personId) {
         this.personId.set(personId);
     }

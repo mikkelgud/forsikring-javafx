@@ -41,6 +41,7 @@ public class Controller implements Initializable {
     @FXML
     public ListView currPersonClaimedInsurancesListVeiw;
 
+
     private static PersonListModel personListModel;
     private static InsurancesModel insurancesModel;
     private static ClaimInusranceModel claimInusranceModel;

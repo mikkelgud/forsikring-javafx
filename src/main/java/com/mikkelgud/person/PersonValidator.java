@@ -24,6 +24,7 @@ public class PersonValidator {
             throw new InvalidPersonPropertiesException(MESSAGE_NO_EMPTY_LASTNAME);
         }
 
+
         if (!isPresent(billingAddress)) {
             throw new InvalidPersonPropertiesException(MESSAGE_NO_EMPTY_BILLING_ADDRESS);
         }
