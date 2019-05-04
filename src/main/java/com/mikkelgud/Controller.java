@@ -2,6 +2,8 @@ package com.mikkelgud;
 
 //import com.mikkelgud.filehandling.SaveStrategy;
 
+import com.mikkelgud.claimForm.ClaimInsuranceRegistrationController;
+import com.mikkelgud.claimForm.ClaimInusranceModel;
 import com.mikkelgud.filehandling.ReadStrategy;
 import com.mikkelgud.insurance.*;
 import com.mikkelgud.person.InvalidPersonPropertiesException;
@@ -36,23 +38,28 @@ public class Controller implements Initializable {
     public ListView currPersonListView;
     @FXML
     public ListView currPersonInsuranceListView;
+    @FXML
+    public ListView currPersonClaimedInsurancesListVeiw;
 
     private static PersonListModel personListModel;
     private static InsurancesModel insurancesModel;
+    private static ClaimInusranceModel claimInusranceModel;
 
     // Using init-method to tell what will be printed to the GUI
     @FXML
-    public void init(PersonListModel personListModel, InsurancesModel insurancesModel) {
+    public void init(PersonListModel personListModel, InsurancesModel insurancesModel, ClaimInusranceModel claimInusranceModel) {
         if (Controller.personListModel != null) {
             System.err.println("Wops! We shouldn't have more than one person list model!");
             System.exit(0);
         }
         Controller.personListModel = personListModel;
         Controller.insurancesModel = insurancesModel;
+        Controller.claimInusranceModel = claimInusranceModel;
 
         initPersonListView();
         initCurrentPersonView(personListModel.getCurrentPerson());
         initCurrentPersonInsuranceView();
+        initCurrentPersonClaimInsuranceView();
         //initSearchInputField();
     }
 
@@ -74,6 +81,30 @@ public class Controller implements Initializable {
 //        customerSearchInput.onInputMethodTextChangedProperty().addListener(e -> {
 //            System.out.println("Search query: " + customerSearchInput.selectedTextProperty());
 
+    @FXML
+    private void initCurrentPersonClaimInsuranceView() {
+        currPersonClaimedInsurancesListVeiw.setItems(claimInusranceModel.getCurrentPersonsInsurances());
+
+        currPersonInsuranceListView.setCellFactory(lv -> new ListCell<>() {
+            @Override
+            public void updateItem(Object s, boolean empty) {
+
+                if (s != null) {
+                    super.updateItem(s, empty);
+                    StringProperty y = (StringProperty) s;
+
+                    if (empty) {
+                        setText(null);
+                    } else {
+                        setText(y.getValue());
+                    }
+                } else {
+                    super.updateItem(null, true);
+                    setText("");
+                }
+            }
+        });
+    }
 
     @FXML
     private void initCurrentPersonInsuranceView() {
@@ -130,6 +161,8 @@ public class Controller implements Initializable {
                     personListModel.setCurrentPerson((Person) newSelection);
                     insurancesModel.setCurrentPersonId(((Person) newSelection).getPersonId());
                     insurancesModel.setCurrentPersonsInsurances();
+                    claimInusranceModel.setCurrentPersonId(((Person) newSelection).getPersonId());
+                    claimInusranceModel.setCurrentPersonsInsurances();
                 }
         );
 
@@ -259,7 +292,8 @@ public class Controller implements Initializable {
 
         try {
             Parent root = loader.load();
-            loader.setController(this);
+            ClaimInsuranceRegistrationController claimInsuranceRegistrationController = loader.getController();
+            claimInsuranceRegistrationController.setClaimedInsurancesModel(claimInusranceModel);
             openWindow(root, "Registrer din skademelding");
         } catch (IOException ex) {
             Logger.getLogger(Controller.class.getName()).log(Level.SEVERE, null, ex);

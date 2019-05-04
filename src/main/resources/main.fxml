@@ -39,8 +39,6 @@
                         </Label>
                         <TextField fx:id="customerSearchInput" layoutX="11.0" layoutY="37.0" prefHeight="27.0"
                                    prefWidth="220.0" promptText="Søk på kundenavn"/>
-
-
                         <Button layoutX="24.0" layoutY="634.0" mnemonicParsing="false"
                                 onAction="#newInsuranceUserWindowOpener" prefHeight="38.0" prefWidth="220.0"
                                 text="Registrer ny kunde"/>
@@ -55,8 +53,8 @@
                                 <Label alignment="CENTER" font="$x1" layoutX="14.0" layoutY="14.0" style="&#10;" text="Kundeinformasjon" textAlignment="CENTER" textFill="$x2" wrapText="false" />
                                 <ListView fx:id="currPersonListView" layoutY="73.0" prefHeight="600.0"
                                           prefWidth="238.0"/>
-                                <ListView fx:id="currPersonListView1" layoutX="238.0" layoutY="73.0" prefHeight="600.0"
-                                          prefWidth="220.0"/>
+                                <ListView fx:id="currPersonClaimedInsurancesListVeiw" layoutX="238.0" layoutY="73.0"
+                                          prefHeight="600.0" prefWidth="220.0"/>
                                 <Label alignment="CENTER" layoutX="232.0" layoutY="50.0" prefHeight="23.0"
                                        prefWidth="167.0" style="&#10;" text="Registrerte skader" textAlignment="CENTER"
                                        wrapText="false">
