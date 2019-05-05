@@ -7,6 +7,8 @@ import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 
 import java.time.LocalDateTime;
+import java.util.Arrays;
+import java.util.List;
 
 public class CabinInsurance extends GeneralInsurance {
 
@@ -69,22 +71,32 @@ public class CabinInsurance extends GeneralInsurance {
         return insuranceAmountBuilding.get();
     }
 
+    public String getBuildingType() {
+        return buildingType.get();
+    }
+
+    public StringProperty buildingTypeProperty() {
+        return buildingType;
+    }
+
     @Override
     public Observable[] getPropertiesAsList() {
         return new Observable[]{
                 new SimpleStringProperty("-- Hytte og innbo --"),
                 new SimpleStringProperty(String.format("Kunde - %s", getPersonId())),
                 new SimpleStringProperty(String.format("Adresse - %s", getAddress())),
-                new SimpleStringProperty(String.format("Bygningsmatriale - %s", getBuildingMaterial())),
+                new SimpleStringProperty(String.format("Bygningstype - %s", getBuildingType())),
+                new SimpleStringProperty(String.format("Bygningsmateriale - %s", getBuildingMaterial())),
                 new SimpleStringProperty(String.format("Byggeår - %s", getYearBuilt())),
                 new SimpleStringProperty(String.format("Tilstand - %s", getHousingState())),
                 new SimpleStringProperty(String.format("Størrelse - %s", getCabinSize())),
                 new SimpleStringProperty(String.format("Forsikringspremie bygning - %s", getInsurancePriceBuilding())),
                 new SimpleStringProperty(String.format("Forsikringspremie innbo - %s", getInsuranceAmountHouseholdGoods())),
-                new SimpleStringProperty(String.format("Opprettet -  %s", createdAt.toString())),
+                new SimpleStringProperty(String.format("Opprettet - %s", createdAt.toString())),
                 new SimpleStringProperty("-------------------")
         };
     }
+
     @Override
     public void addListener(InvalidationListener invalidationListener) {
         invalidationListener.invalidated(this);
@@ -93,6 +105,38 @@ public class CabinInsurance extends GeneralInsurance {
     @Override
     public void removeListener(InvalidationListener invalidationListener) {
         invalidationListener.invalidated(this);
+    }
+
+    @Override
+    public List<String> getDeclaredFields() {
+        return Arrays.asList(
+                "personId",
+                "address",
+                "buildingType",
+                "buildingMaterial",
+                "yearBuilt",
+                "housingState",
+                "cabinSize",
+                "insurancePriceBuilding",
+                "insurancePriceHouseholdGoods",
+                "createdAt"
+        );
+    }
+
+    @Override
+    public List<String> getFieldValues() {
+        return Arrays.asList(
+                getPersonId(),
+                getAddress(),
+                getBuildingType(),
+                getBuildingMaterial(),
+                getYearBuilt(),
+                getHousingState(),
+                getCabinSize(),
+                getInsurancePriceBuilding(),
+                getInsuranceAmountHouseholdGoods(),
+                getCreatedAt().toString()
+        );
     }
 }
 

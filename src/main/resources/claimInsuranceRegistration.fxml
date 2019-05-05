@@ -4,7 +4,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <AnchorPane prefHeight="482.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1"
             xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="com.mikkelgud.claimForm.ClaimInsuranceRegistrationController">
+            fx:controller="com.mikkelgud.claim.ClaimInsuranceRegistrationController">
     <children>
         <DatePicker fx:id="dateOfDamage" layoutX="331.0" layoutY="57.0" promptText="Skadedato"/>
         <TextField fx:id="typeOfDamage" layoutX="64.0" layoutY="57.0" prefHeight="27.0" prefWidth="194.0"

@@ -1,5 +1,6 @@
 package com.mikkelgud.person;
 
+import com.mikkelgud.filehandling.FileObjectEntity;
 import javafx.beans.Observable;
 import javafx.beans.property.BooleanProperty;
 import javafx.beans.property.SimpleBooleanProperty;
@@ -7,9 +8,11 @@ import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 
 import java.time.LocalDateTime;
+import java.util.Arrays;
+import java.util.List;
 import java.util.UUID;
 
-public class Person {
+public class Person extends FileObjectEntity {
     private final StringProperty personId = new SimpleStringProperty();
     private final StringProperty firstName = new SimpleStringProperty();
     private final StringProperty lastName = new SimpleStringProperty();
@@ -160,6 +163,37 @@ public class Person {
                 new SimpleStringProperty(String.format("Båtforsikring - %s", getInsuranceBoatBooleanAsString())),
                 new SimpleStringProperty(String.format("Reiseforsikring - %s", getInsuranceTravelBooleanAsString()))
         };
+    }
+
+
+    @Override
+    public List<String> getDeclaredFields() {
+        return Arrays.asList(
+                "personId",
+                "firstName",
+                "lastName",
+                "billingAddress",
+                "insuranceHouse",
+                "insuranceCabin",
+                "insuranceBoat",
+                "insuranceTravel",
+                "createdAt"
+        );
+    }
+
+    @Override
+    public List<String> getFieldValues() {
+        return Arrays.asList(
+                getPersonId(),
+                getFirstName(),
+                getLastName(),
+                getBillingAddress(),
+                Boolean.toString(isInsuranceHouse()),
+                Boolean.toString(isInsuranceCabin()),
+                Boolean.toString(isInsuranceBoat()),
+                Boolean.toString(isInsuranceTravel()),
+                getCreatedAt().toString()
+        );
     }
 }
 

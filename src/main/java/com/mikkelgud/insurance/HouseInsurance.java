@@ -11,6 +11,8 @@ import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 
 import java.time.LocalDateTime;
+import java.util.Arrays;
+import java.util.List;
 
 
 public class HouseInsurance extends GeneralInsurance {
@@ -67,7 +69,7 @@ public class HouseInsurance extends GeneralInsurance {
     }
 
     public double getHousingInsuranceYearlyPayment(){
-        return (Integer.parseInt(getInsurancePriceHouseholdGoods())+Integer.parseInt(getInsurancePriceHouseholdGoods()))*0.05;
+        return (Integer.parseInt(getInsurancePriceHouseholdGoods()) + Integer.parseInt(getInsurancePriceHouseholdGoods())) * 0.05;
     }
 
     public LocalDateTime getCreatedAt() {
@@ -89,6 +91,34 @@ public class HouseInsurance extends GeneralInsurance {
                 new SimpleStringProperty("-------------------")
 
         };
+    }
+
+    @Override
+    public List<String> getDeclaredFields() {
+        return Arrays.asList(
+                "personId",
+                "housingAddress",
+                "builtYear",
+                "housingType",
+                "houseSize",
+                "insuranceBuildingPrice",
+                "insurancePriceHouseholdGoods",
+                "createdAt"
+        );
+    }
+
+    @Override
+    public List<String> getFieldValues() {
+        return Arrays.asList(
+                getPersonId(),
+                getHousingAddress(),
+                getBuiltYear(),
+                getHousingType(),
+                getHouseSize(),
+                getInsuranceBuildingPrice(),
+                getInsurancePriceHouseholdGoods(),
+                getCreatedAt().toString()
+        );
     }
 
     @Override

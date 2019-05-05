@@ -36,20 +36,8 @@ public class ReadFromCSV {
     }
 
     public PersonData parseData(String fields) {
-        String[] splitted = fields.split(";");
-        System.out.print(splitted.length);
-        try {
-           return new PersonData(splitted[1],
-                    splitted[2],
-                    splitted[3],
-                    Boolean.parseBoolean(splitted[4]),
-                    Boolean.parseBoolean(splitted[5]),
-                    Boolean.parseBoolean(splitted[6]),
-                    Boolean.parseBoolean(splitted[7]));
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return null;
 
+
+        return null;
     }
 }

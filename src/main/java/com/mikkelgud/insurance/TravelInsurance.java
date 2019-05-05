@@ -8,6 +8,8 @@ import javafx.beans.property.SimpleBooleanProperty;
 import javafx.beans.property.SimpleStringProperty;
 
 import java.time.LocalDateTime;
+import java.util.Arrays;
+import java.util.List;
 
 
 public class TravelInsurance extends GeneralInsurance {
@@ -34,21 +36,6 @@ public class TravelInsurance extends GeneralInsurance {
         setPersonId(currentPersonId);
     }
 
-    @Override
-    public Observable[] getPropertiesAsList() {
-        return new Observable[]{
-            new SimpleStringProperty("-- REISEFORSIKRING --"),
-                new SimpleStringProperty("Registrerte foriskringssteder"),
-                new SimpleStringProperty(String.format("Europa er %s registrert", getEuropeBooleanAsString())),
-                new SimpleStringProperty(String.format("Oseania er %s registrert", getOseaniaBooleanAsString())),
-                new SimpleStringProperty(String.format("Asia er %s registrert", getAsiaBooleanAsString())),
-                new SimpleStringProperty(String.format("Afrika er %s registrert", getAfricaaBooleanAsString())),
-                new SimpleStringProperty(String.format("Søramerika er %s registrert", getSouthAmericaBooleanAsString())),
-                new SimpleStringProperty(String.format("NordAmerica er %s registrert", getNorthAmericaBooleanAsString())),
-                new SimpleStringProperty(String.format("Opprettet - %s registrert", createdAt.toString())),
-            new SimpleStringProperty("----------------------")
-        };
-    }
 
     public boolean isEuropa() {
         return europa.get();
@@ -100,6 +87,51 @@ public class TravelInsurance extends GeneralInsurance {
 
     public LocalDateTime getCreatedAt() {
         return createdAt;
+    }
+
+    @Override
+    public Observable[] getPropertiesAsList() {
+        return new Observable[]{
+                new SimpleStringProperty("-- REISEFORSIKRING --"),
+                new SimpleStringProperty("Registrerte foriskringssteder"),
+                new SimpleStringProperty(String.format("Europa er %s registrert", getEuropeBooleanAsString())),
+                new SimpleStringProperty(String.format("Oseania er %s registrert", getOseaniaBooleanAsString())),
+                new SimpleStringProperty(String.format("Asia er %s registrert", getAsiaBooleanAsString())),
+                new SimpleStringProperty(String.format("Afrika er %s registrert", getAfricaaBooleanAsString())),
+                new SimpleStringProperty(String.format("Søramerika er %s registrert", getSouthAmericaBooleanAsString())),
+                new SimpleStringProperty(String.format("NordAmerica er %s registrert", getNorthAmericaBooleanAsString())),
+                new SimpleStringProperty(String.format("Opprettet - %s registrert", createdAt.toString())),
+                new SimpleStringProperty("----------------------")
+        };
+    }
+
+
+    @Override
+    public List<String> getDeclaredFields() {
+        return Arrays.asList(
+                "personId",
+                "isEurope",
+                "isOceania",
+                "isAsia",
+                "isAfrica",
+                "isSouthAmerica",
+                "isNorthAmerica",
+                "createdAt"
+        );
+    }
+
+    @Override
+    public List<String> getFieldValues() {
+        return Arrays.asList(
+                getPersonId(),
+                Boolean.toString(isEuropa()),
+                Boolean.toString(isOceania()),
+                Boolean.toString(isAsia()),
+                Boolean.toString(isAfrica()),
+                Boolean.toString(isSouthAmerica()),
+                Boolean.toString(isNorthAmerica()),
+                getCreatedAt().toString()
+        );
     }
 
     @Override

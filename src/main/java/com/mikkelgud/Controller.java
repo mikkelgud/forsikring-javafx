@@ -1,12 +1,10 @@
 package com.mikkelgud;
 
-//import com.mikkelgud.filehandling.SaveStrategy;
-
-import com.mikkelgud.claimForm.ClaimInsuranceRegistrationController;
-import com.mikkelgud.claimForm.ClaimInusranceModel;
-import com.mikkelgud.filehandling.ReadStrategy;
+import com.mikkelgud.claim.ClaimInsuranceModel;
+import com.mikkelgud.claim.ClaimInsuranceRegistrationController;
+import com.mikkelgud.filehandling.CsvFileSaver;
+import com.mikkelgud.filehandling.SaveFileException;
 import com.mikkelgud.insurance.*;
-import com.mikkelgud.person.InvalidPersonPropertiesException;
 import com.mikkelgud.person.Person;
 import com.mikkelgud.person.PersonListModel;
 import com.mikkelgud.person.RegisterPersonController;
@@ -16,14 +14,19 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Label;
 import javafx.scene.control.ListCell;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
+import javafx.stage.DirectoryChooser;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
+import java.io.File;
 import java.io.IOException;
 import java.net.URL;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -39,23 +42,25 @@ public class Controller implements Initializable {
     @FXML
     public ListView currPersonInsuranceListView;
     @FXML
-    public ListView currPersonClaimedInsurancesListVeiw;
+    public ListView currPersonClaimedInsurancesListView;
+    @FXML
+    public Label errorLabel;
 
 
     private static PersonListModel personListModel;
     private static InsurancesModel insurancesModel;
-    private static ClaimInusranceModel claimInusranceModel;
+    private static ClaimInsuranceModel claimInsuranceModel;
 
     // Using init-method to tell what will be printed to the GUI
     @FXML
-    public void init(PersonListModel personListModel, InsurancesModel insurancesModel, ClaimInusranceModel claimInusranceModel) {
+    public void init(PersonListModel personListModel, InsurancesModel insurancesModel, ClaimInsuranceModel claimInsuranceModel) {
         if (Controller.personListModel != null) {
             System.err.println("Wops! We shouldn't have more than one person list model!");
             System.exit(0);
         }
         Controller.personListModel = personListModel;
         Controller.insurancesModel = insurancesModel;
-        Controller.claimInusranceModel = claimInusranceModel;
+        Controller.claimInsuranceModel = claimInsuranceModel;
 
         initPersonListView();
         initCurrentPersonView(personListModel.getCurrentPerson());
@@ -84,16 +89,15 @@ public class Controller implements Initializable {
 
     @FXML
     private void initCurrentPersonClaimInsuranceView() {
-        currPersonClaimedInsurancesListVeiw.setItems(claimInusranceModel.getCurrentPersonsInsurances());
+        currPersonClaimedInsurancesListView.setItems(claimInsuranceModel.getCurrentPersonClaims());
 
-        currPersonInsuranceListView.setCellFactory(lv -> new ListCell<>() {
+        currPersonClaimedInsurancesListView.setCellFactory(lv -> new ListCell<>() {
             @Override
             public void updateItem(Object s, boolean empty) {
 
                 if (s != null) {
-                    super.updateItem(s, empty);
                     StringProperty y = (StringProperty) s;
-
+                    super.updateItem(y, empty);
                     if (empty) {
                         setText(null);
                     } else {
@@ -162,8 +166,8 @@ public class Controller implements Initializable {
                     personListModel.setCurrentPerson((Person) newSelection);
                     insurancesModel.setCurrentPersonId(((Person) newSelection).getPersonId());
                     insurancesModel.setCurrentPersonsInsurances();
-                    claimInusranceModel.setCurrentPersonId(((Person) newSelection).getPersonId());
-                    claimInusranceModel.setCurrentPersonsInsurances();
+                    claimInsuranceModel.setCurrentPersonId(((Person) newSelection).getPersonId());
+                    claimInsuranceModel.setCurrentPersonsInsurances();
                 }
         );
 
@@ -294,25 +298,34 @@ public class Controller implements Initializable {
         try {
             Parent root = loader.load();
             ClaimInsuranceRegistrationController claimInsuranceRegistrationController = loader.getController();
-            claimInsuranceRegistrationController.setClaimedInsurancesModel(claimInusranceModel);
+            claimInsuranceRegistrationController.setClaimedInsurancesModel(claimInsuranceModel);
             openWindow(root, "Registrer din skademelding");
         } catch (IOException ex) {
             Logger.getLogger(Controller.class.getName()).log(Level.SEVERE, null, ex);
         }
-
     }
 
     public String getCustomerSearchInput() {
         return customerSearchInput.getText();
     }
-    
-    public void saveFile() {
-        
-    }
 
-    public void openFile() throws InvalidPersonPropertiesException {
-        ReadStrategy readStrat = new ReadStrategy();
-        readStrat.readFile();
+    public void saveCsvFile() {
+        DirectoryChooser directoryChooser = new DirectoryChooser();
+        File file = directoryChooser.showDialog(null);
+
+        if (file != null) {
+            String destination = file.getAbsolutePath();
+            String timestamp = LocalDate.now().format(DateTimeFormatter.BASIC_ISO_DATE);
+            String fileNameTemplate = destination + "/%s" + timestamp + ".csv";
+            CsvFileSaver csvFileSaver = new CsvFileSaver();
+            try {
+                csvFileSaver.toFile(personListModel.getPersonList(), String.format(fileNameTemplate, "persons"));
+                csvFileSaver.toFile(insurancesModel.getAllInsurances(), String.format(fileNameTemplate, "insurances"));
+                csvFileSaver.toFile(claimInsuranceModel.getAllClaimedInsurances(), String.format(fileNameTemplate, "claims"));
+            } catch (SaveFileException e) {
+                errorLabel.setText(e.getMessage());
+            }
+        }
     }
 
     @Override

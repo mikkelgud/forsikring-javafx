@@ -1,4 +1,4 @@
-package com.mikkelgud.claimForm;
+package com.mikkelgud.claim;
 
 import javafx.beans.Observable;
 import javafx.beans.property.SimpleStringProperty;
@@ -6,7 +6,7 @@ import javafx.beans.property.StringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
-public class ClaimInusranceModel {
+public class ClaimInsuranceModel {
 
     private final ObservableList<ClaimInsurance> claimedInsurances =
             FXCollections.observableArrayList();
@@ -40,12 +40,12 @@ public class ClaimInusranceModel {
 
     public void setCurrentPersonsInsurances() {
         this.currentPersonsClaimedInsurances.remove(0, currentPersonsClaimedInsurances.size());
-        claimedInsurances.stream().filter(claimInsurance -> claimInsurance.getPersonId().equals(currentPersonId.get())).forEach(currentClaimedInsurance -> {
-            currentPersonsClaimedInsurances.addAll(currentClaimedInsurance.getPropertiesAsList());
-        });
+
+        claimedInsurances.stream().filter(claimInsurance -> claimInsurance.getPersonId().equals(currentPersonId.get())).forEach(currentClaimedInsurance ->
+                currentPersonsClaimedInsurances.addAll(currentClaimedInsurance.getPropertiesAsList()));
     }
 
-    public ObservableList<Observable> getCurrentPersonsInsurances() {
+    public ObservableList<Observable> getCurrentPersonClaims() {
         return currentPersonsClaimedInsurances;
     }
 }
