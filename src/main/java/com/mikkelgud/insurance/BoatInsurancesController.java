@@ -54,13 +54,16 @@ public class BoatInsurancesController {
                     modelYear.getText(),
                     engineType.getText(),
                     enginePower.getText());
-
             insurancesModel.getAllInsurances().add(newBoatInsurance);
-            Stage stage = (Stage) registrateBoat.getScene().getWindow();
-            stage.close();
+            closePage();
         } catch (InvalidInsurancePropertiesException ex) {
             errorLabel.setText(ex.getMessage());
         }
+    }
+
+    private void closePage() {
+        Stage stage = (Stage) registrateBoat.getScene().getWindow();
+        stage.close();
     }
 
     private void resetFieldValues() {

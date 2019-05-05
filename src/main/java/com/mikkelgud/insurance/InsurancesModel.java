@@ -24,8 +24,8 @@ public class InsurancesModel {
     @Override
     public String toString() {
         StringBuilder outData = new StringBuilder();
-        for (GeneralInsurance personData : getAllInsurances()) {
-            outData.append(personData.toString());
+        for (GeneralInsurance insurance : getAllInsurances()) {
+            outData.append(insurance.toString());
         }
         return outData.toString();
     }
@@ -41,9 +41,8 @@ public class InsurancesModel {
     public void setCurrentPersonsInsurances() {
         this.currentPersonsInsurances.remove(0, currentPersonsInsurances.size());
 
-        allInsurances.stream().filter(insurance -> insurance.getPersonId().equals(currentPersonId.get())).forEach(currentPersonInsurance -> {
-            currentPersonsInsurances.addAll(currentPersonInsurance.getPropertiesAsList());
-        });
+        allInsurances.stream().filter(insurance -> insurance.getPersonId().equals(currentPersonId.get())).forEach(currentPersonInsurance ->
+                currentPersonsInsurances.addAll(currentPersonInsurance.getPropertiesAsList()));
     }
 
     public ObservableList<Observable> getCurrentPersonsInsurances() {

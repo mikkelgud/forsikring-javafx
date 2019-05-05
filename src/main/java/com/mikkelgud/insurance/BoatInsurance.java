@@ -7,6 +7,8 @@ import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 
 import java.time.LocalDateTime;
+import java.util.Arrays;
+import java.util.List;
 
 public class BoatInsurance extends GeneralInsurance {
     private final StringProperty boatType = new SimpleStringProperty();
@@ -51,45 +53,6 @@ public class BoatInsurance extends GeneralInsurance {
         return createdAt;
     }
 
-    public StringProperty boatTypeProperty() {
-        return boatType;
-    }
-
-    public StringProperty lengthProperty() {
-        return length;
-    }
-    public StringProperty modelYearProperty() {
-        return modelYear;
-    }
-
-    public StringProperty engineTypeProperty() {
-        return engineType;
-    }
-
-    public StringProperty enginePowerProperty() {
-        return enginePower;
-    }
-
-    public void setBoatType(String boatType) {
-        this.boatType.set(boatType);
-    }
-
-    public void setModelYear(String modelYear) {
-        this.modelYear.set(modelYear);
-    }
-
-    public void setEngineType(String engineType) {
-        this.engineType.set(engineType);
-    }
-
-    public void setEnginePower(String enginePower) {
-        this.enginePower.set(enginePower);
-    }
-
-    public void setLength(String length) {
-        this.length.set(length);
-    }
-
     @Override
     public Observable[] getPropertiesAsList() {
         return new Observable[]{
@@ -103,6 +66,32 @@ public class BoatInsurance extends GeneralInsurance {
                 new SimpleStringProperty(String.format("Opprettet -  %s", createdAt.toString())),
                 new SimpleStringProperty("-------------------")
         };
+    }
+
+    @Override
+    public List<String> getDeclaredFields() {
+        return Arrays.asList(
+                "personId",
+                "boatType",
+                "length",
+                "modelYear",
+                "engineType",
+                "enginePower",
+                "createdAt"
+        );
+    }
+
+    @Override
+    public List<String> getFieldValues() {
+        return Arrays.asList(
+                getPersonId(),
+                getBoatType(),
+                getLength(),
+                getModelYear(),
+                getEngineType(),
+                getEnginePower(),
+                getCreatedAt().toString()
+        );
     }
 
     @Override

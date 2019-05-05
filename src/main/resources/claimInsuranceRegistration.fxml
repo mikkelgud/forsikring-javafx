@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.AnchorPane?>
 <AnchorPane prefHeight="482.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1"
             xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="com.mikkelgud.claimForm.ClaimInsuranceRegistrationController">
+            fx:controller="com.mikkelgud.claim.ClaimInsuranceRegistrationController">
     <children>
         <DatePicker fx:id="dateOfDamage" layoutX="331.0" layoutY="57.0" promptText="Skadedato"/>
         <TextField fx:id="typeOfDamage" layoutX="64.0" layoutY="57.0" prefHeight="27.0" prefWidth="194.0"
@@ -24,7 +23,9 @@
                 text="Test Beløp"/>
         <Label fx:id="moneyBack" layoutX="300.0" layoutY="351.0" prefHeight="17.0" prefWidth="206.0"
                text="Her skal utbetalt beløp stå "/>
-        <Button layoutX="70.0" layoutY="412.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="122.0"
-                text="Registrer"/>
+        <Button fx:id="registerClaimedInsurance" onAction="#registerClaimedInsurance" layoutX="70.0" layoutY="412.0"
+                mnemonicParsing="false" prefHeight="27.0" prefWidth="122.0" text="Registrer"/>
+        <Label fx:id="errorLabel" alignment="CENTER" layoutX="212.0" layoutY="417.0" prefHeight="17.0" prefWidth="357.0"
+               textFill="#ee0707"/>
     </children>
 </AnchorPane>

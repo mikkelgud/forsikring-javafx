@@ -11,6 +11,8 @@ import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 
 import java.time.LocalDateTime;
+import java.util.Arrays;
+import java.util.List;
 
 
 public class HouseInsurance extends GeneralInsurance {
@@ -29,7 +31,7 @@ public class HouseInsurance extends GeneralInsurance {
 
     protected HouseInsurance(String currentPersonId, String insuranceYearlyPayment, String insuranceAmount, String insuranceCoverageInfo,
                              String housingAddress, String yearBuilt, String housingType, String buildingMaterial, String housingState,
-                             String builtYear, String squareMeter, String insuranceBP, String insuranceHG) {
+                             String builtYear, String squareMeter) {
         super(insuranceYearlyPayment, insuranceAmount, insuranceCoverageInfo);
         this.createdAt = LocalDateTime.now();
         this.housingAddress.set(housingAddress);
@@ -39,8 +41,6 @@ public class HouseInsurance extends GeneralInsurance {
         this.housingState.set(housingState);
         this.builtYear.set(builtYear);
         this.houseSize.set(squareMeter);
-        this.insuranceBuildingPrice.set(insuranceBP);
-        this.insurancePriceHouseholdGoods.set(insuranceHG);
         setPersonId(currentPersonId);
     }
 
@@ -69,7 +69,7 @@ public class HouseInsurance extends GeneralInsurance {
     }
 
     public double getHousingInsuranceYearlyPayment(){
-        return (Integer.parseInt(getInsurancePriceHouseholdGoods())+Integer.parseInt(getInsurancePriceHouseholdGoods()))*0.05;
+        return (Integer.parseInt(getInsurancePriceHouseholdGoods()) + Integer.parseInt(getInsurancePriceHouseholdGoods())) * 0.05;
     }
 
     public LocalDateTime getCreatedAt() {
@@ -91,6 +91,34 @@ public class HouseInsurance extends GeneralInsurance {
                 new SimpleStringProperty("-------------------")
 
         };
+    }
+
+    @Override
+    public List<String> getDeclaredFields() {
+        return Arrays.asList(
+                "personId",
+                "housingAddress",
+                "builtYear",
+                "housingType",
+                "houseSize",
+                "insuranceBuildingPrice",
+                "insurancePriceHouseholdGoods",
+                "createdAt"
+        );
+    }
+
+    @Override
+    public List<String> getFieldValues() {
+        return Arrays.asList(
+                getPersonId(),
+                getHousingAddress(),
+                getBuiltYear(),
+                getHousingType(),
+                getHouseSize(),
+                getInsuranceBuildingPrice(),
+                getInsurancePriceHouseholdGoods(),
+                getCreatedAt().toString()
+        );
     }
 
     @Override

@@ -5,7 +5,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 <?import java.lang.*?>
-<AnchorPane prefHeight="647.0" prefWidth="556.0" xmlns="http://javafx.com/javafx/11.0.1"
+<AnchorPane prefHeight="651.0" prefWidth="556.0" xmlns="http://javafx.com/javafx/11.0.1"
             xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mikkelgud.insurance.CabinInsuranceController">
     <children>
         <Label alignment="CENTER" contentDisplay="CENTER" layoutX="18.0" layoutY="14.0" prefHeight="42.0"
@@ -15,11 +15,19 @@
             </font>
         </Label>
         <Label layoutX="283.0" layoutY="82.0" prefHeight="17.0" prefWidth="0.0"/>
-        <TextField fx:id="adress" layoutX="59.0" layoutY="86.0" promptText="Adresse"/>
-        <Label alignment="CENTER" layoutX="69.0" layoutY="580.0" prefHeight="17.0" prefWidth="451.0"
-               textFill="#f50c00"/>
-        <TextField fx:id="yearBuilt" layoutX="59.0" layoutY="143.0" promptText="Byggeår"/>
-        <ComboBox fx:id="buildingMaterial" layoutX="319.0" layoutY="245.0" prefWidth="150.0"
+        <TextField fx:id="adress" layoutX="78.0" layoutY="86.0" promptText="Adresse"/>
+        <TextField fx:id="yearBuilt" layoutX="78.0" layoutY="127.0" promptText="Byggeår"/>
+        <TextField fx:id="cabinSize" layoutX="78.0" layoutY="169.0" promptText="Areal Fritidsbolig"/>
+        <ComboBox fx:id="buildingType" layoutX="322.0" layoutY="91.0" prefWidth="150.0" promptText="Boligtype">
+            <items>
+                <FXCollections fx:factory="observableArrayList">
+                    <String fx:value="Leilighet"/>
+                    <String fx:value="Byhus"/>
+                    <String fx:value="Hus"/>
+                </FXCollections>
+            </items>
+        </ComboBox>
+        <ComboBox fx:id="buildingMaterial" layoutX="322.0" layoutY="156.0" prefWidth="150.0"
                   promptText="Byggemateriale">
             <items>
                 <FXCollections fx:factory="observableArrayList">
@@ -29,7 +37,7 @@
                 </FXCollections>
             </items>
         </ComboBox>
-        <ComboBox fx:id="standard" layoutX="319.0" layoutY="170.0" prefWidth="150.0" promptText="Standard">
+        <ComboBox fx:id="standard" layoutX="95.0" layoutY="206.0" prefWidth="150.0" promptText="Standard">
             <items>
                 <FXCollections fx:factory="observableArrayList">
                     <String fx:value="Dårlig" />
@@ -38,34 +46,28 @@
                 </FXCollections>
             </items>
         </ComboBox>
-        <ComboBox fx:id="buildingType" layoutX="319.0" layoutY="93.0" prefWidth="150.0" promptText="Boligtype">
-            <items>
-                <FXCollections fx:factory="observableArrayList">
-                    <String fx:value="Leilighet" />
-                    <String fx:value="Byhus" />
-                    <String fx:value="Hus" />
-                </FXCollections>
-            </items>
-        </ComboBox>
-        <TextField fx:id="extraStandardInfo" layoutX="59.0" layoutY="197.0"
-                   promptText="Tileggsinfo om standard på hus"/>
-        <Label alignment="CENTER" layoutX="305.0" layoutY="396.0" prefHeight="17.0" prefWidth="151.0"
-               text="her kommer prisen"/>
-        <TextField fx:id="cabinSize" layoutX="60.0" layoutY="259.0" promptText="Antall kvadratmeter"/>
-        <TextField fx:id="insurancePremiumBuilding" layoutX="244.0" layoutY="341.0" prefHeight="27.0" prefWidth="192.0"
-                   promptText="Forsikringsbeløp for bygning"/>
-        <TextField fx:id="insurancePremiumHousing" layoutX="35.0" layoutY="341.0" prefHeight="27.0" prefWidth="192.0"
-                   promptText="Forsikringsbeløp for innbo"/>
-        <Button fx:id="registrateCabin" layoutX="78.0" layoutY="516.0" mnemonicParsing="false" onAction="#registerCabinInsurance"
-                prefHeight="27.0" prefWidth="151.0" text="Registrer"/>
-        <Label layoutX="73.0" layoutY="311.0" prefHeight="17.0" prefWidth="143.0" text="skriv inn ønskelig:"/>
-        <Button layoutX="451.0" layoutY="341.0" mnemonicParsing="false" text="test pris"/>
-        <Label layoutX="69.0" layoutY="396.0" prefHeight="17.0" prefWidth="236.0"
+        <TextArea fx:id="extraStandardInfo" layoutX="77.0" layoutY="233.0" prefHeight="83.0" prefWidth="417.0"
+                  promptText="Tileggsinfo om standar på fritidsbolig"/>
+
+
+        <Label layoutX="68.0" layoutY="507.0" prefHeight="17.0" prefWidth="236.0"
                text="Denne forsikringen vil koste per år:"/>
-        <Label fx:id="insuranceYearlyPaymentOutPrint" layoutX="69.0" layoutY="396.0" prefHeight="17.0"
-               prefWidth="236.0"/>
-        <Label fx:id="insuranceAmountOutPrint" layoutX="78.0" layoutY="434.0" prefHeight="17.0" prefWidth="385.0"/>
-        <Label fx:id="insuranceCoverageInfoOutPrint" layoutX="73.0" layoutY="471.0" wrapText="true"/>
-        <Label fx:id="errorLabel" layoutX="73.0" layoutY="471.0" wrapText="true"/>
+        <Label fx:id="insuranceYearlyPaymentOutPrint" layoutX="319.0" layoutY="507.0" prefHeight="17.0"
+               prefWidth="152.0" text="dette er forsikringspris"/>
+        <Label fx:id="insuranceCoverageInfoOutPrint" alignment="CENTER" layoutX="78.0" layoutY="435.0" prefHeight="54.0"
+               prefWidth="385.0" text="forsikringsinfo" wrapText="true"/>
+        <Label fx:id="errorLabel" alignment="CENTER" layoutX="72.0" layoutY="599.0" prefHeight="17.0" prefWidth="453.0"
+               textFill="#f80606" wrapText="true"/>
+        <Label fx:id="insuranceAmountHouseOutPrint" layoutX="285.0" layoutY="402.0" prefHeight="17.0" prefWidth="150.0"
+               wrapText="true"/>
+        <Label layoutX="74.0" layoutY="343.0" prefHeight="17.0" prefWidth="223.0"
+               text="Denne forsikringen dekker opptil:"/>
+        <Label layoutX="74.0" layoutY="377.0" prefHeight="17.0" prefWidth="69.0" text="For innbo:"/>
+        <Label fx:id="insuranceAmountBuildingOutPrint" layoutX="77.0" layoutY="402.0" prefHeight="17.0"
+               prefWidth="129.0"/>
+        <Label layoutX="284.0" layoutY="377.0" text="For bygning:"/>
+        <Button fx:id="registrateCabin" layoutX="87.0" layoutY="553.0" mnemonicParsing="false"
+                onAction="#registerCabinInsurance" prefHeight="27.0" prefWidth="151.0" text="Registrer"/>
+
     </children>
 </AnchorPane>

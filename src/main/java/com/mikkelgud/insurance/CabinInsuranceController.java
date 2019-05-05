@@ -1,10 +1,7 @@
 package com.mikkelgud.insurance;
 
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.stage.Stage;
 
 public class CabinInsuranceController {
@@ -17,13 +14,9 @@ public class CabinInsuranceController {
     @FXML
     ComboBox standard;
     @FXML
-    TextField extraStandardInfo;
+    TextArea extraStandardInfo;
     @FXML
     TextField cabinSize;
-    @FXML
-    TextField insurancePremiumBuilding;
-    @FXML
-    TextField insurancePremiumHousing;
     @FXML
     ComboBox buildingType;
     @FXML
@@ -33,14 +26,18 @@ public class CabinInsuranceController {
     @FXML
     public Label insuranceYearlyPaymentOutPrint;
     @FXML
-    public Label insuranceAmountOutPrint;
+    public Label insuranceAmountBuildingOutPrint;
+    @FXML
+    public Label insuranceAmountHouseOutPrint;
     @FXML
     public Label insuranceCoverageInfoOutPrint;
 
 
-    private String insuranceYearlyPayment = "12123+";
-    private String insuranceAmount = "300 000";
-    private String insuranceCoverage = "Dekker skade med innbo og bygningsmasse";
+    private final String insuranceYearlyPayment = "1000";
+    private final String insuranceAmount = "1800000";
+    private final String insuranceCoverage = "Dekker skade på Fritidsboligtomten. Skade som skjer inne i boligen. Skader som skjer oppstår i forbindelse med boligen ";
+    private final String insurancePremiumBuilding = "1000000";
+    private final String insurancePremiumHousing = "800000";
 
     private final String EMPTY_STRING = "";
 
@@ -49,10 +46,10 @@ public class CabinInsuranceController {
     private InsurancesModel insurancesModel;
 
     @FXML
-    public void registerCabinInsurance() throws InvalidInsurancePropertiesException {
+    public void registerCabinInsurance() {
         errorLabel.setText("");
         if (buildingMaterial.getValue() == null || standard.getValue() == null || buildingType.getValue() == null) {
-            throw new InvalidInsurancePropertiesException("Husk at alle feltene må fylles ut før registrering");
+            errorLabel.setText("fyll inn alt ellers blir det bare kluss");
         } else {
             try {
                 CabinInsurance newCabinInsurance = validator.createNewCabinInsurance(
@@ -63,11 +60,11 @@ public class CabinInsuranceController {
                         adress.getText(),
                         buildingMaterial.getValue().toString(),
                         standard.getValue().toString(),
-                        buildingType.getValue().toString(),
                         cabinSize.getText(),
+                        buildingType.getValue().toString(),
                         yearBuilt.getText(),
-                        insurancePremiumBuilding.getText(),
-                        insurancePremiumHousing.getText());
+                        insurancePremiumBuilding,
+                        insurancePremiumHousing);
                 insurancesModel.getAllInsurances().add(newCabinInsurance);
                 closePage();
             } catch (InvalidInsurancePropertiesException ex) {
@@ -87,7 +84,8 @@ public class CabinInsuranceController {
 
     public void getPrintImportantInformation() {
         insuranceYearlyPaymentOutPrint.setText(insuranceYearlyPayment);
-        insuranceAmountOutPrint.setText(insuranceAmount);
+        insuranceAmountHouseOutPrint.setText(insurancePremiumHousing);
+        insuranceAmountBuildingOutPrint.setText(insurancePremiumBuilding);
         insuranceCoverageInfoOutPrint.setText(insuranceCoverage);
     }
 }

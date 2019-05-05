@@ -1,13 +1,14 @@
 
 package com.mikkelgud.insurance;
 
+import com.mikkelgud.filehandling.FileObjectEntity;
 import javafx.beans.Observable;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 
 import java.time.LocalDateTime;
 
-public abstract class GeneralInsurance implements Observable {
+public abstract class GeneralInsurance extends FileObjectEntity implements Observable {
     //forsikringspremie
     private final StringProperty insuranceYearlyPayment = new SimpleStringProperty();
     //Beløpet de er forsikret for
