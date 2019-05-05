@@ -30,7 +30,6 @@ public class ClaimInsurance implements Observable {
         this.moneyBack.set(moneyBack);
     }
 
-
     public void setPersonId(String personId) {
         this.personId.set(personId);
     }
@@ -83,8 +82,8 @@ public class ClaimInsurance implements Observable {
         return moneyBack;
     }
 
-    public LocalDateTime getCreatedAt() {
-        return createdAt;
+    public String getCreatedAtAsString() {
+        return createdAt.toString();
     }
 
     public String getPersonId() {
@@ -98,9 +97,9 @@ public class ClaimInsurance implements Observable {
 
     public Observable[] getPropertiesAsList() {
         return new Observable[]{
-                new SimpleStringProperty(String.format("-- Registrert skade %D --", claimInsuranceCounter)),
+                new SimpleStringProperty(String.format("-- Registrert skade %d --", claimInsuranceCounter)),
                 new SimpleStringProperty(String.format("PersonID- %s", getPersonId())),
-                new SimpleStringProperty(String.format("Registreringsdato- %s", getCreatedAt())),
+                new SimpleStringProperty(String.format("Registreringsdato- %s", getCreatedAtAsString())),
                 new SimpleStringProperty(String.format("Skadetype- %s", getDamageType())),
                 new SimpleStringProperty(String.format("Hendelsesdato %s", getDateOfRegistration())),
                 new SimpleStringProperty(String.format("Beskrivelse %s", getDescriptionOfDamage())),
@@ -110,7 +109,6 @@ public class ClaimInsurance implements Observable {
                 new SimpleStringProperty("-----------------------------")
         };
     }
-
 
     @Override
     public void addListener(InvalidationListener invalidationListener) {

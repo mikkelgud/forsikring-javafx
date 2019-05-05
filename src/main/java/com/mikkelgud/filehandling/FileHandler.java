@@ -4,7 +4,6 @@ package com.mikkelgud.filehandling;
 import javafx.stage.FileChooser;
 
 import java.io.File;
-import java.nio.file.Path;
 
 public class FileHandler {
 
@@ -29,6 +28,4 @@ public class FileHandler {
         return getFileName(selectedFile).substring(getFileName(selectedFile).lastIndexOf(".")
                 + 1, selectedFile.getName().length());
     }
-
-
 }

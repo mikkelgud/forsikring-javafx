@@ -29,7 +29,7 @@ public class HouseInsurance extends GeneralInsurance {
 
     protected HouseInsurance(String currentPersonId, String insuranceYearlyPayment, String insuranceAmount, String insuranceCoverageInfo,
                              String housingAddress, String yearBuilt, String housingType, String buildingMaterial, String housingState,
-                             String builtYear, String squareMeter, String insuranceBP, String insuranceHG) {
+                             String builtYear, String squareMeter) {
         super(insuranceYearlyPayment, insuranceAmount, insuranceCoverageInfo);
         this.createdAt = LocalDateTime.now();
         this.housingAddress.set(housingAddress);
@@ -39,8 +39,6 @@ public class HouseInsurance extends GeneralInsurance {
         this.housingState.set(housingState);
         this.builtYear.set(builtYear);
         this.houseSize.set(squareMeter);
-        this.insuranceBuildingPrice.set(insuranceBP);
-        this.insurancePriceHouseholdGoods.set(insuranceHG);
         setPersonId(currentPersonId);
     }
 

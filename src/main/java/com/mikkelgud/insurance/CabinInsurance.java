@@ -16,8 +16,8 @@ public class CabinInsurance extends GeneralInsurance {
     private final StringProperty housingState = new SimpleStringProperty();
     private final StringProperty cabinSize = new SimpleStringProperty();
     private final StringProperty yearBuilt = new SimpleStringProperty();
-    private final StringProperty insurancePriceBuilding = new SimpleStringProperty();
-    private final StringProperty insurancePriceHouseholdGoods = new SimpleStringProperty();
+    private final StringProperty insuranceAmountBuilding = new SimpleStringProperty();
+    private final StringProperty insuranceAmountHouseholdGoods = new SimpleStringProperty();
     private final LocalDateTime createdAt;
 //    private final StringProperty insuranceAmount = new SimpleStringProperty();
 //    private final StringProperty insuranceCoverageInfo = new SimpleStringProperty();
@@ -33,8 +33,8 @@ public class CabinInsurance extends GeneralInsurance {
         this.housingState.set(housingState);
         this.cabinSize.set(cabinSize);
         this.yearBuilt.set(yearBuilt);
-        this.insurancePriceBuilding.set(insurancePriceBuilding);
-        this.insurancePriceHouseholdGoods.set(insurancePriceHouseholdGoods);
+        this.insuranceAmountBuilding.set(insurancePriceBuilding);
+        this.insuranceAmountHouseholdGoods.set(insurancePriceHouseholdGoods);
         this.buildingType.set(buildingType);
         setPersonId(currentPersonId);
     }
@@ -61,11 +61,13 @@ public class CabinInsurance extends GeneralInsurance {
 
     public String getBuildingMaterial(){ return  buildingMaterial.get(); }
 
-    public String getInsurancePriceHouseholdGoods() {
-        return insurancePriceHouseholdGoods.get();
+    public String getInsuranceAmountHouseholdGoods() {
+        return insuranceAmountHouseholdGoods.get();
     }
 
-    public String getInsurancePriceBuilding() { return insurancePriceBuilding.get(); }
+    public String getInsurancePriceBuilding() {
+        return insuranceAmountBuilding.get();
+    }
 
     @Override
     public Observable[] getPropertiesAsList() {
@@ -73,17 +75,16 @@ public class CabinInsurance extends GeneralInsurance {
                 new SimpleStringProperty("-- Hytte og innbo --"),
                 new SimpleStringProperty(String.format("Kunde - %s", getPersonId())),
                 new SimpleStringProperty(String.format("Adresse - %s", getAddress())),
-                new SimpleStringProperty(String.format("Bygningsmatriale", getBuildingMaterial())),
+                new SimpleStringProperty(String.format("Bygningsmatriale - %s", getBuildingMaterial())),
                 new SimpleStringProperty(String.format("Byggeår - %s", getYearBuilt())),
                 new SimpleStringProperty(String.format("Tilstand - %s", getHousingState())),
                 new SimpleStringProperty(String.format("Størrelse - %s", getCabinSize())),
                 new SimpleStringProperty(String.format("Forsikringspremie bygning - %s", getInsurancePriceBuilding())),
-                new SimpleStringProperty(String.format("Forsikringspremie innbo - %s", getInsurancePriceHouseholdGoods())),
+                new SimpleStringProperty(String.format("Forsikringspremie innbo - %s", getInsuranceAmountHouseholdGoods())),
                 new SimpleStringProperty(String.format("Opprettet -  %s", createdAt.toString())),
                 new SimpleStringProperty("-------------------")
         };
     }
-
     @Override
     public void addListener(InvalidationListener invalidationListener) {
         invalidationListener.invalidated(this);
