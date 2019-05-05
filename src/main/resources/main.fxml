@@ -18,6 +18,8 @@
                         <MenuItem mnemonicParsing="false" onAction="#openClaimInsurance" text="Meld ny skade"/>
                         <MenuItem mnemonicParsing="false" onAction="#saveCsvFile"
                                   text="Lagre persondata til CSV-format"/>
+                        <MenuItem mnemonicParsing="false" onAction="#savejobjFile"
+                                  text="Lagre persondata til JOBJ-format"/>
                     </items>
                 </Menu>
             </menus>

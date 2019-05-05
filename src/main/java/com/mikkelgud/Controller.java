@@ -3,6 +3,7 @@ package com.mikkelgud;
 import com.mikkelgud.claim.ClaimInsuranceModel;
 import com.mikkelgud.claim.ClaimInsuranceRegistrationController;
 import com.mikkelgud.filehandling.CsvFileSaver;
+import com.mikkelgud.filehandling.ObjectFileSaver;
 import com.mikkelgud.filehandling.SaveFileException;
 import com.mikkelgud.insurance.*;
 import com.mikkelgud.person.Person;
@@ -26,6 +27,7 @@ import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
@@ -325,6 +327,21 @@ public class Controller implements Initializable {
             } catch (SaveFileException e) {
                 errorLabel.setText(e.getMessage());
             }
+        }
+    }
+
+    public void savejobjFile() throws IOException, SaveFileException {
+        DirectoryChooser directoryChooser = new DirectoryChooser();
+        File file = directoryChooser.showDialog(null);
+
+        if(file != null) {
+            String destination = file.getAbsolutePath();
+            String timestamp = LocalDateTime.now().format(DateTimeFormatter.BASIC_ISO_DATE);
+            String fileNameTemplate = destination + "/%s" + timestamp + ".jobj";
+            ObjectFileSaver objectFileSaver = new ObjectFileSaver();
+            objectFileSaver.toFile(personListModel.getPersonList(), String.format(fileNameTemplate, "persons"));
+            objectFileSaver.toFile(insurancesModel.getAllInsurances(), String.format(fileNameTemplate, "insurances"));
+            objectFileSaver.toFile(claimInsuranceModel.getAllClaimedInsurances(), String.format(fileNameTemplate, "Claims"));
         }
     }
 
