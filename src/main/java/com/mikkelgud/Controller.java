@@ -9,6 +9,8 @@ import com.mikkelgud.person.Person;
 import com.mikkelgud.person.PersonListModel;
 import com.mikkelgud.person.RegisterPersonController;
 import javafx.beans.property.StringProperty;
+import javafx.collections.ObservableList;
+import javafx.collections.transformation.FilteredList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -27,9 +29,11 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 
+
+
 public class Controller implements Initializable {
     @FXML
-    TextField customerSearchInput;
+    public TextField customerSearchInput;
     @FXML
     public ListView personListView;
     @FXML
@@ -53,32 +57,39 @@ public class Controller implements Initializable {
         initPersonListView();
         initCurrentPersonView(personListModel.getCurrentPerson());
         initCurrentPersonInsuranceView();
-        //initSearchInputField();
     }
 
     //search input coming soon
-//    @FXML
-//    private void initSearchInputField() {
-//        customerSearchInput.selectedTextProperty().addListener((obs, oldValue, newValue) -> {
-//            System.out.println("hello" + oldValue + newValue);
-//            personListModel.setFilteredPersonList((personListModel.getPersonList().filtered(person -> !newValue.isEmpty() ||
-//                    !(person.getFirstName().toLowerCase().contains(newValue.toLowerCase()))
-//                    || person.getLastName().toLowerCase().contains(newValue.toLowerCase())
-//            )));
-//        });
-//    }
-// getCustomerSearchInput().isEmpty()
+    @FXML
+    private FilteredList initSearchInputField() {
+        // Wrap Observable list in a filtered list containing personList data
+        FilteredList<Person> searchContainer = new FilteredList(personListModel.getPersonList(), pass -> true);
+        System.out.print(personListModel.getCurrentPerson().toString());
+        customerSearchInput.textProperty().addListener(((observable, oldValue, newValue) -> {
+            searchContainer.setPredicate(data -> {
+                if (newValue == null || newValue.isEmpty()){
+                    return true;
+                }
+                String lowerCaseFilter = newValue.toLowerCase();
+                if(personListModel.getCurrentPerson().toString().toLowerCase().contains(lowerCaseFilter)){
+                    return true; //filter matches first name
+                }else if(personListModel.getCurrentPerson().toString().toLowerCase().contains(lowerCaseFilter)){
+                    return true; //filter matches last name
+                }
+                return false; //
+            });
+        }));
+        personListView.setItems(searchContainer);
+        return searchContainer;
+    }
 
-//                                || !(person.getFirstName().toLowerCase().contains(getCustomerSearchInput().toLowerCase())
-//                                || person.getLastName().toLowerCase().contains(getCustomerSearchInput().toLowerCase())))});
-//        customerSearchInput.onInputMethodTextChangedProperty().addListener(e -> {
-//            System.out.println("Search query: " + customerSearchInput.selectedTextProperty());
+
+
 
 
     @FXML
     private void initCurrentPersonInsuranceView() {
         currPersonInsuranceListView.setItems(insurancesModel.getCurrentPersonsInsurances());
-
         currPersonInsuranceListView.setCellFactory(lv -> new ListCell<>() {
             @Override
             public void updateItem(Object s, boolean empty) {
@@ -155,6 +166,10 @@ public class Controller implements Initializable {
         });
     }
 
+    @FXML
+    private void onEnter(){
+        initSearchInputField();
+    }
 
     @FXML
     public void newInsuranceUserWindowOpener() {

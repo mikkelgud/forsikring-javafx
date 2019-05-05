@@ -19,15 +19,15 @@ public class PersonListModel {
             });
 
     //    This method is not yet in use , but will be helpful when we make the searching method
-//    private ObservableList<Person> filteredPersonList = FXCollections.observableArrayList(person -> new Observable[]{
-//            person.firstNameProperty(),
-//            person.lastNameProperty(),
-//            person.billingAddressProperty(),
-//            person.insuranceBoatProperty(),
-//            person.insuranceCabinProperty(),
-//            person.insuranceHouseProperty(),
-//            person.insuranceTravelProperty(),
-//    });
+    private ObservableList<Person> filteredPersonList = FXCollections.observableArrayList(person -> new Observable[]{
+            person.firstNameProperty(),
+            person.lastNameProperty(),
+            person.billingAddressProperty(),
+            person.insuranceBoatProperty(),
+            person.insuranceCabinProperty(),
+            person.insuranceHouseProperty(),
+            person.insuranceTravelProperty(),
+    });
 
     private final ObservableList<Observable> currentPersonListAttributes =
             FXCollections.observableArrayList(item -> new Observable[]{item});
@@ -56,6 +56,7 @@ public class PersonListModel {
     public ObservableList<Observable> getCurrentPersonListAttributes() {
         return currentPersonListAttributes;
     }
+
 
     //
 //    public ObservableList<Person> getFilteredPersonList() {
