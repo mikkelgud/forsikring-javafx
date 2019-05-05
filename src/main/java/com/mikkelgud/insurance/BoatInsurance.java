@@ -53,6 +53,10 @@ public class BoatInsurance extends GeneralInsurance {
         return createdAt;
     }
 
+    public int getYearlyInsurancePriceAsInteger(String insuranceYearlyPayment) {
+        return Integer.parseInt(insuranceYearlyPayment);
+    }
+
     @Override
     public Observable[] getPropertiesAsList() {
         return new Observable[]{
@@ -93,6 +97,7 @@ public class BoatInsurance extends GeneralInsurance {
                 getCreatedAt().toString()
         );
     }
+
 
     @Override
     public void addListener(InvalidationListener invalidationListener) {

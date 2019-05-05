@@ -32,8 +32,8 @@ public class TravelInsuranceController {
     public Button registrateTravel;
 
     private final String insuranceYearlyPayment = "1000";
-    private final String insuranceAmount = "300 000";
-    private final String insuranceCoverage = "Dekker all skade i forbindelse med din båt på vannet eller under henholdsmessig frakt.";
+    private final String insuranceAmount = "3000000";
+    private final String insuranceCoverage = "Dekker all skade i forbindelse med Reise til utland innenfor forsikrede områder.";
 
     private final InsuranceValidator validator = new InsuranceValidator();
 

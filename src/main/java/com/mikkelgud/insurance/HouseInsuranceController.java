@@ -17,9 +17,9 @@ public class HouseInsuranceController {
     @FXML
     public TextField housingSize;
     @FXML
-    public TextField insurancePremiumBuilding;
+    public Label insuranceAmountBuildingOutPrint;
     @FXML
-    public TextField insurancePremiumInnbo;
+    public Label insuranceAmountHouseOutPrint;
     @FXML
     public ComboBox houseType;
     @FXML
@@ -29,23 +29,17 @@ public class HouseInsuranceController {
     @FXML
     public Label insuranceYearlyPaymentOutPrint;
     @FXML
-    public Label insuranceAmountOutPrint;
-    @FXML
-    public Label InsuranceCoverageInfoOutPrint;
+    public Label insuranceCoverageInfoOutPrint;
     @FXML
     public Button registrateHousing;
+    @FXML
+    public ComboBox standard;
 
-
-    private String insuranceYearlyPayment = "500 000";
-    // skal være summen av insuranceBP og HG
-    private String insuranceAmount = "300 000";
-    private String insuranceCoverage = "Dekker skade med innbo og bygningsmasse";
-
-    // disse skal komme inn fra bruker og regnese ut
-//    private int parsedInsuranceBP = Integer.parseInt(getInsurancePremiumBuilding().getCharacters().toString());
-//    private int parsedInsuranceHG = Integer.parseInt(insurancePremiumInnbo.getCharacters().toString());
-
-//    private int sum = getParsedInsuranceBP() + getParsedInsuranceHG();
+    private final String insuranceYearlyPayment = "5000";
+    private final String insuranceAmount = "2000000";
+    private final String insuranceCoverage = "Dekker skade på all eindom som er registrert som din hjemadresse. Dekker uheldige skader som for eksempel flom, brann osv...";
+    private final String insuranceAmountHousing = "600000";
+    private final String insuranceAmountBuilding = "1400000";
 
     private final String EMPTY_STRING = "";
 
@@ -57,10 +51,9 @@ public class HouseInsuranceController {
     private void registrateInsurance(ActionEvent event) {
         errorLabel.setText("");
         try {
-            //Må kjøre denne testen her da den valideringen ikke fungerer om ikke det er gjort noe med den
-            if (buildingMaterial.getValue() == null || houseType.getValue() == null) {
-//                System.out.println(sum);
-                throw new InvalidInsurancePropertiesException("Husk at alle feltene må fylles ut før registrering");
+            //Må kjøre denne testen her da dette vil gi en nullpointer exeption i validatoren.
+            if (buildingMaterial.getValue() == null || houseType.getValue() == null || standard.getValue() == null) {
+                throw new InvalidInsurancePropertiesException("Vennligs påse at alle utfyllingsfeltene er endret på");
             } else {
                 HouseInsurance newHouseInsurance = validator.createNewHouseInsurance(insurancesModel.getCurrentPersonId(),
                         insuranceYearlyPayment,
@@ -68,11 +61,10 @@ public class HouseInsuranceController {
                         insuranceCoverage,
                         homeAddress.getText(),
                         yearBuilt.getText(),
-                        housingSize.getText(),
-                        insurancePremiumBuilding.getText(),
-                        insurancePremiumInnbo.getText(),
                         houseType.getValue().toString(),
-                        buildingMaterial.getValue().toString());
+                        buildingMaterial.getValue().toString(),
+                        standard.getValue().toString(),
+                        housingSize.getText());
                 insurancesModel.getAllInsurances().add(newHouseInsurance);
                 resetFieldValues();
                 closePage();
@@ -86,8 +78,8 @@ public class HouseInsuranceController {
         homeAddress.setText(EMPTY_STRING);
         yearBuilt.setText(EMPTY_STRING);
         housingSize.setText(EMPTY_STRING);
-        insurancePremiumBuilding.setText(EMPTY_STRING);
-        insurancePremiumInnbo.setText(EMPTY_STRING);
+        insuranceAmountBuildingOutPrint.setText(EMPTY_STRING);
+        insuranceAmountHouseOutPrint.setText(EMPTY_STRING);
         houseType.getSelectionModel().clearAndSelect(0);
         buildingMaterial.getSelectionModel().clearAndSelect(0);
     }
@@ -102,27 +94,11 @@ public class HouseInsuranceController {
     }
 
     public void getPrintImportantInformation() {
-        System.out.print(insuranceYearlyPayment);
-        System.out.print(insuranceAmount);
-        System.out.print(insuranceCoverage);
         insuranceYearlyPaymentOutPrint.setText(insuranceYearlyPayment);
-        insuranceAmountOutPrint.setText(insuranceAmount);
-        InsuranceCoverageInfoOutPrint.setText(insuranceCoverage);
+        insuranceAmountBuildingOutPrint.setText(insuranceAmountBuilding);
+        insuranceAmountHouseOutPrint.setText(insuranceAmountHousing);
+        insuranceCoverageInfoOutPrint.setText(insuranceCoverage);
     }
 
-    public TextField getInsurancePremiumBuilding() {
-        return insurancePremiumBuilding;
-    }
-
-    public TextField getInsurancePremiumInnbo() {
-        return insurancePremiumInnbo;
-    }
-//    public int getParsedInsuranceBP() {
-//        return parsedInsuranceBP;
-//    }
-//
-//    public int getParsedInsuranceHG() {
-//        return parsedInsuranceHG;
-//    }
 }
 

@@ -79,6 +79,10 @@ public class CabinInsurance extends GeneralInsurance {
         return buildingType;
     }
 
+    public int getYearlyInsurancePriceAsInteger(String insuranceYearlyPayment) {
+        return Integer.parseInt(insuranceYearlyPayment);
+    }
+
     @Override
     public Observable[] getPropertiesAsList() {
         return new Observable[]{

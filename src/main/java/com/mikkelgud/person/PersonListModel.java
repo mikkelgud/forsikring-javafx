@@ -6,9 +6,7 @@ import javafx.beans.property.SimpleObjectProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
-import java.io.Serializable;
-
-public class PersonListModel implements Serializable {
+public class PersonListModel {
     private final ObservableList<Person> personList =
             FXCollections.observableArrayList(person -> new Observable[]{
                     person.firstNameProperty(),
@@ -19,17 +17,6 @@ public class PersonListModel implements Serializable {
                     person.insuranceHouseProperty(),
                     person.insuranceTravelProperty()
             });
-
-    //    This method is not yet in use , but will be helpful when we make the searching method
-    private ObservableList<Person> filteredPersonList = FXCollections.observableArrayList(person -> new Observable[]{
-            person.firstNameProperty(),
-            person.lastNameProperty(),
-            person.billingAddressProperty(),
-            person.insuranceBoatProperty(),
-            person.insuranceCabinProperty(),
-            person.insuranceHouseProperty(),
-            person.insuranceTravelProperty(),
-    });
 
     private final ObservableList<Observable> currentPersonListAttributes =
             FXCollections.observableArrayList(item -> new Observable[]{item});
@@ -59,16 +46,6 @@ public class PersonListModel implements Serializable {
         return currentPersonListAttributes;
     }
 
-
-    //
-//    public ObservableList<Person> getFilteredPersonList() {
-//        return filteredPersonList;
-//    }
-//
-//    public void setFilteredPersonList(ObservableList<Person> filteredPersonList) {
-//        this.filteredPersonList = filteredPersonList;
-//    }
-//
     @Override
     public String toString(){
         StringBuilder outData = new StringBuilder();

@@ -48,8 +48,9 @@ public class CabinInsuranceController {
     @FXML
     public void registerCabinInsurance() {
         errorLabel.setText("");
+        //Må kjøre denne testen her da dette vil gi en nullpointer exeption i validatoren.
         if (buildingMaterial.getValue() == null || standard.getValue() == null || buildingType.getValue() == null) {
-            errorLabel.setText("fyll inn alt ellers blir det bare kluss");
+            errorLabel.setText("Vennligst yll ut alle felter");
         } else {
             try {
                 CabinInsurance newCabinInsurance = validator.createNewCabinInsurance(

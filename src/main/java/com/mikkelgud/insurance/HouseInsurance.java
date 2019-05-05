@@ -16,8 +16,6 @@ import java.util.List;
 
 
 public class HouseInsurance extends GeneralInsurance {
-
-
     private final StringProperty housingAddress = new SimpleStringProperty();
     private final StringProperty yearBuilt = new SimpleStringProperty();
     private final StringProperty housingType = new SimpleStringProperty();
@@ -30,8 +28,7 @@ public class HouseInsurance extends GeneralInsurance {
     private final LocalDateTime createdAt;
 
     protected HouseInsurance(String currentPersonId, String insuranceYearlyPayment, String insuranceAmount, String insuranceCoverageInfo,
-                             String housingAddress, String yearBuilt, String housingType, String buildingMaterial, String housingState,
-                             String builtYear, String squareMeter) {
+                             String housingAddress, String yearBuilt, String housingType, String buildingMaterial, String housingState, String squareMeter) {
         super(insuranceYearlyPayment, insuranceAmount, insuranceCoverageInfo);
         this.createdAt = LocalDateTime.now();
         this.housingAddress.set(housingAddress);
@@ -39,7 +36,6 @@ public class HouseInsurance extends GeneralInsurance {
         this.housingType.set(housingType);
         this.buildingMaterial.set(buildingMaterial);
         this.housingState.set(housingState);
-        this.builtYear.set(builtYear);
         this.houseSize.set(squareMeter);
         setPersonId(currentPersonId);
     }
@@ -68,8 +64,8 @@ public class HouseInsurance extends GeneralInsurance {
         return insurancePriceHouseholdGoods.get();
     }
 
-    public double getHousingInsuranceYearlyPayment(){
-        return (Integer.parseInt(getInsurancePriceHouseholdGoods()) + Integer.parseInt(getInsurancePriceHouseholdGoods())) * 0.05;
+    public int getYearlyInsurancePriceAsInteger(String insuranceYearlyPayment) {
+        return Integer.parseInt(insuranceYearlyPayment);
     }
 
     public LocalDateTime getCreatedAt() {
