@@ -6,7 +6,9 @@ import javafx.beans.property.SimpleObjectProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
-public class PersonListModel {
+import java.io.Serializable;
+
+public class PersonListModel implements Serializable {
     private final ObservableList<Person> personList =
             FXCollections.observableArrayList(person -> new Observable[]{
                     person.firstNameProperty(),
