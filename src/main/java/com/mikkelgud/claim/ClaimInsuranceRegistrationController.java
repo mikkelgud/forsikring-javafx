@@ -46,6 +46,12 @@ public class ClaimInsuranceRegistrationController {
         }
     }
 
+    public void testAmount() {
+        //Ettersom utregningen er såpass banal, gjør jeg den bare på enkeltvis her.
+        int calculatedMoneyBack = (int) Math.floor(Integer.parseInt(taxationValue.getText()) * 0.991);
+        moneyBack.setText(Integer.toString(calculatedMoneyBack) + "  Kroner");
+    }
+
     private void closePage() {
         Stage stage = (Stage) registerClaimedInsurance.getScene().getWindow();
         stage.close();

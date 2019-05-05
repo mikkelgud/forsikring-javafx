@@ -10,6 +10,5 @@ import java.util.List;
  */
 public abstract class FileObjectEntity {
     public abstract List<String> getDeclaredFields();
-
     public abstract List<String> getFieldValues();
 }

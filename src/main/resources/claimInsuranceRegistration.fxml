@@ -6,9 +6,9 @@
             xmlns:fx="http://javafx.com/fxml/1"
             fx:controller="com.mikkelgud.claim.ClaimInsuranceRegistrationController">
     <children>
-        <DatePicker fx:id="dateOfDamage" layoutX="331.0" layoutY="57.0" promptText="Skadedato"/>
         <TextField fx:id="typeOfDamage" layoutX="64.0" layoutY="57.0" prefHeight="27.0" prefWidth="194.0"
                    promptText="Skadetype"/>
+        <DatePicker fx:id="dateOfDamage" layoutX="331.0" layoutY="57.0" promptText="Skadedato"/>
         <TextArea fx:id="descriptionOfDamage" layoutX="50.0" layoutY="104.0" prefHeight="100.0" prefWidth="518.0"
                   promptText="Skriv en kort beskrivelese av skaden "/>
         <Label layoutX="74.0" layoutY="223.0" prefHeight="17.0" prefWidth="114.0" text="Vitner"/>
@@ -18,13 +18,12 @@
         <Label layoutX="300.0" layoutY="223.0" text="Utbetaling av skade"/>
         <TextField fx:id="taxationValue" layoutX="300.0" layoutY="261.0" prefHeight="27.0" prefWidth="155.0"
                    promptText="Takseringsbeløp "/>
-        <Label layoutX="300.0" layoutY="309.0" prefHeight="27.0" prefWidth="167.0" text="Du vil få utbetalt:"/>
-        <Button layoutX="443.0" layoutY="261.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="92.0"
-                text="Test Beløp"/>
-        <Label fx:id="moneyBack" layoutX="300.0" layoutY="351.0" prefHeight="17.0" prefWidth="206.0"
-               text="Her skal utbetalt beløp stå "/>
-        <Button fx:id="registerClaimedInsurance" onAction="#registerClaimedInsurance" layoutX="70.0" layoutY="412.0"
-                mnemonicParsing="false" prefHeight="27.0" prefWidth="122.0" text="Registrer"/>
+        <Label layoutX="300.0" layoutY="309.0" prefHeight="27.0" prefWidth="167.0" text="Du vil ca få utbetalt:"/>
+        <Button layoutX="443.0" layoutY="261.0" mnemonicParsing="false" onAction="#testAmount" prefHeight="27.0"
+                prefWidth="92.0" text="Test Beløp"/>
+        <Label fx:id="moneyBack" layoutX="300.0" layoutY="351.0" prefHeight="17.0" prefWidth="206.0"/>
+        <Button fx:id="registerClaimedInsurance" layoutX="70.0" layoutY="412.0" mnemonicParsing="false"
+                onAction="#registerClaimedInsurance" prefHeight="27.0" prefWidth="122.0" text="Registrer"/>
         <Label fx:id="errorLabel" alignment="CENTER" layoutX="212.0" layoutY="417.0" prefHeight="17.0" prefWidth="357.0"
                textFill="#ee0707"/>
     </children>

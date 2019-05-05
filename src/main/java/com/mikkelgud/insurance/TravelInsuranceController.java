@@ -41,23 +41,18 @@ public class TravelInsuranceController {
 
     public void registrateTravelInsurance(ActionEvent event){
         try{
-            TravelInsurance newTravelInsurance = validator.createNewTravelInsurance(insurancesModel.getCurrentPersonId(),
-                    insuranceYearlyPayment,
-                    insuranceAmount,
-                    insuranceCoverage,
-                    southAmerica.isSelected(),
-                    northAmerica.isSelected(),
-                    asia.isSelected(),
-                    oseania.isSelected(),
-                    africa.isSelected(),
-                    europe.isSelected()
-                    );
+            TravelInsurance newTravelInsurance = validator.createNewTravelInsurance(insurancesModel.getCurrentPersonId(), insuranceYearlyPayment, insuranceAmount, insuranceCoverage, southAmerica.isSelected(), northAmerica.isSelected(), asia.isSelected(), oseania.isSelected(), africa.isSelected(), europe.isSelected());
             insurancesModel.getAllInsurances().add(newTravelInsurance);
-            Stage stage = (Stage) registrateTravel.getScene().getWindow();
-            stage.close();
+
+            closePage();
         } catch (InvalidInsurancePropertiesException e) {
             errorLabel.setText(e.getMessage());
         }
+    }
+
+    private void closePage() {
+        Stage stage = (Stage) registrateTravel.getScene().getWindow();
+        stage.close();
     }
 
     public void setInsurancesModel(InsurancesModel insurancesModel) {
@@ -69,5 +64,4 @@ public class TravelInsuranceController {
         insuranceAmountOutPrint.setText(insuranceAmount);
         InsuranceCoverageInfoOutPrint.setText(insuranceCoverage);
     }
-
 }

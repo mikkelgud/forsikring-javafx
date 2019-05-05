@@ -40,6 +40,7 @@ public class CabinInsuranceController {
     private final String insurancePremiumHousing = "800000";
 
     private final String EMPTY_STRING = "";
+    private final String MESSAGE_FILL_OUT_ALL_FIELDS = "Vennligs påse at alle utfyllingsfeltene er fylt ut";
 
     private final InsuranceValidator validator = new InsuranceValidator();
 
@@ -47,26 +48,15 @@ public class CabinInsuranceController {
 
     @FXML
     public void registerCabinInsurance() {
-        errorLabel.setText("");
+        errorLabel.setText(EMPTY_STRING);
         //Må kjøre denne testen her da dette vil gi en nullpointer exeption i validatoren.
         if (buildingMaterial.getValue() == null || standard.getValue() == null || buildingType.getValue() == null) {
-            errorLabel.setText("Vennligst yll ut alle felter");
+            errorLabel.setText(MESSAGE_FILL_OUT_ALL_FIELDS);
         } else {
             try {
-                CabinInsurance newCabinInsurance = validator.createNewCabinInsurance(
-                        insurancesModel.getCurrentPersonId(),
-                        insuranceYearlyPayment,
-                        insuranceAmount,
-                        insuranceCoverage,
-                        adress.getText(),
-                        buildingMaterial.getValue().toString(),
-                        standard.getValue().toString(),
-                        cabinSize.getText(),
-                        buildingType.getValue().toString(),
-                        yearBuilt.getText(),
-                        insurancePremiumBuilding,
-                        insurancePremiumHousing);
+                CabinInsurance newCabinInsurance = validator.createNewCabinInsurance(insurancesModel.getCurrentPersonId(), insuranceYearlyPayment, insuranceAmount, insuranceCoverage, adress.getText(), buildingMaterial.getValue().toString(), standard.getValue().toString(), cabinSize.getText(), buildingType.getValue().toString(), yearBuilt.getText(), insurancePremiumBuilding, insurancePremiumHousing);
                 insurancesModel.getAllInsurances().add(newCabinInsurance);
+
                 closePage();
             } catch (InvalidInsurancePropertiesException ex) {
                 errorLabel.setText(ex.getMessage());
