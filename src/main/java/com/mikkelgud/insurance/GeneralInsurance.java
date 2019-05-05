@@ -9,11 +9,8 @@ import javafx.beans.property.StringProperty;
 import java.time.LocalDateTime;
 
 public abstract class GeneralInsurance extends FileObjectEntity implements Observable {
-    //forsikringspremie
     private final StringProperty insuranceYearlyPayment = new SimpleStringProperty();
-    //Beløpet de er forsikret for
     private final StringProperty insuranceAmount = new SimpleStringProperty();
-    // forsikringsbetinglelsene hva den dekker
     private final StringProperty insuranceCoverageInfo = new SimpleStringProperty();
 
     // Det må finnes en eier av en forsikring.
@@ -31,22 +28,12 @@ public abstract class GeneralInsurance extends FileObjectEntity implements Obser
     public Observable[] getPropertiesAsList(){
         return new Observable[] {
                 new SimpleStringProperty("-- GENERELL FORSIKRINGSINFO --"),
-                new SimpleStringProperty(String.format("Totalt forsikringsbeløp: %s", getInsuranceAmount())),
-                new SimpleStringProperty(String.format("Årlig fakturering: %s", getInsuranceYearlyPayment()))
         };
     }
 
-    public String getInsuranceYearlyPayment() {
-        //insuranceYearlyPayment =null;
-        return insuranceYearlyPayment.get();
-    }
 
     public StringProperty insuranceYearlyPaymentProperty() {
         return insuranceYearlyPayment;
-    }
-
-    public String getInsuranceAmount() {
-        return insuranceAmount.get();
     }
 
     public StringProperty insuranceAmountProperty() {

@@ -9,7 +9,6 @@ public class InsuranceValidator {
     private static final String MESSAG_NOT_A_NUMBER = "Nummer må skrives inn som heltall";
 
     public BoatInsurance createNewBoatInsurance(String currentPersonId, String insuranceYearlyPayment, String insuranceAmount, String insuranceInfo, String boatType, String length, String model, String engineType, String enginePower) throws InvalidInsurancePropertiesException {
-
         if (!isPresent(currentPersonId)) {
             throw new InvalidInsurancePropertiesException(MESSAGE_MUST_REGISTRATE_A_USER);
         }
@@ -31,10 +30,7 @@ public class InsuranceValidator {
         return new BoatInsurance(currentPersonId, insuranceYearlyPayment, insuranceAmount, insuranceInfo, boatType, length, model, engineType, enginePower);
     }
 
-    public HouseInsurance createNewHouseInsurance(String currentPersonId, String insuranceYearlyPayment, String insuranceAmount,
-                                                  String insuranceInfo, String insuranceAddress, String yearBuilt, String housingSize,
-                                                  String insurancePremiumBuilding, String insurancePremiumInnbo, String houseType, String buildingMaterial) throws InvalidInsurancePropertiesException {
-
+    public HouseInsurance createNewHouseInsurance(String currentPersonId, String insuranceYearlyPayment, String insuranceAmount, String insuranceCoverageInfo, String housingAddress, String yearBuilt, String housingType, String buildingMaterial, String housingState, String housingSize) throws InvalidInsurancePropertiesException {
         if (!isPresent(currentPersonId)) {
             throw new InvalidInsurancePropertiesException(MESSAGE_MUST_REGISTRATE_A_USER);
         }
@@ -44,27 +40,19 @@ public class InsuranceValidator {
         if (!isNumber(yearBuilt)) {
             throw new InvalidInsurancePropertiesException(MESSAG_NOT_A_NUMBER);
         }
-        if (!isPresent(insurancePremiumBuilding)) {
+        if (!isPresent(housingAddress)) {
             throw new InvalidInsurancePropertiesException(MESSAGE_NO_EMPTY_FIELDS);
         }
-        if (!isPresent(insurancePremiumInnbo)) {
-            throw new InvalidInsurancePropertiesException(MESSAGE_NO_EMPTY_FIELDS);
-        }
-        if (!isPresent(insuranceAddress)) {
-            throw new InvalidInsurancePropertiesException(MESSAGE_NO_EMPTY_FIELDS);
-        }
-
-
-        return new HouseInsurance(currentPersonId,insuranceYearlyPayment, insuranceAmount, insuranceInfo, insuranceAddress,
-                yearBuilt, houseType, buildingMaterial, insurancePremiumBuilding, insurancePremiumInnbo, housingSize);
+        return new HouseInsurance(currentPersonId, insuranceYearlyPayment, insuranceAmount, insuranceCoverageInfo, housingAddress, yearBuilt, housingType, buildingMaterial, housingState, housingSize);
     }
 
     public CabinInsurance createNewCabinInsurance(String currentPersonID, String insuranceYearlyPayment, String insuranceAmount, String insuranceCoverageInfo, String address, String buildingMaterial, String housingState, String cabinSize, String buildingType, String yearBuilt, String insurancePriceBuilding, String insurancePriceHouseholdGoods) throws InvalidInsurancePropertiesException {
+
         if (!isPresent(currentPersonID)) {
             throw new InvalidInsurancePropertiesException(MESSAGE_MUST_REGISTRATE_A_USER);
         }
 
-    if (!isPresent(address)){
+        if (!isPresent(address)) {
         throw new InvalidInsurancePropertiesException(MESSAGE_NO_EMPTY_FIELDS);
     }
 
@@ -76,10 +64,7 @@ public class InsuranceValidator {
             throw new InvalidInsurancePropertiesException(MESSAG_NOT_A_NUMBER);
     }
 
-    return new CabinInsurance(currentPersonID, insuranceYearlyPayment,insuranceAmount,
-            insuranceCoverageInfo, address, buildingMaterial,
-            housingState, cabinSize, buildingType, yearBuilt,
-            insurancePriceBuilding, insurancePriceHouseholdGoods);
+        return new CabinInsurance(currentPersonID, insuranceYearlyPayment, insuranceAmount, insuranceCoverageInfo, address, buildingMaterial, housingState, cabinSize, buildingType, yearBuilt, insurancePriceBuilding, insurancePriceHouseholdGoods);
     }
 
     public TravelInsurance createNewTravelInsurance(String currentPersonId, String insuranceYearlyPayment, String insuranceAmount, String insuranceCoverage, boolean southAmerica, boolean northAmerica, boolean asia, boolean oseania, boolean africa, boolean europe) throws InvalidInsurancePropertiesException {
