@@ -12,4 +12,6 @@ public abstract class FileObjectEntity {
     public abstract List<String> getDeclaredFields();
 
     public abstract List<String> getFieldValues();
+
+    public abstract Object getObjectForString(String line);
 }

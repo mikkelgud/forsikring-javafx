@@ -12,7 +12,7 @@ import java.util.List;
 
 public class ClaimInsurance extends FileObjectEntity implements Observable {
 
-    private final int insuranceId;
+    private int   insuranceId;
     private final StringProperty damageType = new SimpleStringProperty();
     private final StringProperty dateOfRegistration = new SimpleStringProperty();
     private final StringProperty descriptionOfDamage = new SimpleStringProperty();
@@ -20,7 +20,7 @@ public class ClaimInsurance extends FileObjectEntity implements Observable {
     private final StringProperty witnesses = new SimpleStringProperty();
     private final StringProperty moneyBack = new SimpleStringProperty();
     private StringProperty personId = new SimpleStringProperty();
-    private final LocalDateTime createdAt;
+    private  LocalDateTime createdAt;
 
     public ClaimInsurance(int insuranceId, String personId, String damageType, String dateOfRegistration, String descriptionOfDamage, String taxationValue, String witnesses, String moneyBack) {
         setPersonId(personId);
@@ -33,6 +33,8 @@ public class ClaimInsurance extends FileObjectEntity implements Observable {
         this.moneyBack.set(moneyBack);
         this.insuranceId = insuranceId;
     }
+
+    public ClaimInsurance(){}
 
     public void setPersonId(String personId) {
         this.personId.set(personId);
@@ -141,6 +143,11 @@ public class ClaimInsurance extends FileObjectEntity implements Observable {
                 getTaxationValue(),
                 getMoneyBack()
         );
+    }
+
+    @Override
+    public Object getObjectForString(String line) {
+        return null;
     }
 
     @Override

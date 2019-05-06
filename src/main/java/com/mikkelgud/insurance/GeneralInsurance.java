@@ -15,13 +15,17 @@ public abstract class GeneralInsurance extends FileObjectEntity implements Obser
 
     // Det må finnes en eier av en forsikring.
     private StringProperty personId = new SimpleStringProperty();
-    private final LocalDateTime createdAt;
+    private LocalDateTime createdAt;
 
     GeneralInsurance(String insuranceYearlyPayment, String insuranceAmount, String insuranceCoverageInfo) {
         this.insuranceAmount.set(insuranceAmount);
         this.insuranceCoverageInfo.set(insuranceCoverageInfo);
         this.insuranceYearlyPayment.set(insuranceYearlyPayment);
         this.createdAt = LocalDateTime.now();
+    }
+
+    public GeneralInsurance() {
+
     }
 
 

@@ -20,6 +20,8 @@
                                   text="Lagre persondata til CSV-format"/>
                         <MenuItem mnemonicParsing="false" onAction="#savejobjFile"
                                   text="Lagre persondata til JOBJ-format"/>
+                        <MenuItem mnemonicParsing="false" onAction="#readCsvFile"
+                                  text="Les CSV-data til database"/>
                     </items>
                 </Menu>
             </menus>
