@@ -30,8 +30,8 @@ public class BoatInsurancesController {
     public Label insuranceCoverageInfoOutPrint;
 
 
-    private final String insuranceYearlyPayment = "1000";
-    private final String insuranceAmount = "300 000";
+    private final String insuranceYearlyPayment = "1000 kroner";
+    private final String insuranceAmount = "300 000 kroner";
     private final String insuranceCoverage = "Dekker all skade i forbindelse med din båt på vannet eller under henholdsmessig frakt.";
 
     private final String EMPTY_STRING = "";
@@ -42,7 +42,7 @@ public class BoatInsurancesController {
 
     @FXML
     private void registerBoatInsurance(ActionEvent event) {
-        errorLabel.setText("");
+        errorLabel.setText(EMPTY_STRING);
         try {
             BoatInsurance newBoatInsurance = validator.createNewBoatInsurance(
                     insurancesModel.getCurrentPersonId(),
@@ -64,14 +64,6 @@ public class BoatInsurancesController {
     private void closePage() {
         Stage stage = (Stage) registrateBoat.getScene().getWindow();
         stage.close();
-    }
-
-    private void resetFieldValues() {
-        boatType.setText(EMPTY_STRING);
-        length.setText(EMPTY_STRING);
-        modelYear.setText(EMPTY_STRING);
-        engineType.setText(EMPTY_STRING);
-        enginePower.setText(EMPTY_STRING);
     }
 
     public void setInsurancesModel(InsurancesModel insurancesModel) {

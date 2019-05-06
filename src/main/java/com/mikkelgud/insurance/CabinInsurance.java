@@ -95,7 +95,7 @@ public class CabinInsurance extends GeneralInsurance {
                 new SimpleStringProperty(String.format("Bygningsmateriale - %s", getBuildingMaterial())),
                 new SimpleStringProperty(String.format("Byggeår - %s", getYearBuilt())),
                 new SimpleStringProperty(String.format("Tilstand - %s", getHousingState())),
-                new SimpleStringProperty(String.format("Størrelse - %s", getCabinSize())),
+                new SimpleStringProperty(String.format("Størrelse - %s kvadratmeter", getCabinSize())),
                 new SimpleStringProperty(String.format("Forsikringspremie bygning - %s", getInsurancePriceBuilding())),
                 new SimpleStringProperty(String.format("Forsikringspremie innbo - %s", getInsuranceAmountHouseholdGoods())),
                 new SimpleStringProperty(String.format("Opprettet - %s", createdAt.toString())),

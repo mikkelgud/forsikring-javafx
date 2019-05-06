@@ -43,6 +43,15 @@
                </FXCollections>
            </items>
        </ComboBox>
+       <ComboBox fx:id="standard" layoutX="371.0" layoutY="124.0" prefWidth="150.0" promptText="Standard">
+           <items>
+               <FXCollections fx:factory="observableArrayList">
+                   <String fx:value="Dårlig"/>
+                   <String fx:value="Middels"/>
+                   <String fx:value="God"/>
+               </FXCollections>
+           </items>
+       </ComboBox>
        <Button fx:id="registrateHousing" layoutX="81.0" layoutY="439.0" mnemonicParsing="false"
                onAction="#registrateInsurance" prefHeight="34.0" prefWidth="150.0" text="Registrer forsikring"/>
        <Label layoutX="77.0" layoutY="377.0" prefHeight="23.0" prefWidth="158.0" text="Forsikringsprisen per år:"/>
@@ -60,14 +69,6 @@
               prefWidth="313.0" text="her skal info komme inn" wrapText="true"/>
        <Label fx:id="errorLabel" alignment="CENTER" layoutX="78.0" layoutY="494.0" prefHeight="17.0" prefWidth="361.0"
               textFill="#ee0303"/>
-       <ComboBox fx:id="standard" layoutX="371.0" layoutY="124.0" prefWidth="150.0" promptText="Standard">
-           <items>
-               <FXCollections fx:factory="observableArrayList">
-                   <String fx:value="Dårlig"/>
-                   <String fx:value="Middels"/>
-                   <String fx:value="God"/>
-               </FXCollections>
-           </items>
-       </ComboBox>
+
    </children>
 </AnchorPane>

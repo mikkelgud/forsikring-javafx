@@ -56,20 +56,16 @@ public class BoatInsurance extends GeneralInsurance {
         return createdAt;
     }
 
-    public int getYearlyInsurancePriceAsInteger(String insuranceYearlyPayment) {
-        return Integer.parseInt(insuranceYearlyPayment);
-    }
-
     @Override
     public Observable[] getPropertiesAsList() {
         return new Observable[]{
                 new SimpleStringProperty("-- BÅTFORSIKRING --"),
                 new SimpleStringProperty(String.format("Kunde - %s", getPersonId())),
                 new SimpleStringProperty(String.format("Båttype - %s", getBoatType())),
-                new SimpleStringProperty(String.format("Båtlengde - %s", getLength())),
+                new SimpleStringProperty(String.format("Båtlengde - %s fot", getLength())),
                 new SimpleStringProperty(String.format("Båtmodell - %s", getModelYear())),
                 new SimpleStringProperty(String.format("Motortype - %s", getEngineType())),
-                new SimpleStringProperty(String.format("Motorkraft - %s", getEnginePower())),
+                new SimpleStringProperty(String.format("Motorkraft - %s HK", getEnginePower())),
                 new SimpleStringProperty(String.format("Opprettet -  %s", createdAt.toString())),
                 new SimpleStringProperty("-------------------")
         };

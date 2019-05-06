@@ -163,7 +163,7 @@ public class Person extends FileObjectEntity {
                 new SimpleStringProperty(String.format("Husforsikring - %s", getInsuranceHouseBooleanAsString())),
                 new SimpleStringProperty(String.format("Fritidsboligforsikring - %s", getInsuranceCabinBooleanAsString())),
                 new SimpleStringProperty(String.format("Båtforsikring - %s", getInsuranceBoatBooleanAsString())),
-                new SimpleStringProperty(String.format("Reiseforsikring - %s", getInsuranceTravelBooleanAsString()))
+                new SimpleStringProperty(String.format("Reiseforsikring - %s", getInsuranceTravelBooleanAsString())),
         };
     }
 

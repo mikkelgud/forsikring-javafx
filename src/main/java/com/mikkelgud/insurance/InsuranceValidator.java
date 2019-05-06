@@ -6,7 +6,7 @@ public class InsuranceValidator {
     private static final String MESSAGE_NO_EMPTY_FIELDS = "Venligst fyll ut alle feltetene i registreringen";
     private static final String MESSAGE_ONLY_EMPTY_FIELDS = "Vennligst Kryss av minst ett felt!";
     private static final String MESSAGE_LENGTH_NOT_A_NUMBER = "Vennligst påse at lengden er et helttall";
-    private static final String MESSAG_NOT_A_NUMBER = "Nummer må skrives inn som heltall";
+    private static final String MESSAGE_NOT_A_NUMBER = "Nummer må skrives inn som heltall";
 
     public BoatInsurance createNewBoatInsurance(String currentPersonId, String insuranceYearlyPayment, String insuranceAmount, String insuranceInfo, String boatType, String length, String model, String engineType, String enginePower) throws InvalidInsurancePropertiesException {
         if (!isPresent(currentPersonId)) {
@@ -25,7 +25,7 @@ public class InsuranceValidator {
             throw new InvalidInsurancePropertiesException(MESSAGE_NO_EMPTY_FIELDS);
         }
         if (!isNumber(enginePower)) {
-            throw new InvalidInsurancePropertiesException(MESSAG_NOT_A_NUMBER);
+            throw new InvalidInsurancePropertiesException(MESSAGE_NOT_A_NUMBER);
         }
         return new BoatInsurance(currentPersonId, insuranceYearlyPayment, insuranceAmount, insuranceInfo, boatType, length, model, engineType, enginePower);
     }
@@ -35,10 +35,10 @@ public class InsuranceValidator {
             throw new InvalidInsurancePropertiesException(MESSAGE_MUST_REGISTRATE_A_USER);
         }
         if (!isNumber(housingSize)) {
-            throw new InvalidInsurancePropertiesException(MESSAG_NOT_A_NUMBER);
+            throw new InvalidInsurancePropertiesException(MESSAGE_NOT_A_NUMBER);
         }
         if (!isNumber(yearBuilt)) {
-            throw new InvalidInsurancePropertiesException(MESSAG_NOT_A_NUMBER);
+            throw new InvalidInsurancePropertiesException(MESSAGE_NOT_A_NUMBER);
         }
         if (!isPresent(housingAddress)) {
             throw new InvalidInsurancePropertiesException(MESSAGE_NO_EMPTY_FIELDS);
@@ -57,11 +57,11 @@ public class InsuranceValidator {
     }
 
         if (!isNumber(cabinSize)) {
-            throw new InvalidInsurancePropertiesException(MESSAG_NOT_A_NUMBER);
+            throw new InvalidInsurancePropertiesException(MESSAGE_NOT_A_NUMBER);
     }
 
         if (!isNumber(yearBuilt)) {
-            throw new InvalidInsurancePropertiesException(MESSAG_NOT_A_NUMBER);
+            throw new InvalidInsurancePropertiesException(MESSAGE_NOT_A_NUMBER);
     }
 
         return new CabinInsurance(currentPersonID, insuranceYearlyPayment, insuranceAmount, insuranceCoverageInfo, address, buildingMaterial, housingState, cabinSize, buildingType, yearBuilt, insurancePriceBuilding, insurancePriceHouseholdGoods);

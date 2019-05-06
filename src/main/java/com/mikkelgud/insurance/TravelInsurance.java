@@ -106,7 +106,7 @@ public class TravelInsurance extends GeneralInsurance {
                 new SimpleStringProperty(String.format("Afrika er %s registrert", getAfricaaBooleanAsString())),
                 new SimpleStringProperty(String.format("Søramerika er %s registrert", getSouthAmericaBooleanAsString())),
                 new SimpleStringProperty(String.format("NordAmerica er %s registrert", getNorthAmericaBooleanAsString())),
-                new SimpleStringProperty(String.format("Opprettet - %s registrert", createdAt.toString())),
+                new SimpleStringProperty(String.format("Opprettet - %s", createdAt.toString())),
                 new SimpleStringProperty("----------------------")
         };
     }
