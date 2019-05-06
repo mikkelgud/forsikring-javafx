@@ -8,6 +8,7 @@ import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.UUID;
@@ -202,16 +203,16 @@ public class Person extends FileObjectEntity {
 
     @Override
     public Object getObjectForString(String line) {
-        String[] tempContainer = line.split(";");
+        List<String> tempContainer = Arrays.asList(line.split(";"));
+        PersonValidator personValidator = new PersonValidator();
 
-        setFirstName(tempContainer[1]);
-        setLastName(tempContainer[2]);
-        setBillingAddress(tempContainer[3]);
-        setInsuranceHouse(Boolean.parseBoolean(tempContainer[4]));
-        setInsuranceCabin(Boolean.parseBoolean(tempContainer[5]));
-        setInsuranceBoat(Boolean.parseBoolean(tempContainer[6]));
-        setInsuranceTravel(Boolean.parseBoolean(tempContainer[7]));
+        try {
 
+            personValidator.createNewPerson(tempContainer.get(1), tempContainer.get(2),
+                    tempContainer.get(3));
+        } catch (InvalidPersonPropertiesException e) {
+            e.printStackTrace();
+        }
         return null;
 
     }

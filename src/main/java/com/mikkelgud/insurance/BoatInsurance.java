@@ -18,6 +18,7 @@ public class BoatInsurance extends GeneralInsurance {
     private final StringProperty length = new SimpleStringProperty();
     private LocalDateTime createdAt;
 
+
     public BoatInsurance(String currentPersonId, String insuranceYearlyPayment, String insuranceAmount, String insuranceCoverageInfo, String boatType, String length, String model, String engineType, String enginePower) {
         super(insuranceYearlyPayment, insuranceAmount, insuranceCoverageInfo);
         this.createdAt = LocalDateTime.now();
