@@ -18,14 +18,19 @@ public class PersonListModel {
                     person.insuranceTravelProperty()
             });
 
-    private final ObservableList<Observable> currentPersonListAttributes =
-            FXCollections.observableArrayList(item -> new Observable[]{item});
-
-    private final ObjectProperty<Person> currentPerson =
-            new SimpleObjectProperty<>(null);
+    private final ObservableList<Observable> currentPersonListAttributes = FXCollections.observableArrayList(item -> new Observable[]{item});
+    private final ObjectProperty<Person> currentPerson = new SimpleObjectProperty<>(null);
 
     public ObjectProperty<Person> currentPersonProperty() {
         return currentPerson;
+    }
+
+    public ObservableList<Person> getPersonList() {
+        return personList;
+    }
+
+    public ObservableList<Observable> getCurrentPersonListAttributes() {
+        return currentPersonListAttributes;
     }
 
     public final Person getCurrentPerson() {
@@ -36,14 +41,6 @@ public class PersonListModel {
         currentPersonProperty().set(person);
         currentPersonListAttributes.remove(0, currentPersonListAttributes.size());
         currentPersonListAttributes.addAll(person.getPropertiesAsList());
-    }
-
-    public ObservableList<Person> getPersonList() {
-        return personList;
-    }
-
-    public ObservableList<Observable> getCurrentPersonListAttributes() {
-        return currentPersonListAttributes;
     }
 
     @Override

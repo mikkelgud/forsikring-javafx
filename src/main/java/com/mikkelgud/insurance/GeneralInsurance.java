@@ -9,11 +9,6 @@ import javafx.beans.property.StringProperty;
 import java.time.LocalDateTime;
 
 public abstract class GeneralInsurance extends FileObjectEntity implements Observable {
-    private static BoatInsurance boatInsurance;
-    private static CabinInsurance cabinInsurance;
-    private static HouseInsurance houseInsurance;
-    private static TravelInsurance travelInsurance;
-
     private final StringProperty insuranceYearlyPayment = new SimpleStringProperty();
     private final StringProperty insuranceAmount = new SimpleStringProperty();
     private final StringProperty insuranceCoverageInfo = new SimpleStringProperty();
@@ -30,7 +25,6 @@ public abstract class GeneralInsurance extends FileObjectEntity implements Obser
         this.createdAt = LocalDateTime.now();
     }
 
-
     public Observable[] getPropertiesAsList(){
         return new Observable[] {
                 new SimpleStringProperty("-- GENERELL FORSIKRINGSINFO --"),
@@ -39,21 +33,8 @@ public abstract class GeneralInsurance extends FileObjectEntity implements Obser
         };
     }
 
-
     public StringProperty insuranceYearlyPaymentProperty() {
         return insuranceYearlyPayment;
-    }
-
-    public StringProperty insuranceAmountProperty() {
-        return insuranceAmount;
-    }
-
-    public String getInsuranceCoverageInfo() {
-        return insuranceCoverageInfo.get();
-    }
-
-    public StringProperty insuranceCoverageInfoProperty() {
-        return insuranceCoverageInfo;
     }
 
     public LocalDateTime getCreatedAt() {
@@ -62,10 +43,6 @@ public abstract class GeneralInsurance extends FileObjectEntity implements Obser
 
     public String getPersonId() {
         return personId.get();
-    }
-
-    public StringProperty personIdProperty() {
-        return personId;
     }
 
     public void setPersonId(String personId) {

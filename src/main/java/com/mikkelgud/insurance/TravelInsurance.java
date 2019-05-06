@@ -89,9 +89,6 @@ public class TravelInsurance extends GeneralInsurance {
         return createdAt;
     }
 
-    public int getYearlyInsurancePriceAsInteger(String insuranceYearlyPayment) {
-        return Integer.parseInt(insuranceYearlyPayment); //* antall avkryssede forsikringer
-    }
 
     @Override
     public Observable[] getPropertiesAsList() {

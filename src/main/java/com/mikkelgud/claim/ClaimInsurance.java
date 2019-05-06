@@ -42,48 +42,24 @@ public class ClaimInsurance extends FileObjectEntity implements Observable {
         return damageType.getValue();
     }
 
-    public StringProperty damageTypeProperty() {
-        return damageType;
-    }
-
     public String getDateOfRegistration() {
         return dateOfRegistration.getValue();
-    }
-
-    public StringProperty dateOfRegistrationProperty() {
-        return dateOfRegistration;
     }
 
     public String getDescriptionOfDamage() {
         return descriptionOfDamage.get();
     }
 
-    public StringProperty descriptionOfDamageProperty() {
-        return descriptionOfDamage;
-    }
-
     public String getTaxationValue() {
         return taxationValue.get();
-    }
-
-    public StringProperty taxationValueProperty() {
-        return taxationValue;
     }
 
     public String getWitnesses() {
         return witnesses.get();
     }
 
-    public StringProperty witnessesProperty() {
-        return witnesses;
-    }
-
     public String getMoneyBack() {
         return moneyBack.get();
-    }
-
-    public StringProperty moneyBackProperty() {
-        return moneyBack;
     }
 
     public String getCreatedAtAsString() {
@@ -93,11 +69,6 @@ public class ClaimInsurance extends FileObjectEntity implements Observable {
     public String getPersonId() {
         return personId.get();
     }
-
-    public StringProperty personIdProperty() {
-        return personId;
-    }
-
 
     public Observable[] getPropertiesAsList() {
         return new Observable[]{

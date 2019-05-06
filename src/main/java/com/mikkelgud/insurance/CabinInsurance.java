@@ -21,9 +21,6 @@ public class CabinInsurance extends GeneralInsurance {
     private final StringProperty insuranceAmountBuilding = new SimpleStringProperty();
     private final StringProperty insuranceAmountHouseholdGoods = new SimpleStringProperty();
     private final LocalDateTime createdAt;
-//    private final StringProperty insuranceAmount = new SimpleStringProperty();
-//    private final StringProperty insuranceCoverageInfo = new SimpleStringProperty();
-//    private final StringProperty insuranceYearlyPayment =  new SimpleStringProperty();
 
     protected CabinInsurance(String currentPersonId,
                              String insuranceYearlyPayment, String insuranceAmount, String insuranceCoverageInfo, String address, String buildingMaterial,
@@ -75,13 +72,6 @@ public class CabinInsurance extends GeneralInsurance {
         return buildingType.get();
     }
 
-    public StringProperty buildingTypeProperty() {
-        return buildingType;
-    }
-
-    public int getYearlyInsurancePriceAsInteger(String insuranceYearlyPayment) {
-        return Integer.parseInt(insuranceYearlyPayment);
-    }
 
     @Override
     public Observable[] getPropertiesAsList() {

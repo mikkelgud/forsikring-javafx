@@ -34,7 +34,6 @@ public class ClaimInsuranceRegistrationController {
         if (claimInsuranceModel.getCurrentPersonId() == null || claimInsuranceModel.getCurrentPersonId().equals("")) {
             errorLabel.setText("Wops! Du må velge en person i listen for å registrere en skade.");
         }
-
         try {
             int newInsuranceId = claimInsuranceModel.getAllClaimedInsurances().filtered(insurance -> insurance.getPersonId().equals(claimInsuranceModel.getCurrentPersonId())).size() + 1;
             ClaimInsurance newClaimedInsurance = validator.createNewClaimInsurance(newInsuranceId, claimInsuranceModel.getCurrentPersonId(), typeOfDamage.getText(), dateOfDamage.getValue().toString(), descriptionOfDamage.getText(), taxationValue.getText(), witnesses.getText(), moneyBack.getText());
@@ -47,7 +46,7 @@ public class ClaimInsuranceRegistrationController {
     }
 
     public void testAmount() {
-        //Ettersom utregningen er såpass banal, gjør jeg den bare på enkeltvis her.
+        //Ettersom utregningen er såpass enkel, gjør jeg utregningen her.
         int calculatedMoneyBack = (int) Math.floor(Integer.parseInt(taxationValue.getText()) * 0.991);
         moneyBack.setText(Integer.toString(calculatedMoneyBack) + "  Kroner");
     }
