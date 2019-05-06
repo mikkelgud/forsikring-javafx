@@ -20,7 +20,7 @@ public class CabinInsurance extends GeneralInsurance {
     private final StringProperty yearBuilt = new SimpleStringProperty();
     private final StringProperty insuranceAmountBuilding = new SimpleStringProperty();
     private final StringProperty insuranceAmountHouseholdGoods = new SimpleStringProperty();
-    private final LocalDateTime createdAt;
+    private LocalDateTime createdAt;
 
     protected CabinInsurance(String currentPersonId,
                              String insuranceYearlyPayment, String insuranceAmount, String insuranceCoverageInfo, String address, String buildingMaterial,
@@ -37,6 +37,8 @@ public class CabinInsurance extends GeneralInsurance {
         this.buildingType.set(buildingType);
         setPersonId(currentPersonId);
     }
+
+    public CabinInsurance(){}
 
     public LocalDateTime getCreatedAt() {
         return createdAt;
@@ -131,6 +133,11 @@ public class CabinInsurance extends GeneralInsurance {
                 getInsuranceAmountHouseholdGoods(),
                 getCreatedAt().toString()
         );
+    }
+
+    @Override
+    public Object getObjectForString(String line) {
+        return null;
     }
 }
 

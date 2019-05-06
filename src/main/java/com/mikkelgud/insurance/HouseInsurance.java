@@ -25,7 +25,7 @@ public class HouseInsurance extends GeneralInsurance {
     private final StringProperty houseSize = new SimpleStringProperty();
     private final StringProperty insuranceBuildingPrice = new SimpleStringProperty();
     private final StringProperty insurancePriceHouseholdGoods = new SimpleStringProperty();
-    private final LocalDateTime createdAt;
+    private LocalDateTime createdAt;
 
     protected HouseInsurance(String currentPersonId, String insuranceYearlyPayment, String insuranceAmount, String insuranceCoverageInfo,
                              String housingAddress, String yearBuilt, String housingType, String buildingMaterial, String housingState, String squareMeter) {
@@ -39,6 +39,8 @@ public class HouseInsurance extends GeneralInsurance {
         this.houseSize.set(squareMeter);
         setPersonId(currentPersonId);
     }
+
+    public HouseInsurance(){}
 
     public String getHousingAddress() {
         return housingAddress.get();
@@ -112,6 +114,11 @@ public class HouseInsurance extends GeneralInsurance {
                 getInsurancePriceHouseholdGoods(),
                 getCreatedAt().toString()
         );
+    }
+
+    @Override
+    public Object getObjectForString(String line) {
+        return null;
     }
 
     @Override

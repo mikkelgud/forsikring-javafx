@@ -2,6 +2,7 @@ package com.mikkelgud;
 
 import com.mikkelgud.claim.ClaimInsuranceModel;
 import com.mikkelgud.claim.ClaimInsuranceRegistrationController;
+import com.mikkelgud.filehandling.CsvFileReader;
 import com.mikkelgud.filehandling.CsvFileSaver;
 import com.mikkelgud.filehandling.ObjectFileSaver;
 import com.mikkelgud.filehandling.SaveFileException;
@@ -20,6 +21,7 @@ import javafx.scene.control.ListCell;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 import javafx.stage.DirectoryChooser;
+import javafx.stage.FileChooser;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
@@ -342,6 +344,16 @@ public class Controller implements Initializable {
             objectFileSaver.toFile(personListModel.getPersonList(), String.format(fileNameTemplate, "persons"));
             objectFileSaver.toFile(insurancesModel.getAllInsurances(), String.format(fileNameTemplate, "insurances"));
             objectFileSaver.toFile(claimInsuranceModel.getAllClaimedInsurances(), String.format(fileNameTemplate, "Claims"));
+        }
+    }
+
+    public void readCsvFile() {
+        FileChooser fileChooser = new FileChooser();
+        File file = fileChooser.showOpenDialog(null);
+
+        if(file != null) {
+            CsvFileReader csvFileReader = new CsvFileReader();
+            csvFileReader.fromFile(file);
         }
     }
 

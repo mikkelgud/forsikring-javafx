@@ -19,7 +19,7 @@ public class TravelInsurance extends GeneralInsurance {
     private final BooleanProperty oceania = new SimpleBooleanProperty();
     private final BooleanProperty africa = new SimpleBooleanProperty();
     private final BooleanProperty southAmerica = new SimpleBooleanProperty();
-    private final LocalDateTime createdAt;
+    private LocalDateTime createdAt;
 
     private final String MESSAGE_IS = "";
     private final String MESSAGE_IS_NOT = "IKKE";
@@ -35,6 +35,8 @@ public class TravelInsurance extends GeneralInsurance {
         this.createdAt = LocalDateTime.now();
         setPersonId(currentPersonId);
     }
+
+    public TravelInsurance(){}
 
 
     public boolean isEuropa() {
@@ -133,6 +135,11 @@ public class TravelInsurance extends GeneralInsurance {
                 Boolean.toString(isNorthAmerica()),
                 getCreatedAt().toString()
         );
+    }
+
+    @Override
+    public Object getObjectForString(String line) {
+        return null;
     }
 
     @Override

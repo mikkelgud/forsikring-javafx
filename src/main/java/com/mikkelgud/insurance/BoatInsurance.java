@@ -16,7 +16,7 @@ public class BoatInsurance extends GeneralInsurance {
     private final StringProperty engineType = new SimpleStringProperty();
     private final StringProperty enginePower = new SimpleStringProperty();
     private final StringProperty length = new SimpleStringProperty();
-    private final LocalDateTime createdAt;
+    private LocalDateTime createdAt;
 
     public BoatInsurance(String currentPersonId, String insuranceYearlyPayment, String insuranceAmount, String insuranceCoverageInfo, String boatType, String length, String model, String engineType, String enginePower) {
         super(insuranceYearlyPayment, insuranceAmount, insuranceCoverageInfo);
@@ -27,6 +27,9 @@ public class BoatInsurance extends GeneralInsurance {
         this.enginePower.set(enginePower);
         this.length.set(length);
         setPersonId(currentPersonId);
+    }
+    public BoatInsurance(){
+
     }
 
     public String getBoatType() {
@@ -92,6 +95,11 @@ public class BoatInsurance extends GeneralInsurance {
                 getEnginePower(),
                 getCreatedAt().toString()
         );
+    }
+
+    @Override
+    public Object getObjectForString(String line) {
+        return null;
     }
 
 

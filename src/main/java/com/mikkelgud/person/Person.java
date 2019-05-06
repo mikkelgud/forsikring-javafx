@@ -22,7 +22,7 @@ public class Person extends FileObjectEntity {
     private final BooleanProperty insuranceTravel = new SimpleBooleanProperty();
     private final BooleanProperty insuranceCabin = new SimpleBooleanProperty();
     private final BooleanProperty insuranceBoat = new SimpleBooleanProperty();
-    private final LocalDateTime createdAt;
+    private LocalDateTime createdAt;
 
     private final String USER_IS_REGISTERED = "Registrert";
     private final String USER_IS_NOT_REGISTERED = "Ikke registrert";
@@ -37,6 +37,8 @@ public class Person extends FileObjectEntity {
         // Når vi registrerer en ny person, vil denne gi personen en "unik" identifikator.
         this.personId.set(UUID.randomUUID().toString());
     }
+
+    public Person(){}
 
     public String getFirstName() {
         return firstName.get();
@@ -194,6 +196,24 @@ public class Person extends FileObjectEntity {
                 Boolean.toString(isInsuranceTravel()),
                 getCreatedAt().toString()
         );
+    }
+
+
+
+    @Override
+    public Object getObjectForString(String line) {
+        String[] tempContainer = line.split(";");
+
+        setFirstName(tempContainer[1]);
+        setLastName(tempContainer[2]);
+        setBillingAddress(tempContainer[3]);
+        setInsuranceHouse(Boolean.parseBoolean(tempContainer[4]));
+        setInsuranceCabin(Boolean.parseBoolean(tempContainer[5]));
+        setInsuranceBoat(Boolean.parseBoolean(tempContainer[6]));
+        setInsuranceTravel(Boolean.parseBoolean(tempContainer[7]));
+
+        return null;
+
     }
 }
 
