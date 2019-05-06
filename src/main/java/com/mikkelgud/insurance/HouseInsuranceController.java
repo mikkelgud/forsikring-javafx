@@ -35,11 +35,11 @@ public class HouseInsuranceController {
     @FXML
     public ComboBox standard;
 
-    private final String insuranceYearlyPayment = "5000";
-    private final String insuranceAmount = "2000000";
+    private final String insuranceYearlyPayment = "5000 kroner";
+    private final String insuranceAmount = "2000000 kroner";
     private final String insuranceCoverage = "Dekker skade på all eindom som er registrert som din hjemadresse. Dekker uheldige skader som for eksempel flom, brann osv...";
-    private final String insuranceAmountHousing = "600000";
-    private final String insuranceAmountBuilding = "1400000";
+    private final String insuranceAmountHousing = "600000 kroner";
+    private final String insuranceAmountBuilding = "1400000 kroner";
 
     private final String EMPTY_STRING = "";
     private final String MESSAGE_FILL_OUT_ALL_FIELDS = "Vennligs påse at alle utfyllingsfeltene er fylt ut";

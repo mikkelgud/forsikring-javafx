@@ -33,11 +33,11 @@ public class CabinInsuranceController {
     public Label insuranceCoverageInfoOutPrint;
 
 
-    private final String insuranceYearlyPayment = "1000";
-    private final String insuranceAmount = "1800000";
+    private final String insuranceYearlyPayment = "1000 kroner";
+    private final String insuranceAmount = "1800000 kroner";
     private final String insuranceCoverage = "Dekker skade på Fritidsboligtomten. Skade som skjer inne i boligen. Skader som skjer oppstår i forbindelse med boligen ";
-    private final String insurancePremiumBuilding = "1000000";
-    private final String insurancePremiumHousing = "800000";
+    private final String insurancePremiumBuilding = "1000000 kroner";
+    private final String insurancePremiumHousing = "800000 kroner";
 
     private final String EMPTY_STRING = "";
     private final String MESSAGE_FILL_OUT_ALL_FIELDS = "Vennligs påse at alle utfyllingsfeltene er fylt ut";

@@ -55,6 +55,7 @@ public class ClaimInsuranceRegistrationController {
     private void closePage() {
         Stage stage = (Stage) registerClaimedInsurance.getScene().getWindow();
         stage.close();
+
     }
 
 

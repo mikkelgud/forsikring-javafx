@@ -31,8 +31,8 @@ public class TravelInsuranceController {
     @FXML
     public Button registrateTravel;
 
-    private final String insuranceYearlyPayment = "1000";
-    private final String insuranceAmount = "3000000";
+    private final String insuranceYearlyPayment = "1000 kroner";
+    private final String insuranceAmount = "3000000 kroner";
     private final String insuranceCoverage = "Dekker all skade i forbindelse med Reise til utland innenfor forsikrede områder.";
 
     private final InsuranceValidator validator = new InsuranceValidator();

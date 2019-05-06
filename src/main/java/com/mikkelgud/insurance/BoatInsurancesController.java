@@ -30,8 +30,8 @@ public class BoatInsurancesController {
     public Label insuranceCoverageInfoOutPrint;
 
 
-    private final String insuranceYearlyPayment = "1000";
-    private final String insuranceAmount = "300 000";
+    private final String insuranceYearlyPayment = "1000 kroner";
+    private final String insuranceAmount = "300 000 kroner";
     private final String insuranceCoverage = "Dekker all skade i forbindelse med din båt på vannet eller under henholdsmessig frakt.";
 
     private final String EMPTY_STRING = "";

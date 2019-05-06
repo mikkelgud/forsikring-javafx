@@ -106,10 +106,10 @@ public class ClaimInsurance extends FileObjectEntity implements Observable {
                 new SimpleStringProperty(String.format("Registreringsdato- %s", getCreatedAtAsString())),
                 new SimpleStringProperty(String.format("Skadetype- %s", getDamageType())),
                 new SimpleStringProperty(String.format("Hendelsesdato %s", getDateOfRegistration())),
-                new SimpleStringProperty(String.format("Beskrivelse %s", getDescriptionOfDamage())),
+                new SimpleStringProperty(String.format("Beskrivelse: %s", getDescriptionOfDamage())),
                 new SimpleStringProperty(String.format("Vitner- %s", getWitnesses())),
-                new SimpleStringProperty(String.format("Takstert til- %s", getTaxationValue())),
-                new SimpleStringProperty(String.format("Utbetalt %s", getMoneyBack())),
+                new SimpleStringProperty(String.format("Takstert til- %s kroner", getTaxationValue())),
+                new SimpleStringProperty(String.format("Du får utbetalt - %s kroner", getMoneyBack())),
                 new SimpleStringProperty("-----------------------------")
         };
     }
