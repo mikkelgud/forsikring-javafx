@@ -73,6 +73,7 @@ public class InsuranceValidator {
         travelInsuranceBooleans[4] = oseania;
         travelInsuranceBooleans[5] = africa;
 
+
         if (!isPresent(currentPersonId)) {
             throw new InvalidInsurancePropertiesException(MESSAGE_MUST_REGISTRATE_A_USER);
         }
